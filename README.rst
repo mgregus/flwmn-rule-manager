@@ -121,7 +121,8 @@ Options:
 
 Example usage:
 ::
-  rule-manager -s metadata_keyword metadata_value -f /path/to/file.rules
+
+    rule-manager -s metadata_keyword metadata_value -f /path/to/file.rules
 
 
 License
