@@ -1,5 +1,5 @@
 Rule-Manager
-=========
+============
 
 Rule-Manager is a set of Python CLI scripts that allows for the management of local and remote
 rule sources on Flowmon Collector Appliance.
