@@ -1,0 +1,2184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>manager.rule_sources2 API documentation</title>
+<meta name="description" content="* Copyright 2001-2024 The Apache Software Foundation.
+*
+* Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
+* you may not use this file …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>manager.rule_sources2</code></h1>
+</header>
+<section id="section-intro">
+<ul>
+<li>Copyright 2001-2024 The Apache Software Foundation.
+*</li>
+<li>Licensed under the Apache License, Version 2.0 (the "License");</li>
+<li>you may not use this file except in compliance with the License.</li>
+<li>You may obtain a copy of the License at
+*</li>
+<li><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a>
+*</li>
+<li>Unless required by applicable law or agreed to in writing, software</li>
+<li>distributed under the License is distributed on an "AS IS" BASIS,</li>
+<li>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</li>
+<li>See the License for the specific language governing permissions and</li>
+<li>limitations under the License.
+*/</li>
+</ul>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+ * Copyright 2001-2024 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+&#34;&#34;&#34;
+
+import json
+import os
+import yaml
+import requests
+import tarfile
+import shutil
+import paths
+import glob
+import program_expcetion
+from urllib.parse import urlparse
+from colorama import Style, Fore
+
+def print_used_groups(filter=&#34;*&#34;, long_list=False):
+    &#34;&#34;&#34;Prints all used rule groups (.rules files) on a given instance.
+
+       Parameters
+       ----------
+       filter : str
+           Filter to be applied to only list groups which match the filter
+       long_list : boolean
+           If True, list groups matching the filter along with description otherwise just list groups.
+
+       Returns
+       -------
+       result: int
+           Returns 0 if listing was successful.
+        &#34;&#34;&#34;
+
+    get_groups(filter, long_list)
+
+    return 0
+
+
+def is_group_present(sources, filter_pattern):
+    &#34;&#34;&#34;Checks if a given rule group is present among used rule sources .rule files used to create suricata.rules file
+
+       Parameters
+       ----------
+       sources : .json config
+           Json configuration file containing a list of all sources used by the programm.
+       filter_pattern : str
+           Pattern used to identify a given group
+
+       Returns
+       -------
+       source:
+           Returns a source in which a given group is found. Otherwise returns None.
+        &#34;&#34;&#34;
+    for source in sources[&#34;Remote_Rule_Sources&#34;] + sources.get(&#34;Local_Rule_Sources&#34;, []):
+        for file_info in source[&#39;Source_Files&#39;]:
+            if any(match_group_names(file_name, filter_pattern) for file_name in file_info):
+                return source
+
+    return &#34;&#34;
+
+
+def match_group_names(file_name, filter_pattern):
+    &#34;&#34;&#34;Matches filtered group name supplied by the user with a group name stored in json.config file listing all used groups.
+
+       If eg. group emerging-info.rules is used supplying bot emerging-info as well as emerging-info.rules should produce a match.
+
+       Parameters
+       ----------
+       file_name : str
+           File name of rule group being worked on by the programm.
+       filter_pattern : str
+           Pattern used to identify a given group (user supplied)
+
+       Returns
+       -------
+       match: boolean
+           Returns True if the filter_pattern supplied by user matches the name of file_name worked on by the programm.
+        &#34;&#34;&#34;
+    file_name_without_extension = file_name.rsplit(&#39;.rules&#39;, 1)[0]
+    filter_pattern_without_extension = filter_pattern.rsplit(&#39;.rules&#39;, 1)[0]
+
+    return file_name_without_extension.lower() == filter_pattern_without_extension.lower()
+
+
+def get_groups(filter_pattern,long_list):
+    &#34;&#34;&#34;Loads JSON configuration file containing a list of all used groups matching user supplied filter_pattern.
+       If user requires long list groups matching the pattern are written along with their description.
+
+       Parameters
+       ----------
+       filter_pattern : str
+           Pattern used to identify a given group (user supplied)
+       long_list : boolean
+           Specifies if used rule groups should be printed also with their description.
+
+        &#34;&#34;&#34;
+    config = load_json_config()
+    print_output(config,  long_list,filter_pattern)
+
+def print_output(sources, long_list,filter_pattern):
+    &#34;&#34;&#34;Prints output. In this case it is the list of all rule groups used by the IDS as defined in JSON configuration file.
+       Outputs either just the group names or group names with description.
+       In case a filter_pattern is provided it outputs only groups matching the decsription
+
+       Parameters
+       ----------
+       sources : JSON
+           JSON configuration file containing all used rule soruces along with corresponding groups
+       long_list : boolean
+           Specifies if used rule groups should be printed also with their description.
+       filter_pattern : boolean
+           Pattern used to identify a given group (user supplied)
+        &#34;&#34;&#34;
+    matching_source = is_group_present(sources,filter_pattern)
+
+    if filter_pattern != &#34;*&#34; and matching_source == &#34;&#34;:
+        print(f&#34;\nAny of Rule Sources does not contain group: \&#39;{filter_pattern}\&#39;\n\nTo list all groups in rule sources use -g&#34;)
+        return
+
+    print(f&#34;\n{Fore.BLUE}Rule Sources:{Style.RESET_ALL}&#34;)
+
+    for source in sources[&#34;Remote_Rule_Sources&#34;] + sources.get(&#34;Local_Rule_Sources&#34;, []):
+        if filter_pattern != &#34;*&#34; and source != matching_source:
+            continue
+        print(&#34;---------------------------------------------------------------------------------&#34;)
+        print(f&#34;  {Fore.GREEN}- Rule Source:{Style.RESET_ALL} {Fore.YELLOW}{source[&#39;Source_Name&#39;]}{Style.RESET_ALL}&#34;)
+        for file_info in source[&#39;Source_Files&#39;]:
+            for file_name, description in file_info.items():
+                if filter_pattern != &#34;*&#34; and not match_group_names(file_name,filter_pattern):
+                    continue
+                if long_list:
+                    print(f&#34;    {Fore.LIGHTGREEN_EX}* Group: {file_name}{Style.RESET_ALL} - {Fore.LIGHTYELLOW_EX}Description:{Style.RESET_ALL} {description}\n&#34;)
+                else:
+                    print(f&#34;    * Group: {file_name}&#34;)
+
+
+def set_description(sources, group_name, group_description):
+    &#34;&#34;&#34;Sets the description for a given group (.rule file) as specified by user input
+
+       Parameters
+       ----------
+       sources : JSON
+           JSON configuration file containing all used rule soruces along with corresponding groups
+       group_name : boolean
+           Group name (.rule file) for which description should be changed in the JSON configuration file.
+       group_description : boolean
+           New group description to be set for the specified group_name
+    &#34;&#34;&#34;
+    for source in sources[&#34;Remote_Rule_Sources&#34;] + sources.get(&#34;Local_Rule_Sources&#34;, []):
+        for file_info in source[&#39;Source_Files&#39;]:
+            for file_name, description in file_info.items():
+                if match_group_names(file_name,group_name):
+                    print(f&#34;  {Fore.GREEN}- Rule Source:{Style.RESET_ALL} {Fore.YELLOW}{source[&#39;Source_Name&#39;]}{Style.RESET_ALL}&#34;)
+                    print(f&#34;   * Group: {file_name} - Description: {group_description}&#34;)
+                    file_info[file_name] = group_description
+                    print(f&#34;Description for Group \&#39;{file_name}\&#39; successfully updated.&#34;)
+
+def update_group_description(args):
+    &#34;&#34;&#34;Update given group description in JSON configuration file based on user input
+
+       Parameters
+       ----------
+       args : list
+           group_name = args[0]
+           group_description = args[1]
+
+       Returns
+       -------
+       match: boolean
+           Returns 0 if successfull
+        &#34;&#34;&#34;
+    group_name = args[0]
+    group_description = args[1]
+    config = load_json_config()
+
+    matching_source = is_group_present(config,group_name)
+    if matching_source != &#34;&#34;:
+        set_description(config,group_name,group_description)
+        update_json_config(config)
+        return 0
+
+    print(f&#34;\nGroup: \&#39;{group_name}\&#39; is not in any of the Local or Remote rule sources.\n\nTo list all groups in rule sources use -g&#34;)
+
+    return 1
+
+def extact_sources_from_yaml(keyword):
+    &#34;&#34;&#34;Returns a list of all local or remote rule sources used by IDS as specified in update.yaml based on keyword.
+
+       Parameters
+       ----------
+       keyword : str
+           Specifies local/remote rule sources to be returned from update.yaml
+
+       Returns
+       -------
+       sources: list
+           Returns list of used rule sources.
+        &#34;&#34;&#34;
+    path = paths.LOCAL_UPDATE_CONFIG_YAML
+    try:
+        with open(path, &#39;r&#39;) as file:
+            yaml_data = yaml.safe_load(file)
+
+            if keyword in yaml_data:
+                sources = yaml_data[keyword]
+                if isinstance(sources, list):
+                    uncommented_sources = [source for source in sources if not source.startswith(&#34;#&#34;)]
+
+                    return uncommented_sources
+
+    except FileNotFoundError:
+        print(f&#34;Error: YAML file \&#39;{path}\&#39; not found.&#34;)
+
+    return []
+
+def filter_by_extensions(array, extension=[&#34;.rules&#34;, &#34;.gz&#34;]):
+    &#34;&#34;&#34;Filters sources by extension. Whether a specified source is a single .rules file or an archive which can contain multiple .rules files.
+
+       Parameters
+       ----------
+       array : list
+           List of rule sources as string which should be filtered
+       extension : list
+           List of possible rule sources extensions
+
+       Returns
+       -------
+       filtered_array: list
+           Returns list of used rule sources with a specified extension.
+        &#34;&#34;&#34;
+    filtered_array = []
+
+    for src in array:
+        if src.endswith(extension):
+            if extension == &#34;.rules&#34;:
+                last_segment = src.rsplit(&#39;/&#39;, 1)[-1]
+                filtered_array.append(last_segment)
+            else:
+                filtered_array.append(src)
+
+    return filtered_array
+
+
+def load_rule_sources_from_dir(path):
+    &#34;&#34;&#34;Loads all rule sources (.rules files) from a specified directory
+
+       Parameters
+       ----------
+       path : str
+           Specifies directory from which rule files should be loaded.
+
+       Returns
+       -------
+       filenames: list
+           Returns list of all rule sources (.rules files) inside a given directory specified as argument
+        &#34;&#34;&#34;
+    try:
+        filenames = []
+
+        for filename in os.listdir(path):
+            if filename.endswith(&#34;.rules&#34;):
+                filenames.append(filename)
+        return filenames
+
+    except FileNotFoundError:
+        print(f&#34;Directory not found: {path}&#34;)
+        return []
+    return
+
+def clear_tmp_directory():
+    &#34;&#34;&#34;Clears the contents of a given /tmp directory used to store extracted .rules files from archived .gz rule sources.
+    &#34;&#34;&#34;
+    tmp_directory = paths.LOCAL_TMP_DIR
+    try:
+        shutil.rmtree(tmp_directory)
+        print(f&#34;All contents removed from {tmp_directory}&#34;)
+    except Exception as e:
+        print(f&#34;An error occurred: {str(e)}&#34;)
+
+
+def download_and_extract_gz_files(urls):
+    &#34;&#34;&#34;Downloads all remote archived .gz rule sources to a tmp directory. And then expands them. This is used to be able to
+       determine which .rules files are part of a given remote rule source to be able to properly create the JSON configuration
+       file of all used rule groups. s
+
+       Parameters
+       ----------
+       urls : list
+           List of all urls specifying remote archived .gz rule sources.
+
+        &#34;&#34;&#34;
+    tmp_directory = paths.LOCAL_TMP_DIR
+
+    if os.path.exists(tmp_directory):
+        shutil.rmtree(tmp_directory)
+        os.makedirs(tmp_directory)
+    else:
+        os.makedirs(tmp_directory)
+
+    try:
+        for url in urls:
+            if url.endswith(&#34;.gz&#34;):
+                response = requests.get(url, stream=True)
+                if response.status_code == 200:
+                    subdir_name = os.path.splitext(os.path.basename(urlparse(url).path))[0]
+                    extraction_path = os.path.join(tmp_directory, subdir_name)
+
+                    filename = os.path.join(tmp_directory, os.path.basename(urlparse(url).path))
+
+                    with open(filename, &#39;wb&#39;) as f:
+                        for chunk in response.iter_content(chunk_size=8192):
+                            f.write(chunk)
+
+                    with tarfile.open(filename, &#39;r:gz&#39;) as tar:
+                        tar.extractall(extraction_path)
+
+                    os.remove(filename)
+                  #  print(f&#34;Downloaded and extracted: {url}&#34;)
+                else:
+                   print(f&#34;{Fore.YELLOW}Failed to download:{Style.RESET_ALL} {url} - Status Code: {response.status_code}&#34;)
+    except Exception as e:
+        print(f&#34;An error occurred: {str(e)}&#34;)
+
+def get_source_array(source_name, sources):
+    &#34;&#34;&#34;Gets corresponding rule source array from a given entity inside JSON configuration file
+
+       Parameters
+       ----------
+       source_name : str
+           Name of a source eg. ET/OPEN
+       sources : list
+           List for a given source file with description belonging to a given source eg. [&#34;src2.rules&#34;,&#34;dsc2&#34;]
+
+       Returns
+       -------
+       sources: list
+           Returns a list of
+        &#34;&#34;&#34;
+    for source in sources:
+        if source[0] == source_name:
+            return source[1]
+    return None
+
+
+
+def load_old_sources(config, source):
+    &#34;&#34;&#34;Loads all rule sources used groups used by the IDS to generate the suricata.rules file from the JSON configuration file.
+
+       Parameters
+       -------
+       config : JSON config
+           JSOn configuration file where list of used sources is stored.
+       source : str
+           Rule-Source to be searched inside the config either Remote_rule_sources or Local_rule_sources
+
+       Returns
+       -------
+       loaded_sources: list
+           Returns a list of all used sources along with their description either Remote_rule_sources or Local_rule_sources
+
+        &#34;&#34;&#34;
+    #loaded_sources = [[&#34;ET/Open&#34;,[&#34;src_file1&#34;,&#34;desc1&#34;],[&#34;src2&#34;,&#34;dsc2&#34;]],[&#34;Flowmon&#34;,[&#34;src_file1&#34;,&#34;desc1&#34;],[&#34;src2&#34;,&#34;dsc2&#34;]]]
+    loaded_sources = []
+
+    for source in config[source]:
+        loaded_sources.append([source[&#34;Source_Name&#34;], []])
+        for source_file_name in source[&#39;Source_Files&#39;]:
+            for file_name, description in source_file_name.items():
+                array = get_source_array(source[&#34;Source_Name&#34;], loaded_sources)
+                array.append([file_name,description])
+
+    return loaded_sources
+
+def expand_files_from_dirs(sources):
+    &#34;&#34;&#34;Finds all .rules files stored locally or used locally by the user to be made part of suricata.rules file.
+       All locations from which the files are loaded are specified in suricata.yaml and update.yaml
+
+       Parameters
+       ----------
+       sources : list
+           List of all directories or .rules files which summarily create all local rules used
+
+       Returns
+       -------
+       rule_sources: list
+           Returns a list of all local .rules files.
+
+        &#34;&#34;&#34;
+    files_from_dirs = set()
+    rule_sources = []
+
+    for source in sources:
+        if os.path.isdir(source):
+            files_from_dirs.update(glob.glob(os.path.join(source, &#39;*.rules&#39;)))
+        elif os.path.isfile(source):
+            files_from_dirs.add(source)
+        elif os.path.isfile(paths.LOCAL_RULES_DIR+source):
+            files_from_dirs.add(paths.LOCAL_RULES_DIR+source)
+        elif &#39;*&#39; in source:
+            files_from_dirs.update(glob.glob(source))
+
+    for source in files_from_dirs:
+        rule_sources.append(source)
+
+    return rule_sources
+
+def update_local_list(rule_sources_old, rule_sources_new):
+    &#34;&#34;&#34;Updates the list of local rule groups used (.rules files) used to generate suricata.rules
+
+       Parameters
+       ----------
+       rule_sources_old : list
+           List of originally used rule sources, before update
+        rule_sources_new : list
+           List of rule sources used after update.
+
+       Returns
+       -------
+       rules_sources_updated: list
+           Returns a list currently used local rule groups after the udpdate.
+
+        &#34;&#34;&#34;
+    rule_sources_files_old = rule_sources_old[0][1]
+
+    for subarray in rule_sources_files_old[:]:
+        if subarray[0] not in  rule_sources_new:
+            rule_sources_files_old.remove(subarray)
+
+    for file_path in rule_sources_new:
+        found = False
+        for subarray in rule_sources_files_old:
+            if subarray[0] == file_path:
+                found = True
+                break
+        if not found:
+            rule_sources_files_old.append([file_path, &#39;&#39;])
+
+    rule_sources_old[0][1] = rule_sources_files_old
+    rules_sources_updated = rule_sources_old
+
+    return rules_sources_updated
+
+#toto pridava navyse pole jedno tych poli
+def update_remote_list(rule_sources_old, rule_sources_new):
+    &#34;&#34;&#34;Updates the list of remote rule groups used (.rules files) used to generate suricata.rules
+
+       Parameters
+       ----------
+       rule_sources_old : list
+           List of originally used rule sources, before update
+        rule_sources_new : list
+           List of rule sources used after update.
+
+       Returns
+       -------
+       rule_sources_new: list
+           Returns a list currently used remote rule groups after the udpdate. If any rule groups are the same as in the
+           old list of used rule groups the description of a given group from the old list is copied to the new list.
+
+        &#34;&#34;&#34;
+    sources_backup = rule_sources_old
+
+
+    for src_entry in rule_sources_old:
+        src_name_old = src_entry[0]
+        for second_entry in rule_sources_new:
+            src_name_new = second_entry[0]
+            if src_name_old == src_name_new:
+                for source_file in src_entry[1]:
+                    file_name = source_file[0]
+                    description = source_file[1]
+                    for source_file2 in second_entry[1]:
+                        file_name2 = source_file2[0]
+                        if file_name2 == file_name:
+
+                            source_file2[1] = description
+                            break
+                break
+
+    return rule_sources_new
+
+def append_source_to_json(config, src, local=False):
+    &#34;&#34;&#34;Appends a given rule source to JSON configuration file which is used to store a list of all used rule sources
+       used to create the suricata.rules file along with the .rules files belonging to each source.
+
+       Parameters
+       ----------
+       config : JSON configuration file
+           Json file to be created to contain only list of used sources and groups after update.
+       src : list
+           List of rule sources used after update to be appended to the JSON config
+       local : boolean
+           If True the src is a list of locally used rule sources otherwise it is a list of remote rule sources.
+
+    &#34;&#34;&#34;
+    source = {
+        &#34;Source_Name&#34;: f&#34;{src[0]}&#34;,
+        &#34;Source_Files&#34;: []
+    }
+
+
+    for src_file in src[1]:
+
+        new_source_file  = {
+            f&#34;{src_file[0]}&#34; :  f&#34;{src_file[1]}&#34;
+        }
+
+        source[&#34;Source_Files&#34;].append(new_source_file)
+
+
+
+    if local:
+        config[&#34;Local_Rule_Sources&#34;].append(source)
+    else:
+        config[&#34;Remote_Rule_Sources&#34;].append(source)
+
+    return
+
+def generate_updated_config(remote_sources, local_sources):
+    &#34;&#34;&#34;Generates updated JSON used rule groups configuration file based on newly used remote and local rule sources
+       to create the suricata.rules file used by the IDS.
+
+       Parameters
+       ----------
+       remote_sources : list
+           List of newly used remote rule sources along with the .rules files creating each rule source and their description
+       local_sources : list
+           List of newly used remote rule sources along with the .rules files creating each rule source and their description
+
+    &#34;&#34;&#34;
+    config = {
+        &#34;Remote_Rule_Sources&#34;: [],
+        &#34;Local_Rule_Sources&#34;: []
+    }
+
+    i = 0
+    for src in remote_sources:
+        append_source_to_json(config, src)
+
+    for src in local_sources:
+        append_source_to_json(config,src,local=True)
+
+    update_json_config(config)
+    return
+
+def has_internet():
+    &#34;&#34;&#34;Checks if given flowmon instance has access to the internet and can download remote rule sources.
+
+       Returns
+       -------
+       internet_access: boolean
+           Returns True if given flowmon instance has access to the internet.
+
+        &#34;&#34;&#34;
+    try:
+        response = requests.get(&#34;https://services.flowmon.com/&#34;, timeout=5)
+        return response.status_code == 200
+    except requests.ConnectionError:
+        return False
+
+def create_remote_list_rules(remote_rules_sources_from_update):
+    &#34;&#34;&#34;Creates a list of all used remote .rules files from all remote sources which are not archived but only consist of single file.
+       Eg. if a source is stamus-lateral it creates a source with name stamus-lateral and adds the .rules file creating that source
+
+       Example return array:
+
+                 [
+                    [&#39;stamus-lateral&#39;,[[&#39;src.file1.rules&#39;, &#39;description&#39; ]],
+                    [&#39;Pt-rules&#39;,[[&#39;src.file1.rules&#39;, &#39;description&#39; ]]
+                 ]
+
+       Returns
+       -------
+       rules_files: list
+           Returns a list of all used remote single file rules sources.
+        &#34;&#34;&#34;
+    remote_sources = []
+    #single source
+    #[&#39;src_name&#39;, [[&#34;file1&#34;, &#34;desc1&#34;],[&#34;file2&#34;, &#34;desc2&#34;] ]]
+
+    for src in remote_rules_sources_from_update:
+        single_source = []
+        source_files_list = []
+        source_files = []
+
+        source_name = src
+        file_name = src
+        description = &#34;&#34;
+
+        source_files.append(file_name)
+        source_files.append(description)
+        source_files_list.append(source_files)
+        single_source.append(source_name)
+        single_source.append(source_files_list)
+        remote_sources.append(single_source)
+
+    return remote_sources
+
+
+def get_rules_files_from_dir(directory):
+    &#34;&#34;&#34;Returns a list of all .rules files within a given directory.
+
+       Parameters
+       -------
+       directory: str
+           Specifies the directory to be searched for .rules files
+
+       Returns
+       -------
+       rules_files: list
+           Returns a list of all .rules files within a given directory.
+        &#34;&#34;&#34;
+
+    rules_files = []
+    for root, dirs, files in os.walk(directory):
+        for file_name in files:
+            if file_name.endswith(&#34;.rules&#34;):
+                rules_files.append(os.path.join(root, file_name))
+    return rules_files
+
+
+def create_remote_list_gz():
+    &#34;&#34;&#34;Creates a list of all used remote .rules files from all remote archived .gz sources.
+       Eg. if a source is ET/OPEN it creates a source with name ET/OPEN and list all .rules files belonging to that source
+
+       Example return array:
+
+                 [
+                    [&#39;ET/OPEN&#39;,[[&#39;src.file1.rules&#39;, &#39;description&#39; ],[&#39;src.file2.rules&#39;, &#39;description&#39; ]],
+                    [&#39;SSLblacklist&#39;,[[&#39;src.file1.rules&#39;, &#39;description&#39; ],[&#39;src.file2.rules&#39;, &#39;description&#39; ]]
+                 ]
+
+       Returns
+       -------
+       rules_files: list
+           Returns a list of all used remote archived rules sources.
+        &#34;&#34;&#34;
+    remote_sources = []
+    main_dir = paths.LOCAL_TMP_DIR
+    #single source
+    # [[&#39;srcname&#39;,[[src.file1,srcfile2...],[&#39;file2&#39;,&#34;desc2&#34;]],[&#39;srcname2&#39;,[[src.file1,srcfile2...]]]
+
+    subdirectories = [os.path.join(main_dir, d) for d in os.listdir(main_dir) if
+                      os.path.isdir(os.path.join(main_dir, d))]
+
+    for subdir in subdirectories:
+        source_name = os.path.basename(subdir)
+        single_source = []
+
+        single_source.append(source_name)
+
+        rules_files = get_rules_files_from_dir(subdir)
+        source_files_list = []
+        for file_path in rules_files:
+            source_files = []
+            file_name = os.path.basename(file_path)
+            description = &#34;&#34;
+
+            source_files.append(file_name)
+            source_files.append(description)
+            source_files_list.append(source_files)
+
+        single_source.append(source_files_list)
+        remote_sources.append(single_source)
+
+    return remote_sources
+
+
+def flowmon_rules_feed_enabled():
+    &#34;&#34;&#34;Checks if flowmon default rules feed, which is customized version of ET/OPEN ruleset is enabled or not.
+
+        Returns
+        -------
+        is_enable: boolean
+            Returns True if custom flowmon rule feed is enabled otherwise returns False.
+    &#34;&#34;&#34;
+    file_path = paths.FLOWMON_UDPTE_YAML
+
+    try:
+        with open(file_path, &#34;r&#34;) as file:
+            data = yaml.safe_load(file)
+
+        enable_flowmon_rules_feed = data.get(&#34;enable_flowmon_rules_feed&#34;)
+        return enable_flowmon_rules_feed
+    except Exception as e:
+        program_expcetion.log_error(e)
+        return False
+
+    return False
+
+def update_group_config():
+    &#34;&#34;&#34;Updates used groups used by IDS to create the suricata.rules file. Then stores the list of all used local and remote
+       rule sources inside the JSON configuration file.
+
+        &#34;&#34;&#34;
+    print(&#34;Updating Rule source list. Please wait, this could take a while.&#34;)
+    original_config = load_json_config()
+    remote_rule_sources = []
+
+    remote_sources_old = load_old_sources(original_config, &#34;Remote_Rule_Sources&#34;)
+    local_sources_old = load_old_sources(original_config, &#34;Local_Rule_Sources&#34;)
+
+    #1. Get all local sources File names
+    local_rule_sources = load_rule_sources_from_dir(paths.LOCAL_RULES_DIR)
+    local_rule_sources += extact_sources_from_yaml(&#34;local&#34;)
+    local_rule_sources = expand_files_from_dirs(local_rule_sources)
+    local_sources_new = update_local_list(local_sources_old, local_rule_sources)
+
+    #2. Get all remote sources File names
+    if has_internet():
+        remote_sources_from_update = extact_sources_from_yaml(&#34;sources&#34;)
+
+        remote_rule_sources_from_update = filter_by_extensions(remote_sources_from_update, &#34;.rules&#34;)
+        remote_gz_sources_from_update = filter_by_extensions(remote_sources_from_update, &#34;.gz&#34;)
+
+        #if ten druhy config ma yes inak pridat normalne ET/OPEN
+        flowmon_services_URL = &#39;https://services.flowmon.com/rules/public/6.0/emerging.rules.tar.gz&#39;
+        if flowmon_rules_feed_enabled():
+            remote_gz_sources_from_update.append(flowmon_services_URL)
+
+        # teraz mam uz vs. .rules v rule-sources alebo ako remote_rule_sources_from_update
+        download_and_extract_gz_files(remote_gz_sources_from_update)
+        # teraz to mozem dat do jedneho ako zoznam
+        # [[&#39;src_name&#39;,[&#34;file1&#34;,&#34;desc1&#34;],[&#39;file2&#39;,&#34;desc2&#34;]],[&#39;src_name2&#39;,[&#34;file1&#34;,&#34;desc1&#34;],[&#39;file2&#39;,&#34;desc2&#34;]]]
+        remote_sources_list = create_remote_list_rules(remote_rule_sources_from_update)
+        remote_rule_files_from_gz = create_remote_list_gz()
+
+        for entry in remote_rule_files_from_gz:
+            remote_sources_list.append(entry)
+
+        remote_sources_new = update_remote_list(remote_sources_old, remote_sources_list)
+
+    else:
+        remote_sources_new = remote_sources_old
+        print(f&#34;{Fore.YELLOW}No internet access updating only local source-list\n{Style.RESET_ALL}&#34;)
+
+    generate_updated_config(remote_sources_new, local_sources_new)
+
+    print(&#34;Update finished.\n\nTo list all groups in rule sources use -g&#34;)
+    return
+
+def update_json_config(config):
+    &#34;&#34;&#34;Stores the JSON configuration file containing the list of all used rule sources, .rules files along with their descriptions on disk.
+
+       Parameters
+       -------
+       config: file
+           New updated JSON configuration to be stored on disk.
+
+       Returns
+       -------
+       True: boolean
+           Returns True if operation was successful.
+        &#34;&#34;&#34;
+    try:
+        with open(paths.CONFIG_PATH, &#39;w&#39;) as file:
+            json.dump(config, file, indent=1)
+        return True
+    except FileNotFoundError:
+        print(f&#34;Error: The specified configuration file &#39;{paths.CONFIG_PATH}&#39; was not found.&#34;)
+    except json.JSONDecodeError:
+        print(f&#34;Error: The specified configuration file &#39;{paths.CONFIG_PATH}&#39; is not a valid JSON file.&#34;)
+    except Exception as e:
+        print(f&#34;An unexpected error occurred: {e}&#34;)
+
+def load_json_config():
+    &#34;&#34;&#34;Loads the JSON configuration file containing the list of all used rule sources, .rules files along with their descriptions.
+
+       Returns
+       -------
+       config: file
+           Returns loaded JSON configuration file from disk.
+        &#34;&#34;&#34;
+    try:
+        with open(paths.CONFIG_PATH, &#39;r&#39;) as file:
+            config = json.load(file)
+        return config
+    except FileNotFoundError:
+        print(f&#34;Error: The specified configuration file &#39;{paths.CONFIG_PATH}&#39; was not found.&#34;)
+    except json.JSONDecodeError:
+        print(f&#34;Error: The specified configuration file &#39;{paths.CONFIG_PATH}&#39; is not a valid JSON file.&#34;)
+    except Exception as e:
+        print(f&#34;An unexpected error occurred: {e}&#34;)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="manager.rule_sources2.append_source_to_json"><code class="name flex">
+<span>def <span class="ident">append_source_to_json</span></span>(<span>config, src, local=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Appends a given rule source to JSON configuration file which is used to store a list of all used rule sources
+used to create the suricata.rules file along with the .rules files belonging to each source.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>config</code></strong> :&ensp;<code>JSON configuration file</code></dt>
+<dd>Json file to be created to contain only list of used sources and groups after update.</dd>
+<dt><strong><code>src</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of rule sources used after update to be appended to the JSON config</dd>
+<dt><strong><code>local</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>If True the src is a list of locally used rule sources otherwise it is a list of remote rule sources.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def append_source_to_json(config, src, local=False):
+    &#34;&#34;&#34;Appends a given rule source to JSON configuration file which is used to store a list of all used rule sources
+       used to create the suricata.rules file along with the .rules files belonging to each source.
+
+       Parameters
+       ----------
+       config : JSON configuration file
+           Json file to be created to contain only list of used sources and groups after update.
+       src : list
+           List of rule sources used after update to be appended to the JSON config
+       local : boolean
+           If True the src is a list of locally used rule sources otherwise it is a list of remote rule sources.
+
+    &#34;&#34;&#34;
+    source = {
+        &#34;Source_Name&#34;: f&#34;{src[0]}&#34;,
+        &#34;Source_Files&#34;: []
+    }
+
+
+    for src_file in src[1]:
+
+        new_source_file  = {
+            f&#34;{src_file[0]}&#34; :  f&#34;{src_file[1]}&#34;
+        }
+
+        source[&#34;Source_Files&#34;].append(new_source_file)
+
+
+
+    if local:
+        config[&#34;Local_Rule_Sources&#34;].append(source)
+    else:
+        config[&#34;Remote_Rule_Sources&#34;].append(source)
+
+    return</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.clear_tmp_directory"><code class="name flex">
+<span>def <span class="ident">clear_tmp_directory</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Clears the contents of a given /tmp directory used to store extracted .rules files from archived .gz rule sources.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clear_tmp_directory():
+    &#34;&#34;&#34;Clears the contents of a given /tmp directory used to store extracted .rules files from archived .gz rule sources.
+    &#34;&#34;&#34;
+    tmp_directory = paths.LOCAL_TMP_DIR
+    try:
+        shutil.rmtree(tmp_directory)
+        print(f&#34;All contents removed from {tmp_directory}&#34;)
+    except Exception as e:
+        print(f&#34;An error occurred: {str(e)}&#34;)</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.create_remote_list_gz"><code class="name flex">
+<span>def <span class="ident">create_remote_list_gz</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a list of all used remote .rules files from all remote archived .gz sources.
+Eg. if a source is ET/OPEN it creates a source with name ET/OPEN and list all .rules files belonging to that source</p>
+<p>Example return array:</p>
+<pre><code>      [
+         ['ET/OPEN',[['src.file1.rules', 'description' ],['src.file2.rules', 'description' ]],
+         ['SSLblacklist',[['src.file1.rules', 'description' ],['src.file2.rules', 'description' ]]
+      ]
+</code></pre>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>rules_files</code></strong> :&ensp;<code>list</code></dt>
+<dd>Returns a list of all used remote archived rules sources.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_remote_list_gz():
+    &#34;&#34;&#34;Creates a list of all used remote .rules files from all remote archived .gz sources.
+       Eg. if a source is ET/OPEN it creates a source with name ET/OPEN and list all .rules files belonging to that source
+
+       Example return array:
+
+                 [
+                    [&#39;ET/OPEN&#39;,[[&#39;src.file1.rules&#39;, &#39;description&#39; ],[&#39;src.file2.rules&#39;, &#39;description&#39; ]],
+                    [&#39;SSLblacklist&#39;,[[&#39;src.file1.rules&#39;, &#39;description&#39; ],[&#39;src.file2.rules&#39;, &#39;description&#39; ]]
+                 ]
+
+       Returns
+       -------
+       rules_files: list
+           Returns a list of all used remote archived rules sources.
+        &#34;&#34;&#34;
+    remote_sources = []
+    main_dir = paths.LOCAL_TMP_DIR
+    #single source
+    # [[&#39;srcname&#39;,[[src.file1,srcfile2...],[&#39;file2&#39;,&#34;desc2&#34;]],[&#39;srcname2&#39;,[[src.file1,srcfile2...]]]
+
+    subdirectories = [os.path.join(main_dir, d) for d in os.listdir(main_dir) if
+                      os.path.isdir(os.path.join(main_dir, d))]
+
+    for subdir in subdirectories:
+        source_name = os.path.basename(subdir)
+        single_source = []
+
+        single_source.append(source_name)
+
+        rules_files = get_rules_files_from_dir(subdir)
+        source_files_list = []
+        for file_path in rules_files:
+            source_files = []
+            file_name = os.path.basename(file_path)
+            description = &#34;&#34;
+
+            source_files.append(file_name)
+            source_files.append(description)
+            source_files_list.append(source_files)
+
+        single_source.append(source_files_list)
+        remote_sources.append(single_source)
+
+    return remote_sources</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.create_remote_list_rules"><code class="name flex">
+<span>def <span class="ident">create_remote_list_rules</span></span>(<span>remote_rules_sources_from_update)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a list of all used remote .rules files from all remote sources which are not archived but only consist of single file.
+Eg. if a source is stamus-lateral it creates a source with name stamus-lateral and adds the .rules file creating that source</p>
+<p>Example return array:</p>
+<pre><code>      [
+         ['stamus-lateral',[['src.file1.rules', 'description' ]],
+         ['Pt-rules',[['src.file1.rules', 'description' ]]
+      ]
+</code></pre>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>rules_files</code></strong> :&ensp;<code>list</code></dt>
+<dd>Returns a list of all used remote single file rules sources.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_remote_list_rules(remote_rules_sources_from_update):
+    &#34;&#34;&#34;Creates a list of all used remote .rules files from all remote sources which are not archived but only consist of single file.
+       Eg. if a source is stamus-lateral it creates a source with name stamus-lateral and adds the .rules file creating that source
+
+       Example return array:
+
+                 [
+                    [&#39;stamus-lateral&#39;,[[&#39;src.file1.rules&#39;, &#39;description&#39; ]],
+                    [&#39;Pt-rules&#39;,[[&#39;src.file1.rules&#39;, &#39;description&#39; ]]
+                 ]
+
+       Returns
+       -------
+       rules_files: list
+           Returns a list of all used remote single file rules sources.
+        &#34;&#34;&#34;
+    remote_sources = []
+    #single source
+    #[&#39;src_name&#39;, [[&#34;file1&#34;, &#34;desc1&#34;],[&#34;file2&#34;, &#34;desc2&#34;] ]]
+
+    for src in remote_rules_sources_from_update:
+        single_source = []
+        source_files_list = []
+        source_files = []
+
+        source_name = src
+        file_name = src
+        description = &#34;&#34;
+
+        source_files.append(file_name)
+        source_files.append(description)
+        source_files_list.append(source_files)
+        single_source.append(source_name)
+        single_source.append(source_files_list)
+        remote_sources.append(single_source)
+
+    return remote_sources</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.download_and_extract_gz_files"><code class="name flex">
+<span>def <span class="ident">download_and_extract_gz_files</span></span>(<span>urls)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Downloads all remote archived .gz rule sources to a tmp directory. And then expands them. This is used to be able to
+determine which .rules files are part of a given remote rule source to be able to properly create the JSON configuration
+file of all used rule groups. s</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>urls</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of all urls specifying remote archived .gz rule sources.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def download_and_extract_gz_files(urls):
+    &#34;&#34;&#34;Downloads all remote archived .gz rule sources to a tmp directory. And then expands them. This is used to be able to
+       determine which .rules files are part of a given remote rule source to be able to properly create the JSON configuration
+       file of all used rule groups. s
+
+       Parameters
+       ----------
+       urls : list
+           List of all urls specifying remote archived .gz rule sources.
+
+        &#34;&#34;&#34;
+    tmp_directory = paths.LOCAL_TMP_DIR
+
+    if os.path.exists(tmp_directory):
+        shutil.rmtree(tmp_directory)
+        os.makedirs(tmp_directory)
+    else:
+        os.makedirs(tmp_directory)
+
+    try:
+        for url in urls:
+            if url.endswith(&#34;.gz&#34;):
+                response = requests.get(url, stream=True)
+                if response.status_code == 200:
+                    subdir_name = os.path.splitext(os.path.basename(urlparse(url).path))[0]
+                    extraction_path = os.path.join(tmp_directory, subdir_name)
+
+                    filename = os.path.join(tmp_directory, os.path.basename(urlparse(url).path))
+
+                    with open(filename, &#39;wb&#39;) as f:
+                        for chunk in response.iter_content(chunk_size=8192):
+                            f.write(chunk)
+
+                    with tarfile.open(filename, &#39;r:gz&#39;) as tar:
+                        tar.extractall(extraction_path)
+
+                    os.remove(filename)
+                  #  print(f&#34;Downloaded and extracted: {url}&#34;)
+                else:
+                   print(f&#34;{Fore.YELLOW}Failed to download:{Style.RESET_ALL} {url} - Status Code: {response.status_code}&#34;)
+    except Exception as e:
+        print(f&#34;An error occurred: {str(e)}&#34;)</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.expand_files_from_dirs"><code class="name flex">
+<span>def <span class="ident">expand_files_from_dirs</span></span>(<span>sources)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Finds all .rules files stored locally or used locally by the user to be made part of suricata.rules file.
+All locations from which the files are loaded are specified in suricata.yaml and update.yaml</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>sources</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of all directories or .rules files which summarily create all local rules used</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>rule_sources</code></strong> :&ensp;<code>list</code></dt>
+<dd>Returns a list of all local .rules files.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def expand_files_from_dirs(sources):
+    &#34;&#34;&#34;Finds all .rules files stored locally or used locally by the user to be made part of suricata.rules file.
+       All locations from which the files are loaded are specified in suricata.yaml and update.yaml
+
+       Parameters
+       ----------
+       sources : list
+           List of all directories or .rules files which summarily create all local rules used
+
+       Returns
+       -------
+       rule_sources: list
+           Returns a list of all local .rules files.
+
+        &#34;&#34;&#34;
+    files_from_dirs = set()
+    rule_sources = []
+
+    for source in sources:
+        if os.path.isdir(source):
+            files_from_dirs.update(glob.glob(os.path.join(source, &#39;*.rules&#39;)))
+        elif os.path.isfile(source):
+            files_from_dirs.add(source)
+        elif os.path.isfile(paths.LOCAL_RULES_DIR+source):
+            files_from_dirs.add(paths.LOCAL_RULES_DIR+source)
+        elif &#39;*&#39; in source:
+            files_from_dirs.update(glob.glob(source))
+
+    for source in files_from_dirs:
+        rule_sources.append(source)
+
+    return rule_sources</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.extact_sources_from_yaml"><code class="name flex">
+<span>def <span class="ident">extact_sources_from_yaml</span></span>(<span>keyword)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a list of all local or remote rule sources used by IDS as specified in update.yaml based on keyword.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>keyword</code></strong> :&ensp;<code>str</code></dt>
+<dd>Specifies local/remote rule sources to be returned from update.yaml</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>sources</code></strong> :&ensp;<code>list</code></dt>
+<dd>Returns list of used rule sources.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def extact_sources_from_yaml(keyword):
+    &#34;&#34;&#34;Returns a list of all local or remote rule sources used by IDS as specified in update.yaml based on keyword.
+
+       Parameters
+       ----------
+       keyword : str
+           Specifies local/remote rule sources to be returned from update.yaml
+
+       Returns
+       -------
+       sources: list
+           Returns list of used rule sources.
+        &#34;&#34;&#34;
+    path = paths.LOCAL_UPDATE_CONFIG_YAML
+    try:
+        with open(path, &#39;r&#39;) as file:
+            yaml_data = yaml.safe_load(file)
+
+            if keyword in yaml_data:
+                sources = yaml_data[keyword]
+                if isinstance(sources, list):
+                    uncommented_sources = [source for source in sources if not source.startswith(&#34;#&#34;)]
+
+                    return uncommented_sources
+
+    except FileNotFoundError:
+        print(f&#34;Error: YAML file \&#39;{path}\&#39; not found.&#34;)
+
+    return []</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.filter_by_extensions"><code class="name flex">
+<span>def <span class="ident">filter_by_extensions</span></span>(<span>array, extension=['.rules', '.gz'])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Filters sources by extension. Whether a specified source is a single .rules file or an archive which can contain multiple .rules files.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>array</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of rule sources as string which should be filtered</dd>
+<dt><strong><code>extension</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of possible rule sources extensions</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>filtered_array</code></strong> :&ensp;<code>list</code></dt>
+<dd>Returns list of used rule sources with a specified extension.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def filter_by_extensions(array, extension=[&#34;.rules&#34;, &#34;.gz&#34;]):
+    &#34;&#34;&#34;Filters sources by extension. Whether a specified source is a single .rules file or an archive which can contain multiple .rules files.
+
+       Parameters
+       ----------
+       array : list
+           List of rule sources as string which should be filtered
+       extension : list
+           List of possible rule sources extensions
+
+       Returns
+       -------
+       filtered_array: list
+           Returns list of used rule sources with a specified extension.
+        &#34;&#34;&#34;
+    filtered_array = []
+
+    for src in array:
+        if src.endswith(extension):
+            if extension == &#34;.rules&#34;:
+                last_segment = src.rsplit(&#39;/&#39;, 1)[-1]
+                filtered_array.append(last_segment)
+            else:
+                filtered_array.append(src)
+
+    return filtered_array</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.flowmon_rules_feed_enabled"><code class="name flex">
+<span>def <span class="ident">flowmon_rules_feed_enabled</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if flowmon default rules feed, which is customized version of ET/OPEN ruleset is enabled or not.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>is_enable</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>Returns True if custom flowmon rule feed is enabled otherwise returns False.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def flowmon_rules_feed_enabled():
+    &#34;&#34;&#34;Checks if flowmon default rules feed, which is customized version of ET/OPEN ruleset is enabled or not.
+
+        Returns
+        -------
+        is_enable: boolean
+            Returns True if custom flowmon rule feed is enabled otherwise returns False.
+    &#34;&#34;&#34;
+    file_path = paths.FLOWMON_UDPTE_YAML
+
+    try:
+        with open(file_path, &#34;r&#34;) as file:
+            data = yaml.safe_load(file)
+
+        enable_flowmon_rules_feed = data.get(&#34;enable_flowmon_rules_feed&#34;)
+        return enable_flowmon_rules_feed
+    except Exception as e:
+        program_expcetion.log_error(e)
+        return False
+
+    return False</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.generate_updated_config"><code class="name flex">
+<span>def <span class="ident">generate_updated_config</span></span>(<span>remote_sources, local_sources)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generates updated JSON used rule groups configuration file based on newly used remote and local rule sources
+to create the suricata.rules file used by the IDS.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>remote_sources</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of newly used remote rule sources along with the .rules files creating each rule source and their description</dd>
+<dt><strong><code>local_sources</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of newly used remote rule sources along with the .rules files creating each rule source and their description</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def generate_updated_config(remote_sources, local_sources):
+    &#34;&#34;&#34;Generates updated JSON used rule groups configuration file based on newly used remote and local rule sources
+       to create the suricata.rules file used by the IDS.
+
+       Parameters
+       ----------
+       remote_sources : list
+           List of newly used remote rule sources along with the .rules files creating each rule source and their description
+       local_sources : list
+           List of newly used remote rule sources along with the .rules files creating each rule source and their description
+
+    &#34;&#34;&#34;
+    config = {
+        &#34;Remote_Rule_Sources&#34;: [],
+        &#34;Local_Rule_Sources&#34;: []
+    }
+
+    i = 0
+    for src in remote_sources:
+        append_source_to_json(config, src)
+
+    for src in local_sources:
+        append_source_to_json(config,src,local=True)
+
+    update_json_config(config)
+    return</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.get_groups"><code class="name flex">
+<span>def <span class="ident">get_groups</span></span>(<span>filter_pattern, long_list)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Loads JSON configuration file containing a list of all used groups matching user supplied filter_pattern.
+If user requires long list groups matching the pattern are written along with their description.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>filter_pattern</code></strong> :&ensp;<code>str</code></dt>
+<dd>Pattern used to identify a given group (user supplied)</dd>
+<dt><strong><code>long_list</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>Specifies if used rule groups should be printed also with their description.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_groups(filter_pattern,long_list):
+    &#34;&#34;&#34;Loads JSON configuration file containing a list of all used groups matching user supplied filter_pattern.
+       If user requires long list groups matching the pattern are written along with their description.
+
+       Parameters
+       ----------
+       filter_pattern : str
+           Pattern used to identify a given group (user supplied)
+       long_list : boolean
+           Specifies if used rule groups should be printed also with their description.
+
+        &#34;&#34;&#34;
+    config = load_json_config()
+    print_output(config,  long_list,filter_pattern)</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.get_rules_files_from_dir"><code class="name flex">
+<span>def <span class="ident">get_rules_files_from_dir</span></span>(<span>directory)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a list of all .rules files within a given directory.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>directory</code></strong> :&ensp;<code>str</code></dt>
+<dd>Specifies the directory to be searched for .rules files</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>rules_files</code></strong> :&ensp;<code>list</code></dt>
+<dd>Returns a list of all .rules files within a given directory.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_rules_files_from_dir(directory):
+    &#34;&#34;&#34;Returns a list of all .rules files within a given directory.
+
+       Parameters
+       -------
+       directory: str
+           Specifies the directory to be searched for .rules files
+
+       Returns
+       -------
+       rules_files: list
+           Returns a list of all .rules files within a given directory.
+        &#34;&#34;&#34;
+
+    rules_files = []
+    for root, dirs, files in os.walk(directory):
+        for file_name in files:
+            if file_name.endswith(&#34;.rules&#34;):
+                rules_files.append(os.path.join(root, file_name))
+    return rules_files</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.get_source_array"><code class="name flex">
+<span>def <span class="ident">get_source_array</span></span>(<span>source_name, sources)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Gets corresponding rule source array from a given entity inside JSON configuration file</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>source_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>Name of a source eg. ET/OPEN</dd>
+<dt><strong><code>sources</code></strong> :&ensp;<code>list</code></dt>
+<dd>List for a given source file with description belonging to a given source eg. ["src2.rules","dsc2"]</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>sources</code></strong> :&ensp;<code>list</code></dt>
+<dd>Returns a list of</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_source_array(source_name, sources):
+    &#34;&#34;&#34;Gets corresponding rule source array from a given entity inside JSON configuration file
+
+       Parameters
+       ----------
+       source_name : str
+           Name of a source eg. ET/OPEN
+       sources : list
+           List for a given source file with description belonging to a given source eg. [&#34;src2.rules&#34;,&#34;dsc2&#34;]
+
+       Returns
+       -------
+       sources: list
+           Returns a list of
+        &#34;&#34;&#34;
+    for source in sources:
+        if source[0] == source_name:
+            return source[1]
+    return None</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.has_internet"><code class="name flex">
+<span>def <span class="ident">has_internet</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if given flowmon instance has access to the internet and can download remote rule sources.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>internet_access</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>Returns True if given flowmon instance has access to the internet.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def has_internet():
+    &#34;&#34;&#34;Checks if given flowmon instance has access to the internet and can download remote rule sources.
+
+       Returns
+       -------
+       internet_access: boolean
+           Returns True if given flowmon instance has access to the internet.
+
+        &#34;&#34;&#34;
+    try:
+        response = requests.get(&#34;https://services.flowmon.com/&#34;, timeout=5)
+        return response.status_code == 200
+    except requests.ConnectionError:
+        return False</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.is_group_present"><code class="name flex">
+<span>def <span class="ident">is_group_present</span></span>(<span>sources, filter_pattern)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if a given rule group is present among used rule sources .rule files used to create suricata.rules file</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>sources</code></strong> :&ensp;<code>.json config</code></dt>
+<dd>Json configuration file containing a list of all sources used by the programm.</dd>
+<dt><strong><code>filter_pattern</code></strong> :&ensp;<code>str</code></dt>
+<dd>Pattern used to identify a given group</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>source:</code></dt>
+<dd>Returns a source in which a given group is found. Otherwise returns None.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_group_present(sources, filter_pattern):
+    &#34;&#34;&#34;Checks if a given rule group is present among used rule sources .rule files used to create suricata.rules file
+
+       Parameters
+       ----------
+       sources : .json config
+           Json configuration file containing a list of all sources used by the programm.
+       filter_pattern : str
+           Pattern used to identify a given group
+
+       Returns
+       -------
+       source:
+           Returns a source in which a given group is found. Otherwise returns None.
+        &#34;&#34;&#34;
+    for source in sources[&#34;Remote_Rule_Sources&#34;] + sources.get(&#34;Local_Rule_Sources&#34;, []):
+        for file_info in source[&#39;Source_Files&#39;]:
+            if any(match_group_names(file_name, filter_pattern) for file_name in file_info):
+                return source
+
+    return &#34;&#34;</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.load_json_config"><code class="name flex">
+<span>def <span class="ident">load_json_config</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Loads the JSON configuration file containing the list of all used rule sources, .rules files along with their descriptions.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>config</code></strong> :&ensp;<code>file</code></dt>
+<dd>Returns loaded JSON configuration file from disk.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_json_config():
+    &#34;&#34;&#34;Loads the JSON configuration file containing the list of all used rule sources, .rules files along with their descriptions.
+
+       Returns
+       -------
+       config: file
+           Returns loaded JSON configuration file from disk.
+        &#34;&#34;&#34;
+    try:
+        with open(paths.CONFIG_PATH, &#39;r&#39;) as file:
+            config = json.load(file)
+        return config
+    except FileNotFoundError:
+        print(f&#34;Error: The specified configuration file &#39;{paths.CONFIG_PATH}&#39; was not found.&#34;)
+    except json.JSONDecodeError:
+        print(f&#34;Error: The specified configuration file &#39;{paths.CONFIG_PATH}&#39; is not a valid JSON file.&#34;)
+    except Exception as e:
+        print(f&#34;An unexpected error occurred: {e}&#34;)</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.load_old_sources"><code class="name flex">
+<span>def <span class="ident">load_old_sources</span></span>(<span>config, source)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Loads all rule sources used groups used by the IDS to generate the suricata.rules file from the JSON configuration file.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>config</code></strong> :&ensp;<code>JSON config</code></dt>
+<dd>JSOn configuration file where list of used sources is stored.</dd>
+<dt><strong><code>source</code></strong> :&ensp;<code>str</code></dt>
+<dd>Rule-Source to be searched inside the config either Remote_rule_sources or Local_rule_sources</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>loaded_sources</code></strong> :&ensp;<code>list</code></dt>
+<dd>Returns a list of all used sources along with their description either Remote_rule_sources or Local_rule_sources</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_old_sources(config, source):
+    &#34;&#34;&#34;Loads all rule sources used groups used by the IDS to generate the suricata.rules file from the JSON configuration file.
+
+       Parameters
+       -------
+       config : JSON config
+           JSOn configuration file where list of used sources is stored.
+       source : str
+           Rule-Source to be searched inside the config either Remote_rule_sources or Local_rule_sources
+
+       Returns
+       -------
+       loaded_sources: list
+           Returns a list of all used sources along with their description either Remote_rule_sources or Local_rule_sources
+
+        &#34;&#34;&#34;
+    #loaded_sources = [[&#34;ET/Open&#34;,[&#34;src_file1&#34;,&#34;desc1&#34;],[&#34;src2&#34;,&#34;dsc2&#34;]],[&#34;Flowmon&#34;,[&#34;src_file1&#34;,&#34;desc1&#34;],[&#34;src2&#34;,&#34;dsc2&#34;]]]
+    loaded_sources = []
+
+    for source in config[source]:
+        loaded_sources.append([source[&#34;Source_Name&#34;], []])
+        for source_file_name in source[&#39;Source_Files&#39;]:
+            for file_name, description in source_file_name.items():
+                array = get_source_array(source[&#34;Source_Name&#34;], loaded_sources)
+                array.append([file_name,description])
+
+    return loaded_sources</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.load_rule_sources_from_dir"><code class="name flex">
+<span>def <span class="ident">load_rule_sources_from_dir</span></span>(<span>path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Loads all rule sources (.rules files) from a specified directory</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>path</code></strong> :&ensp;<code>str</code></dt>
+<dd>Specifies directory from which rule files should be loaded.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>filenames</code></strong> :&ensp;<code>list</code></dt>
+<dd>Returns list of all rule sources (.rules files) inside a given directory specified as argument</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_rule_sources_from_dir(path):
+    &#34;&#34;&#34;Loads all rule sources (.rules files) from a specified directory
+
+       Parameters
+       ----------
+       path : str
+           Specifies directory from which rule files should be loaded.
+
+       Returns
+       -------
+       filenames: list
+           Returns list of all rule sources (.rules files) inside a given directory specified as argument
+        &#34;&#34;&#34;
+    try:
+        filenames = []
+
+        for filename in os.listdir(path):
+            if filename.endswith(&#34;.rules&#34;):
+                filenames.append(filename)
+        return filenames
+
+    except FileNotFoundError:
+        print(f&#34;Directory not found: {path}&#34;)
+        return []
+    return</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.match_group_names"><code class="name flex">
+<span>def <span class="ident">match_group_names</span></span>(<span>file_name, filter_pattern)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Matches filtered group name supplied by the user with a group name stored in json.config file listing all used groups.</p>
+<p>If eg. group emerging-info.rules is used supplying bot emerging-info as well as emerging-info.rules should produce a match.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>file_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>File name of rule group being worked on by the programm.</dd>
+<dt><strong><code>filter_pattern</code></strong> :&ensp;<code>str</code></dt>
+<dd>Pattern used to identify a given group (user supplied)</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>match</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>Returns True if the filter_pattern supplied by user matches the name of file_name worked on by the programm.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def match_group_names(file_name, filter_pattern):
+    &#34;&#34;&#34;Matches filtered group name supplied by the user with a group name stored in json.config file listing all used groups.
+
+       If eg. group emerging-info.rules is used supplying bot emerging-info as well as emerging-info.rules should produce a match.
+
+       Parameters
+       ----------
+       file_name : str
+           File name of rule group being worked on by the programm.
+       filter_pattern : str
+           Pattern used to identify a given group (user supplied)
+
+       Returns
+       -------
+       match: boolean
+           Returns True if the filter_pattern supplied by user matches the name of file_name worked on by the programm.
+        &#34;&#34;&#34;
+    file_name_without_extension = file_name.rsplit(&#39;.rules&#39;, 1)[0]
+    filter_pattern_without_extension = filter_pattern.rsplit(&#39;.rules&#39;, 1)[0]
+
+    return file_name_without_extension.lower() == filter_pattern_without_extension.lower()</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.print_output"><code class="name flex">
+<span>def <span class="ident">print_output</span></span>(<span>sources, long_list, filter_pattern)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Prints output. In this case it is the list of all rule groups used by the IDS as defined in JSON configuration file.
+Outputs either just the group names or group names with description.
+In case a filter_pattern is provided it outputs only groups matching the decsription</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>sources</code></strong> :&ensp;<code>JSON</code></dt>
+<dd>JSON configuration file containing all used rule soruces along with corresponding groups</dd>
+<dt><strong><code>long_list</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>Specifies if used rule groups should be printed also with their description.</dd>
+<dt><strong><code>filter_pattern</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>Pattern used to identify a given group (user supplied)</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def print_output(sources, long_list,filter_pattern):
+    &#34;&#34;&#34;Prints output. In this case it is the list of all rule groups used by the IDS as defined in JSON configuration file.
+       Outputs either just the group names or group names with description.
+       In case a filter_pattern is provided it outputs only groups matching the decsription
+
+       Parameters
+       ----------
+       sources : JSON
+           JSON configuration file containing all used rule soruces along with corresponding groups
+       long_list : boolean
+           Specifies if used rule groups should be printed also with their description.
+       filter_pattern : boolean
+           Pattern used to identify a given group (user supplied)
+        &#34;&#34;&#34;
+    matching_source = is_group_present(sources,filter_pattern)
+
+    if filter_pattern != &#34;*&#34; and matching_source == &#34;&#34;:
+        print(f&#34;\nAny of Rule Sources does not contain group: \&#39;{filter_pattern}\&#39;\n\nTo list all groups in rule sources use -g&#34;)
+        return
+
+    print(f&#34;\n{Fore.BLUE}Rule Sources:{Style.RESET_ALL}&#34;)
+
+    for source in sources[&#34;Remote_Rule_Sources&#34;] + sources.get(&#34;Local_Rule_Sources&#34;, []):
+        if filter_pattern != &#34;*&#34; and source != matching_source:
+            continue
+        print(&#34;---------------------------------------------------------------------------------&#34;)
+        print(f&#34;  {Fore.GREEN}- Rule Source:{Style.RESET_ALL} {Fore.YELLOW}{source[&#39;Source_Name&#39;]}{Style.RESET_ALL}&#34;)
+        for file_info in source[&#39;Source_Files&#39;]:
+            for file_name, description in file_info.items():
+                if filter_pattern != &#34;*&#34; and not match_group_names(file_name,filter_pattern):
+                    continue
+                if long_list:
+                    print(f&#34;    {Fore.LIGHTGREEN_EX}* Group: {file_name}{Style.RESET_ALL} - {Fore.LIGHTYELLOW_EX}Description:{Style.RESET_ALL} {description}\n&#34;)
+                else:
+                    print(f&#34;    * Group: {file_name}&#34;)</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.print_used_groups"><code class="name flex">
+<span>def <span class="ident">print_used_groups</span></span>(<span>filter='*', long_list=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Prints all used rule groups (.rules files) on a given instance.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>filter</code></strong> :&ensp;<code>str</code></dt>
+<dd>Filter to be applied to only list groups which match the filter</dd>
+<dt><strong><code>long_list</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>If True, list groups matching the filter along with description otherwise just list groups.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>result</code></strong> :&ensp;<code>int</code></dt>
+<dd>Returns 0 if listing was successful.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def print_used_groups(filter=&#34;*&#34;, long_list=False):
+    &#34;&#34;&#34;Prints all used rule groups (.rules files) on a given instance.
+
+       Parameters
+       ----------
+       filter : str
+           Filter to be applied to only list groups which match the filter
+       long_list : boolean
+           If True, list groups matching the filter along with description otherwise just list groups.
+
+       Returns
+       -------
+       result: int
+           Returns 0 if listing was successful.
+        &#34;&#34;&#34;
+
+    get_groups(filter, long_list)
+
+    return 0</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.set_description"><code class="name flex">
+<span>def <span class="ident">set_description</span></span>(<span>sources, group_name, group_description)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the description for a given group (.rule file) as specified by user input</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>sources</code></strong> :&ensp;<code>JSON</code></dt>
+<dd>JSON configuration file containing all used rule soruces along with corresponding groups</dd>
+<dt><strong><code>group_name</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>Group name (.rule file) for which description should be changed in the JSON configuration file.</dd>
+<dt><strong><code>group_description</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>New group description to be set for the specified group_name</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_description(sources, group_name, group_description):
+    &#34;&#34;&#34;Sets the description for a given group (.rule file) as specified by user input
+
+       Parameters
+       ----------
+       sources : JSON
+           JSON configuration file containing all used rule soruces along with corresponding groups
+       group_name : boolean
+           Group name (.rule file) for which description should be changed in the JSON configuration file.
+       group_description : boolean
+           New group description to be set for the specified group_name
+    &#34;&#34;&#34;
+    for source in sources[&#34;Remote_Rule_Sources&#34;] + sources.get(&#34;Local_Rule_Sources&#34;, []):
+        for file_info in source[&#39;Source_Files&#39;]:
+            for file_name, description in file_info.items():
+                if match_group_names(file_name,group_name):
+                    print(f&#34;  {Fore.GREEN}- Rule Source:{Style.RESET_ALL} {Fore.YELLOW}{source[&#39;Source_Name&#39;]}{Style.RESET_ALL}&#34;)
+                    print(f&#34;   * Group: {file_name} - Description: {group_description}&#34;)
+                    file_info[file_name] = group_description
+                    print(f&#34;Description for Group \&#39;{file_name}\&#39; successfully updated.&#34;)</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.update_group_config"><code class="name flex">
+<span>def <span class="ident">update_group_config</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Updates used groups used by IDS to create the suricata.rules file. Then stores the list of all used local and remote
+rule sources inside the JSON configuration file.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_group_config():
+    &#34;&#34;&#34;Updates used groups used by IDS to create the suricata.rules file. Then stores the list of all used local and remote
+       rule sources inside the JSON configuration file.
+
+        &#34;&#34;&#34;
+    print(&#34;Updating Rule source list. Please wait, this could take a while.&#34;)
+    original_config = load_json_config()
+    remote_rule_sources = []
+
+    remote_sources_old = load_old_sources(original_config, &#34;Remote_Rule_Sources&#34;)
+    local_sources_old = load_old_sources(original_config, &#34;Local_Rule_Sources&#34;)
+
+    #1. Get all local sources File names
+    local_rule_sources = load_rule_sources_from_dir(paths.LOCAL_RULES_DIR)
+    local_rule_sources += extact_sources_from_yaml(&#34;local&#34;)
+    local_rule_sources = expand_files_from_dirs(local_rule_sources)
+    local_sources_new = update_local_list(local_sources_old, local_rule_sources)
+
+    #2. Get all remote sources File names
+    if has_internet():
+        remote_sources_from_update = extact_sources_from_yaml(&#34;sources&#34;)
+
+        remote_rule_sources_from_update = filter_by_extensions(remote_sources_from_update, &#34;.rules&#34;)
+        remote_gz_sources_from_update = filter_by_extensions(remote_sources_from_update, &#34;.gz&#34;)
+
+        #if ten druhy config ma yes inak pridat normalne ET/OPEN
+        flowmon_services_URL = &#39;https://services.flowmon.com/rules/public/6.0/emerging.rules.tar.gz&#39;
+        if flowmon_rules_feed_enabled():
+            remote_gz_sources_from_update.append(flowmon_services_URL)
+
+        # teraz mam uz vs. .rules v rule-sources alebo ako remote_rule_sources_from_update
+        download_and_extract_gz_files(remote_gz_sources_from_update)
+        # teraz to mozem dat do jedneho ako zoznam
+        # [[&#39;src_name&#39;,[&#34;file1&#34;,&#34;desc1&#34;],[&#39;file2&#39;,&#34;desc2&#34;]],[&#39;src_name2&#39;,[&#34;file1&#34;,&#34;desc1&#34;],[&#39;file2&#39;,&#34;desc2&#34;]]]
+        remote_sources_list = create_remote_list_rules(remote_rule_sources_from_update)
+        remote_rule_files_from_gz = create_remote_list_gz()
+
+        for entry in remote_rule_files_from_gz:
+            remote_sources_list.append(entry)
+
+        remote_sources_new = update_remote_list(remote_sources_old, remote_sources_list)
+
+    else:
+        remote_sources_new = remote_sources_old
+        print(f&#34;{Fore.YELLOW}No internet access updating only local source-list\n{Style.RESET_ALL}&#34;)
+
+    generate_updated_config(remote_sources_new, local_sources_new)
+
+    print(&#34;Update finished.\n\nTo list all groups in rule sources use -g&#34;)
+    return</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.update_group_description"><code class="name flex">
+<span>def <span class="ident">update_group_description</span></span>(<span>args)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Update given group description in JSON configuration file based on user input</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>args</code></strong> :&ensp;<code>list</code></dt>
+<dd>group_name = args[0]
+group_description = args[1]</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>match</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>Returns 0 if successfull</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_group_description(args):
+    &#34;&#34;&#34;Update given group description in JSON configuration file based on user input
+
+       Parameters
+       ----------
+       args : list
+           group_name = args[0]
+           group_description = args[1]
+
+       Returns
+       -------
+       match: boolean
+           Returns 0 if successfull
+        &#34;&#34;&#34;
+    group_name = args[0]
+    group_description = args[1]
+    config = load_json_config()
+
+    matching_source = is_group_present(config,group_name)
+    if matching_source != &#34;&#34;:
+        set_description(config,group_name,group_description)
+        update_json_config(config)
+        return 0
+
+    print(f&#34;\nGroup: \&#39;{group_name}\&#39; is not in any of the Local or Remote rule sources.\n\nTo list all groups in rule sources use -g&#34;)
+
+    return 1</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.update_json_config"><code class="name flex">
+<span>def <span class="ident">update_json_config</span></span>(<span>config)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Stores the JSON configuration file containing the list of all used rule sources, .rules files along with their descriptions on disk.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>config</code></strong> :&ensp;<code>file</code></dt>
+<dd>New updated JSON configuration to be stored on disk.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>True</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>Returns True if operation was successful.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_json_config(config):
+    &#34;&#34;&#34;Stores the JSON configuration file containing the list of all used rule sources, .rules files along with their descriptions on disk.
+
+       Parameters
+       -------
+       config: file
+           New updated JSON configuration to be stored on disk.
+
+       Returns
+       -------
+       True: boolean
+           Returns True if operation was successful.
+        &#34;&#34;&#34;
+    try:
+        with open(paths.CONFIG_PATH, &#39;w&#39;) as file:
+            json.dump(config, file, indent=1)
+        return True
+    except FileNotFoundError:
+        print(f&#34;Error: The specified configuration file &#39;{paths.CONFIG_PATH}&#39; was not found.&#34;)
+    except json.JSONDecodeError:
+        print(f&#34;Error: The specified configuration file &#39;{paths.CONFIG_PATH}&#39; is not a valid JSON file.&#34;)
+    except Exception as e:
+        print(f&#34;An unexpected error occurred: {e}&#34;)</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.update_local_list"><code class="name flex">
+<span>def <span class="ident">update_local_list</span></span>(<span>rule_sources_old, rule_sources_new)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Updates the list of local rule groups used (.rules files) used to generate suricata.rules</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>rule_sources_old</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of originally used rule sources, before update</dd>
+</dl>
+<p>rule_sources_new : list
+List of rule sources used after update.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>rules_sources_updated</code></strong> :&ensp;<code>list</code></dt>
+<dd>Returns a list currently used local rule groups after the udpdate.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_local_list(rule_sources_old, rule_sources_new):
+    &#34;&#34;&#34;Updates the list of local rule groups used (.rules files) used to generate suricata.rules
+
+       Parameters
+       ----------
+       rule_sources_old : list
+           List of originally used rule sources, before update
+        rule_sources_new : list
+           List of rule sources used after update.
+
+       Returns
+       -------
+       rules_sources_updated: list
+           Returns a list currently used local rule groups after the udpdate.
+
+        &#34;&#34;&#34;
+    rule_sources_files_old = rule_sources_old[0][1]
+
+    for subarray in rule_sources_files_old[:]:
+        if subarray[0] not in  rule_sources_new:
+            rule_sources_files_old.remove(subarray)
+
+    for file_path in rule_sources_new:
+        found = False
+        for subarray in rule_sources_files_old:
+            if subarray[0] == file_path:
+                found = True
+                break
+        if not found:
+            rule_sources_files_old.append([file_path, &#39;&#39;])
+
+    rule_sources_old[0][1] = rule_sources_files_old
+    rules_sources_updated = rule_sources_old
+
+    return rules_sources_updated</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_sources2.update_remote_list"><code class="name flex">
+<span>def <span class="ident">update_remote_list</span></span>(<span>rule_sources_old, rule_sources_new)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Updates the list of remote rule groups used (.rules files) used to generate suricata.rules</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>rule_sources_old</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of originally used rule sources, before update</dd>
+</dl>
+<p>rule_sources_new : list
+List of rule sources used after update.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>rule_sources_new</code></strong> :&ensp;<code>list</code></dt>
+<dd>Returns a list currently used remote rule groups after the udpdate. If any rule groups are the same as in the
+old list of used rule groups the description of a given group from the old list is copied to the new list.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_remote_list(rule_sources_old, rule_sources_new):
+    &#34;&#34;&#34;Updates the list of remote rule groups used (.rules files) used to generate suricata.rules
+
+       Parameters
+       ----------
+       rule_sources_old : list
+           List of originally used rule sources, before update
+        rule_sources_new : list
+           List of rule sources used after update.
+
+       Returns
+       -------
+       rule_sources_new: list
+           Returns a list currently used remote rule groups after the udpdate. If any rule groups are the same as in the
+           old list of used rule groups the description of a given group from the old list is copied to the new list.
+
+        &#34;&#34;&#34;
+    sources_backup = rule_sources_old
+
+
+    for src_entry in rule_sources_old:
+        src_name_old = src_entry[0]
+        for second_entry in rule_sources_new:
+            src_name_new = second_entry[0]
+            if src_name_old == src_name_new:
+                for source_file in src_entry[1]:
+                    file_name = source_file[0]
+                    description = source_file[1]
+                    for source_file2 in second_entry[1]:
+                        file_name2 = source_file2[0]
+                        if file_name2 == file_name:
+
+                            source_file2[1] = description
+                            break
+                break
+
+    return rule_sources_new</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="manager" href="index.html">manager</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="manager.rule_sources2.append_source_to_json" href="#manager.rule_sources2.append_source_to_json">append_source_to_json</a></code></li>
+<li><code><a title="manager.rule_sources2.clear_tmp_directory" href="#manager.rule_sources2.clear_tmp_directory">clear_tmp_directory</a></code></li>
+<li><code><a title="manager.rule_sources2.create_remote_list_gz" href="#manager.rule_sources2.create_remote_list_gz">create_remote_list_gz</a></code></li>
+<li><code><a title="manager.rule_sources2.create_remote_list_rules" href="#manager.rule_sources2.create_remote_list_rules">create_remote_list_rules</a></code></li>
+<li><code><a title="manager.rule_sources2.download_and_extract_gz_files" href="#manager.rule_sources2.download_and_extract_gz_files">download_and_extract_gz_files</a></code></li>
+<li><code><a title="manager.rule_sources2.expand_files_from_dirs" href="#manager.rule_sources2.expand_files_from_dirs">expand_files_from_dirs</a></code></li>
+<li><code><a title="manager.rule_sources2.extact_sources_from_yaml" href="#manager.rule_sources2.extact_sources_from_yaml">extact_sources_from_yaml</a></code></li>
+<li><code><a title="manager.rule_sources2.filter_by_extensions" href="#manager.rule_sources2.filter_by_extensions">filter_by_extensions</a></code></li>
+<li><code><a title="manager.rule_sources2.flowmon_rules_feed_enabled" href="#manager.rule_sources2.flowmon_rules_feed_enabled">flowmon_rules_feed_enabled</a></code></li>
+<li><code><a title="manager.rule_sources2.generate_updated_config" href="#manager.rule_sources2.generate_updated_config">generate_updated_config</a></code></li>
+<li><code><a title="manager.rule_sources2.get_groups" href="#manager.rule_sources2.get_groups">get_groups</a></code></li>
+<li><code><a title="manager.rule_sources2.get_rules_files_from_dir" href="#manager.rule_sources2.get_rules_files_from_dir">get_rules_files_from_dir</a></code></li>
+<li><code><a title="manager.rule_sources2.get_source_array" href="#manager.rule_sources2.get_source_array">get_source_array</a></code></li>
+<li><code><a title="manager.rule_sources2.has_internet" href="#manager.rule_sources2.has_internet">has_internet</a></code></li>
+<li><code><a title="manager.rule_sources2.is_group_present" href="#manager.rule_sources2.is_group_present">is_group_present</a></code></li>
+<li><code><a title="manager.rule_sources2.load_json_config" href="#manager.rule_sources2.load_json_config">load_json_config</a></code></li>
+<li><code><a title="manager.rule_sources2.load_old_sources" href="#manager.rule_sources2.load_old_sources">load_old_sources</a></code></li>
+<li><code><a title="manager.rule_sources2.load_rule_sources_from_dir" href="#manager.rule_sources2.load_rule_sources_from_dir">load_rule_sources_from_dir</a></code></li>
+<li><code><a title="manager.rule_sources2.match_group_names" href="#manager.rule_sources2.match_group_names">match_group_names</a></code></li>
+<li><code><a title="manager.rule_sources2.print_output" href="#manager.rule_sources2.print_output">print_output</a></code></li>
+<li><code><a title="manager.rule_sources2.print_used_groups" href="#manager.rule_sources2.print_used_groups">print_used_groups</a></code></li>
+<li><code><a title="manager.rule_sources2.set_description" href="#manager.rule_sources2.set_description">set_description</a></code></li>
+<li><code><a title="manager.rule_sources2.update_group_config" href="#manager.rule_sources2.update_group_config">update_group_config</a></code></li>
+<li><code><a title="manager.rule_sources2.update_group_description" href="#manager.rule_sources2.update_group_description">update_group_description</a></code></li>
+<li><code><a title="manager.rule_sources2.update_json_config" href="#manager.rule_sources2.update_json_config">update_json_config</a></code></li>
+<li><code><a title="manager.rule_sources2.update_local_list" href="#manager.rule_sources2.update_local_list">update_local_list</a></code></li>
+<li><code><a title="manager.rule_sources2.update_remote_list" href="#manager.rule_sources2.update_remote_list">update_remote_list</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

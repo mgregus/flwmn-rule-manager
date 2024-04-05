@@ -1,0 +1,1006 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>manager.activation API documentation</title>
+<meta name="description" content="* Copyright 2001-2024 The Apache Software Foundation.
+*
+* Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
+* you may not use this file …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>manager.activation</code></h1>
+</header>
+<section id="section-intro">
+<ul>
+<li>Copyright 2001-2024 The Apache Software Foundation.
+*</li>
+<li>Licensed under the Apache License, Version 2.0 (the "License");</li>
+<li>you may not use this file except in compliance with the License.</li>
+<li>You may obtain a copy of the License at
+*</li>
+<li><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a>
+*</li>
+<li>Unless required by applicable law or agreed to in writing, software</li>
+<li>distributed under the License is distributed on an "AS IS" BASIS,</li>
+<li>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</li>
+<li>See the License for the specific language governing permissions and</li>
+<li>limitations under the License.
+*/</li>
+</ul>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+ * Copyright 2001-2024 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+&#34;&#34;&#34;
+
+
+
+import paths
+from colorama import Style, Fore
+last_line_was_comment = False
+last_comment = &#34;&#34;
+remove_last_comment = False
+
+def load_disable_conf():
+    &#34;&#34;&#34;Loads disable.conf configuration file.
+
+        Returns
+        -------
+        contents: list
+            a list of lines from disable.conf if openned and read succesfully. Otherwise nothing
+        &#34;&#34;&#34;
+    try:
+        with open(paths.DISABLE_CONF, &#39;r&#39;) as file:
+            contents = file.readlines()
+            file.close()
+            return contents
+    except FileNotFoundError:
+        print(f&#34;File &#39;{paths.DISABLE_CONF}&#39; not found or cannot be openned.&#34;)
+        return
+    return
+
+def write_disable_conf(content):
+    &#34;&#34;&#34;Write content to disable.conf configuration file.
+
+       Parameters
+       ----------
+       content : list
+           List of lines creating the disable.conf to be stored.
+    &#34;&#34;&#34;
+    try:
+        with open(paths.DISABLE_CONF, &#39;w&#39;) as file:
+            return file.writelines(content)
+    except FileNotFoundError:
+        print(f&#34;File &#39;{paths.DISABLE_CONF}&#39; not found or cannot be openned.&#34;)
+        return
+    return
+
+
+def find_expression(expression):
+    &#34;&#34;&#34;Search for a given expression in uncommented lines of disable.conf.
+
+       Parameters
+       ----------
+       expression : str
+           Expression to be searched for in the configuration file.
+
+       Returns
+       -------
+       found: boolean
+           Returns True if the expression is found. Otherwise False.
+    &#34;&#34;&#34;
+    disable_conf = load_disable_conf()
+
+    for line in disable_conf:
+        if not line.startswith(&#39;#&#39;):
+            if expression.strip() == line.strip():
+                return True
+
+    return False
+
+def create_expression(keyword, value):
+    &#34;&#34;&#34;Creates an expression to activate/deactive a given rule category based on keyword and value in disable.conf.
+
+       Parameters
+       ----------
+       keyword : str
+           Category keyword eg. classtype or group or signature metadata keyword
+       value : str
+           Value of specified keyword eg. not-suspicious or emergin-worm.rules or metadata keyword value
+
+       Returns
+       -------
+       expression: str
+           Returns expression which can be written to or removed from disabled.conf to activate/deactive a given rule category.
+    &#34;&#34;&#34;
+    if keyword == &#34;group&#34;:
+        if &#34;.rules&#34; in value:
+            expression = f&#34;group:{value}&#34;
+        else:
+            expression = f&#34;group:{value}.rules&#34;
+    elif keyword == &#34;classtype&#34;:
+        expression = f&#34;re:classtype:{value}&#34;
+    else:
+        expression = f&#34;metadata:{keyword} {value}&#34;
+
+    return expression
+
+def is_comment_before_group(line):
+    &#34;&#34;&#34;Checks if the comment found in disabled config belongs to a group or category of rules and is used to describe it or is just a regular comment.
+
+       example of comment belonging to a group:
+
+                # Disabling specific classtypes
+                re:classtype:not-suspicious
+                re:classtype:protocol-command-decode
+                re:classtype:misc-activity
+
+       Parameters
+       ----------
+       line : str
+           Line to be checked if a previous comment was belonging to this group or was just a regular comment.
+
+       Returns
+       -------
+       is_comment_before_group: boolean
+           Returns True if the line is a group related to previous comment. False if there is no relationship and previous comment was just a regular comment.
+    &#34;&#34;&#34;
+    global last_line_was_comment
+    global last_comment
+    if last_line_was_comment and not line.startswith(&#34;#&#34;) and not line.startswith(&#34;\n&#34;):
+        if &#34;Disabling&#34; in last_comment:
+            return True
+
+    return False
+
+def remove_empty_lines_from_end(list):
+    &#34;&#34;&#34;Removes empty lines from the end of the list.
+
+       Parameters
+       ----------
+       list : list
+           List containing lines of text.
+    &#34;&#34;&#34;
+    while list and not list[-1].strip():
+        list.pop()
+
+def add_line_to_group(group, line):
+    &#34;&#34;&#34;Adds a given line in this case a comment line belonging to a given group before the given group.
+
+        example of comment belonging to a group:
+
+                # Disabling specific classtypes
+                re:classtype:not-suspicious
+                re:classtype:protocol-command-decode
+                re:classtype:misc-activity
+
+       Parameters
+       ----------
+       group : list
+           Group of lines or rule types belonging to a given category.
+       line : str
+           Comment line belonging to that group, description of the group to be added to it.
+
+    &#34;&#34;&#34;
+    global last_comment
+    global last_line_was_comment
+    global remove_last_comment
+
+    if is_comment_before_group(line):
+        group.append(last_comment)
+        group.append(line)
+        last_line_was_comment = False
+        last_comment = &#34;&#34;
+        remove_last_comment = True
+
+        return
+
+    group.append(line)
+    return
+
+def normalize_contents(disable_conf):
+    &#34;&#34;&#34;Normalizes or prettifies the contents of disable.conf after working with it eg. activating or deactivating new rule categories.
+       Contents of the disable.conf should be ordered eg. all disabled group are lines following each other, all disabled metadata are line
+       following each other.
+
+       example of ordered disable.conf:
+
+                group:ntp-events.rules
+                group:nfs-events.rules
+                group:stream-events.rules
+
+                # Disabling specific SIDs:
+                2230010
+                2230003
+                2230002
+                2230009
+                2230015
+                2221010
+
+                metadata:signature_severity Informational
+
+                # Disabling specific classtypes
+                re:classtype:not-suspicious
+                re:classtype:protocol-command-decode
+                re:classtype:misc-activity
+
+
+       Parameters
+       ----------
+       disable_conf : list
+           List of lines creating the original not normalized version of disable.conf
+
+     &#34;&#34;&#34;
+    global last_comment
+    global last_line_was_comment
+    global remove_last_comment
+    # Separate lines starting with different keywords
+    re_lines, group_lines, sid_lines, commented_lines, metadata_lines, other_lines = [], [], [], [], [], []
+
+    for line in disable_conf:
+        if line.startswith(&#34;group&#34;):
+            add_line_to_group(group_lines, line)
+        elif line.startswith(&#34;re&#34;):
+            add_line_to_group(re_lines, line)
+        elif line.startswith(&#34;metadata&#34;):
+            add_line_to_group(metadata_lines, line)
+        elif line.strip().isdigit():
+            add_line_to_group(sid_lines, line)
+        elif line.startswith(&#34;#&#34;):
+            add_line_to_group(commented_lines, line)
+            last_comment = line
+            last_line_was_comment = True
+        elif line.startswith(&#34;\n&#34;) and last_line_was_comment:
+            commented_lines.append(line)
+        else:
+            other_lines.append(line)
+
+        if remove_last_comment:
+            commented_lines = commented_lines[:-1]
+            remove_last_comment = False
+
+    remove_empty_lines_from_end(commented_lines)
+    remove_empty_lines_from_end(sid_lines)
+    remove_empty_lines_from_end(other_lines)
+    remove_empty_lines_from_end(re_lines)
+    remove_empty_lines_from_end(group_lines)
+    remove_empty_lines_from_end(metadata_lines)
+
+    normalized_disable_conf = commented_lines + [&#34;\n&#34; * 2] + group_lines  + [&#34;\n&#34; * 2] + sid_lines  + [&#34;\n&#34; * 2]+ metadata_lines  + [&#34;\n&#34; * 2] + re_lines +  [&#34;\n&#34; * 2] + other_lines + [&#34;\n&#34; * 2] + [&#34;\n&#34; * 1]
+
+    write_disable_conf(normalized_disable_conf)
+
+    return
+
+def enable_category(expression, expression_present, key, val):
+    &#34;&#34;&#34;Enables a given rule category specified by the expression in the disable.conf.
+
+       If the expression was not present in the disable.conf nothing happends since the specified category of rules specified by provided key value pair was not disabled.
+
+       If the expression was present in the disable.conf it is removed from it to re-enable the formerly disabled category of rules specified by provided key value pair.
+
+       Parameters
+       ----------
+       expression : str
+           Expression used to enable a specified category of rules specified by provided key value pair in the disable.conf
+       expression_present : boolean
+           If true expression is present in the original disable.conf otherwise it is not present.
+       key : str
+           Category keyword eg. classtype or group or signature metadata keyword
+       val : str
+           Value of specified keyword eg. not-suspicious or emergin-worm.rules or metadata keyword value
+
+    &#34;&#34;&#34;
+    if not expression_present:
+        print(f&#34;{Fore.GREEN}Rule Category:{Style.RESET_ALL} {Fore.LIGHTYELLOW_EX}{key} {val}{Style.RESET_ALL} was not disabled. No change.&#34;)
+        return
+    else:
+        print(f&#34;Enabling rule category {Fore.LIGHTYELLOW_EX}{key} {val}{Style.RESET_ALL}.&#34;)
+        print(f&#34;To see changes wait until Suricata-Updates runs or apply:\n{Fore.BLUE}\&#39;sudo systemctl restart flowmon-idsp-suricata-update\&#39;{Style.RESET_ALL}&#34;)
+        old_disable_conf = load_disable_conf()
+        new_disable_conf = []
+        for line in old_disable_conf:
+            if expression.strip() == line.strip():
+                line = line.replace(expression,&#34;&#34;)
+            new_disable_conf.append(line)
+
+        normalize_contents(new_disable_conf)
+
+    return
+
+def disable_category(expression, expression_present, key, val):
+    &#34;&#34;&#34;Disables a given rule category specified by the expression in the disable.conf.
+
+       If the expression was present in the disable.conf nothing happends since the specified category of rules specified by provided key value pair was already disabled.
+
+       If the expression was not present in the disable.conf it is added to it to disable the formerly enabled category of rules specified by provided key value pair.
+
+       Parameters
+       ----------
+       expression : str
+           Expression used to disabled a specified category of rules specified by provided key value pair in the disable.conf
+       expression_present : boolean
+           If true expression is present in the original disable.conf otherwise it is not present.
+       key : str
+           Category keyword eg. classtype or group or signature metadata keyword
+       val : str
+           Value of specified keyword eg. not-suspicious or emergin-worm.rules or metadata keyword value
+
+    &#34;&#34;&#34;
+    if expression_present:
+        print(f&#34;{Fore.GREEN}Rule Category:{Style.RESET_ALL} {Fore.LIGHTYELLOW_EX}{key} {val}{Style.RESET_ALL} was already disabled.&#34;)
+        return
+    else:
+        print(f&#34;Disabling rule category {Fore.LIGHTYELLOW_EX}{key} {val}{Style.RESET_ALL}.&#34;)
+        print(f&#34;To see changes wait until Suricata-Updates runs or apply:\n{Fore.BLUE}\&#39;sudo systemctl restart flowmon-idsp-suricata-update\&#39;{Style.RESET_ALL}&#34;)
+        disable_conf = load_disable_conf()
+        disable_conf.append(expression)
+
+        normalize_contents(disable_conf)
+
+    return
+
+def manage_category(key_val_pair, disable=True):
+    &#34;&#34;&#34;Activate or deactivate a given rule category in the disable.conf based on the key value pair used to specify that category.
+
+       Parameters
+       ----------
+       key_val_pair : list
+           List containing key and value specifiying which rule category should be activated or deactivated.
+       disable : boolean
+           Action to be performed with a given rule category True &lt;=&gt; disable category otherwise enable category.
+
+    &#34;&#34;&#34;
+    key = key_val_pair[0]
+    val = key_val_pair[1]
+
+    if not key or not val:
+        return
+
+    expression = create_expression(key,val)
+    expression_present = find_expression(expression)
+
+    if disable == True:
+        disable_category(expression, expression_present, key, val)
+    else:
+        enable_category(expression, expression_present, key, val)
+
+    return</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="manager.activation.add_line_to_group"><code class="name flex">
+<span>def <span class="ident">add_line_to_group</span></span>(<span>group, line)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adds a given line in this case a comment line belonging to a given group before the given group.</p>
+<p>example of comment belonging to a group:</p>
+<pre><code>     # Disabling specific classtypes
+     re:classtype:not-suspicious
+     re:classtype:protocol-command-decode
+     re:classtype:misc-activity
+</code></pre>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>group</code></strong> :&ensp;<code>list</code></dt>
+<dd>Group of lines or rule types belonging to a given category.</dd>
+<dt><strong><code>line</code></strong> :&ensp;<code>str</code></dt>
+<dd>Comment line belonging to that group, description of the group to be added to it.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_line_to_group(group, line):
+    &#34;&#34;&#34;Adds a given line in this case a comment line belonging to a given group before the given group.
+
+        example of comment belonging to a group:
+
+                # Disabling specific classtypes
+                re:classtype:not-suspicious
+                re:classtype:protocol-command-decode
+                re:classtype:misc-activity
+
+       Parameters
+       ----------
+       group : list
+           Group of lines or rule types belonging to a given category.
+       line : str
+           Comment line belonging to that group, description of the group to be added to it.
+
+    &#34;&#34;&#34;
+    global last_comment
+    global last_line_was_comment
+    global remove_last_comment
+
+    if is_comment_before_group(line):
+        group.append(last_comment)
+        group.append(line)
+        last_line_was_comment = False
+        last_comment = &#34;&#34;
+        remove_last_comment = True
+
+        return
+
+    group.append(line)
+    return</code></pre>
+</details>
+</dd>
+<dt id="manager.activation.create_expression"><code class="name flex">
+<span>def <span class="ident">create_expression</span></span>(<span>keyword, value)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates an expression to activate/deactive a given rule category based on keyword and value in disable.conf.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>keyword</code></strong> :&ensp;<code>str</code></dt>
+<dd>Category keyword eg. classtype or group or signature metadata keyword</dd>
+<dt><strong><code>value</code></strong> :&ensp;<code>str</code></dt>
+<dd>Value of specified keyword eg. not-suspicious or emergin-worm.rules or metadata keyword value</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>expression</code></strong> :&ensp;<code>str</code></dt>
+<dd>Returns expression which can be written to or removed from disabled.conf to activate/deactive a given rule category.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_expression(keyword, value):
+    &#34;&#34;&#34;Creates an expression to activate/deactive a given rule category based on keyword and value in disable.conf.
+
+       Parameters
+       ----------
+       keyword : str
+           Category keyword eg. classtype or group or signature metadata keyword
+       value : str
+           Value of specified keyword eg. not-suspicious or emergin-worm.rules or metadata keyword value
+
+       Returns
+       -------
+       expression: str
+           Returns expression which can be written to or removed from disabled.conf to activate/deactive a given rule category.
+    &#34;&#34;&#34;
+    if keyword == &#34;group&#34;:
+        if &#34;.rules&#34; in value:
+            expression = f&#34;group:{value}&#34;
+        else:
+            expression = f&#34;group:{value}.rules&#34;
+    elif keyword == &#34;classtype&#34;:
+        expression = f&#34;re:classtype:{value}&#34;
+    else:
+        expression = f&#34;metadata:{keyword} {value}&#34;
+
+    return expression</code></pre>
+</details>
+</dd>
+<dt id="manager.activation.disable_category"><code class="name flex">
+<span>def <span class="ident">disable_category</span></span>(<span>expression, expression_present, key, val)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Disables a given rule category specified by the expression in the disable.conf.</p>
+<p>If the expression was present in the disable.conf nothing happends since the specified category of rules specified by provided key value pair was already disabled.</p>
+<p>If the expression was not present in the disable.conf it is added to it to disable the formerly enabled category of rules specified by provided key value pair.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>expression</code></strong> :&ensp;<code>str</code></dt>
+<dd>Expression used to disabled a specified category of rules specified by provided key value pair in the disable.conf</dd>
+<dt><strong><code>expression_present</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>If true expression is present in the original disable.conf otherwise it is not present.</dd>
+<dt><strong><code>key</code></strong> :&ensp;<code>str</code></dt>
+<dd>Category keyword eg. classtype or group or signature metadata keyword</dd>
+<dt><strong><code>val</code></strong> :&ensp;<code>str</code></dt>
+<dd>Value of specified keyword eg. not-suspicious or emergin-worm.rules or metadata keyword value</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def disable_category(expression, expression_present, key, val):
+    &#34;&#34;&#34;Disables a given rule category specified by the expression in the disable.conf.
+
+       If the expression was present in the disable.conf nothing happends since the specified category of rules specified by provided key value pair was already disabled.
+
+       If the expression was not present in the disable.conf it is added to it to disable the formerly enabled category of rules specified by provided key value pair.
+
+       Parameters
+       ----------
+       expression : str
+           Expression used to disabled a specified category of rules specified by provided key value pair in the disable.conf
+       expression_present : boolean
+           If true expression is present in the original disable.conf otherwise it is not present.
+       key : str
+           Category keyword eg. classtype or group or signature metadata keyword
+       val : str
+           Value of specified keyword eg. not-suspicious or emergin-worm.rules or metadata keyword value
+
+    &#34;&#34;&#34;
+    if expression_present:
+        print(f&#34;{Fore.GREEN}Rule Category:{Style.RESET_ALL} {Fore.LIGHTYELLOW_EX}{key} {val}{Style.RESET_ALL} was already disabled.&#34;)
+        return
+    else:
+        print(f&#34;Disabling rule category {Fore.LIGHTYELLOW_EX}{key} {val}{Style.RESET_ALL}.&#34;)
+        print(f&#34;To see changes wait until Suricata-Updates runs or apply:\n{Fore.BLUE}\&#39;sudo systemctl restart flowmon-idsp-suricata-update\&#39;{Style.RESET_ALL}&#34;)
+        disable_conf = load_disable_conf()
+        disable_conf.append(expression)
+
+        normalize_contents(disable_conf)
+
+    return</code></pre>
+</details>
+</dd>
+<dt id="manager.activation.enable_category"><code class="name flex">
+<span>def <span class="ident">enable_category</span></span>(<span>expression, expression_present, key, val)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Enables a given rule category specified by the expression in the disable.conf.</p>
+<p>If the expression was not present in the disable.conf nothing happends since the specified category of rules specified by provided key value pair was not disabled.</p>
+<p>If the expression was present in the disable.conf it is removed from it to re-enable the formerly disabled category of rules specified by provided key value pair.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>expression</code></strong> :&ensp;<code>str</code></dt>
+<dd>Expression used to enable a specified category of rules specified by provided key value pair in the disable.conf</dd>
+<dt><strong><code>expression_present</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>If true expression is present in the original disable.conf otherwise it is not present.</dd>
+<dt><strong><code>key</code></strong> :&ensp;<code>str</code></dt>
+<dd>Category keyword eg. classtype or group or signature metadata keyword</dd>
+<dt><strong><code>val</code></strong> :&ensp;<code>str</code></dt>
+<dd>Value of specified keyword eg. not-suspicious or emergin-worm.rules or metadata keyword value</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def enable_category(expression, expression_present, key, val):
+    &#34;&#34;&#34;Enables a given rule category specified by the expression in the disable.conf.
+
+       If the expression was not present in the disable.conf nothing happends since the specified category of rules specified by provided key value pair was not disabled.
+
+       If the expression was present in the disable.conf it is removed from it to re-enable the formerly disabled category of rules specified by provided key value pair.
+
+       Parameters
+       ----------
+       expression : str
+           Expression used to enable a specified category of rules specified by provided key value pair in the disable.conf
+       expression_present : boolean
+           If true expression is present in the original disable.conf otherwise it is not present.
+       key : str
+           Category keyword eg. classtype or group or signature metadata keyword
+       val : str
+           Value of specified keyword eg. not-suspicious or emergin-worm.rules or metadata keyword value
+
+    &#34;&#34;&#34;
+    if not expression_present:
+        print(f&#34;{Fore.GREEN}Rule Category:{Style.RESET_ALL} {Fore.LIGHTYELLOW_EX}{key} {val}{Style.RESET_ALL} was not disabled. No change.&#34;)
+        return
+    else:
+        print(f&#34;Enabling rule category {Fore.LIGHTYELLOW_EX}{key} {val}{Style.RESET_ALL}.&#34;)
+        print(f&#34;To see changes wait until Suricata-Updates runs or apply:\n{Fore.BLUE}\&#39;sudo systemctl restart flowmon-idsp-suricata-update\&#39;{Style.RESET_ALL}&#34;)
+        old_disable_conf = load_disable_conf()
+        new_disable_conf = []
+        for line in old_disable_conf:
+            if expression.strip() == line.strip():
+                line = line.replace(expression,&#34;&#34;)
+            new_disable_conf.append(line)
+
+        normalize_contents(new_disable_conf)
+
+    return</code></pre>
+</details>
+</dd>
+<dt id="manager.activation.find_expression"><code class="name flex">
+<span>def <span class="ident">find_expression</span></span>(<span>expression)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Search for a given expression in uncommented lines of disable.conf.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>expression</code></strong> :&ensp;<code>str</code></dt>
+<dd>Expression to be searched for in the configuration file.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>found</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>Returns True if the expression is found. Otherwise False.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def find_expression(expression):
+    &#34;&#34;&#34;Search for a given expression in uncommented lines of disable.conf.
+
+       Parameters
+       ----------
+       expression : str
+           Expression to be searched for in the configuration file.
+
+       Returns
+       -------
+       found: boolean
+           Returns True if the expression is found. Otherwise False.
+    &#34;&#34;&#34;
+    disable_conf = load_disable_conf()
+
+    for line in disable_conf:
+        if not line.startswith(&#39;#&#39;):
+            if expression.strip() == line.strip():
+                return True
+
+    return False</code></pre>
+</details>
+</dd>
+<dt id="manager.activation.is_comment_before_group"><code class="name flex">
+<span>def <span class="ident">is_comment_before_group</span></span>(<span>line)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the comment found in disabled config belongs to a group or category of rules and is used to describe it or is just a regular comment.</p>
+<p>example of comment belonging to a group:</p>
+<pre><code>     # Disabling specific classtypes
+     re:classtype:not-suspicious
+     re:classtype:protocol-command-decode
+     re:classtype:misc-activity
+</code></pre>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>line</code></strong> :&ensp;<code>str</code></dt>
+<dd>Line to be checked if a previous comment was belonging to this group or was just a regular comment.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>is_comment_before_group</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>Returns True if the line is a group related to previous comment. False if there is no relationship and previous comment was just a regular comment.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_comment_before_group(line):
+    &#34;&#34;&#34;Checks if the comment found in disabled config belongs to a group or category of rules and is used to describe it or is just a regular comment.
+
+       example of comment belonging to a group:
+
+                # Disabling specific classtypes
+                re:classtype:not-suspicious
+                re:classtype:protocol-command-decode
+                re:classtype:misc-activity
+
+       Parameters
+       ----------
+       line : str
+           Line to be checked if a previous comment was belonging to this group or was just a regular comment.
+
+       Returns
+       -------
+       is_comment_before_group: boolean
+           Returns True if the line is a group related to previous comment. False if there is no relationship and previous comment was just a regular comment.
+    &#34;&#34;&#34;
+    global last_line_was_comment
+    global last_comment
+    if last_line_was_comment and not line.startswith(&#34;#&#34;) and not line.startswith(&#34;\n&#34;):
+        if &#34;Disabling&#34; in last_comment:
+            return True
+
+    return False</code></pre>
+</details>
+</dd>
+<dt id="manager.activation.load_disable_conf"><code class="name flex">
+<span>def <span class="ident">load_disable_conf</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Loads disable.conf configuration file.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>contents</code></strong> :&ensp;<code>list</code></dt>
+<dd>a list of lines from disable.conf if openned and read succesfully. Otherwise nothing</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_disable_conf():
+    &#34;&#34;&#34;Loads disable.conf configuration file.
+
+        Returns
+        -------
+        contents: list
+            a list of lines from disable.conf if openned and read succesfully. Otherwise nothing
+        &#34;&#34;&#34;
+    try:
+        with open(paths.DISABLE_CONF, &#39;r&#39;) as file:
+            contents = file.readlines()
+            file.close()
+            return contents
+    except FileNotFoundError:
+        print(f&#34;File &#39;{paths.DISABLE_CONF}&#39; not found or cannot be openned.&#34;)
+        return
+    return</code></pre>
+</details>
+</dd>
+<dt id="manager.activation.manage_category"><code class="name flex">
+<span>def <span class="ident">manage_category</span></span>(<span>key_val_pair, disable=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Activate or deactivate a given rule category in the disable.conf based on the key value pair used to specify that category.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>key_val_pair</code></strong> :&ensp;<code>list</code></dt>
+<dd>List containing key and value specifiying which rule category should be activated or deactivated.</dd>
+<dt><strong><code>disable</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>Action to be performed with a given rule category True &lt;=&gt; disable category otherwise enable category.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def manage_category(key_val_pair, disable=True):
+    &#34;&#34;&#34;Activate or deactivate a given rule category in the disable.conf based on the key value pair used to specify that category.
+
+       Parameters
+       ----------
+       key_val_pair : list
+           List containing key and value specifiying which rule category should be activated or deactivated.
+       disable : boolean
+           Action to be performed with a given rule category True &lt;=&gt; disable category otherwise enable category.
+
+    &#34;&#34;&#34;
+    key = key_val_pair[0]
+    val = key_val_pair[1]
+
+    if not key or not val:
+        return
+
+    expression = create_expression(key,val)
+    expression_present = find_expression(expression)
+
+    if disable == True:
+        disable_category(expression, expression_present, key, val)
+    else:
+        enable_category(expression, expression_present, key, val)
+
+    return</code></pre>
+</details>
+</dd>
+<dt id="manager.activation.normalize_contents"><code class="name flex">
+<span>def <span class="ident">normalize_contents</span></span>(<span>disable_conf)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Normalizes or prettifies the contents of disable.conf after working with it eg. activating or deactivating new rule categories.
+Contents of the disable.conf should be ordered eg. all disabled group are lines following each other, all disabled metadata are line
+following each other.</p>
+<p>example of ordered disable.conf:</p>
+<pre><code>     group:ntp-events.rules
+     group:nfs-events.rules
+     group:stream-events.rules
+
+     # Disabling specific SIDs:
+     2230010
+     2230003
+     2230002
+     2230009
+     2230015
+     2221010
+
+     metadata:signature_severity Informational
+
+     # Disabling specific classtypes
+     re:classtype:not-suspicious
+     re:classtype:protocol-command-decode
+     re:classtype:misc-activity
+</code></pre>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>disable_conf</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of lines creating the original not normalized version of disable.conf</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def normalize_contents(disable_conf):
+    &#34;&#34;&#34;Normalizes or prettifies the contents of disable.conf after working with it eg. activating or deactivating new rule categories.
+       Contents of the disable.conf should be ordered eg. all disabled group are lines following each other, all disabled metadata are line
+       following each other.
+
+       example of ordered disable.conf:
+
+                group:ntp-events.rules
+                group:nfs-events.rules
+                group:stream-events.rules
+
+                # Disabling specific SIDs:
+                2230010
+                2230003
+                2230002
+                2230009
+                2230015
+                2221010
+
+                metadata:signature_severity Informational
+
+                # Disabling specific classtypes
+                re:classtype:not-suspicious
+                re:classtype:protocol-command-decode
+                re:classtype:misc-activity
+
+
+       Parameters
+       ----------
+       disable_conf : list
+           List of lines creating the original not normalized version of disable.conf
+
+     &#34;&#34;&#34;
+    global last_comment
+    global last_line_was_comment
+    global remove_last_comment
+    # Separate lines starting with different keywords
+    re_lines, group_lines, sid_lines, commented_lines, metadata_lines, other_lines = [], [], [], [], [], []
+
+    for line in disable_conf:
+        if line.startswith(&#34;group&#34;):
+            add_line_to_group(group_lines, line)
+        elif line.startswith(&#34;re&#34;):
+            add_line_to_group(re_lines, line)
+        elif line.startswith(&#34;metadata&#34;):
+            add_line_to_group(metadata_lines, line)
+        elif line.strip().isdigit():
+            add_line_to_group(sid_lines, line)
+        elif line.startswith(&#34;#&#34;):
+            add_line_to_group(commented_lines, line)
+            last_comment = line
+            last_line_was_comment = True
+        elif line.startswith(&#34;\n&#34;) and last_line_was_comment:
+            commented_lines.append(line)
+        else:
+            other_lines.append(line)
+
+        if remove_last_comment:
+            commented_lines = commented_lines[:-1]
+            remove_last_comment = False
+
+    remove_empty_lines_from_end(commented_lines)
+    remove_empty_lines_from_end(sid_lines)
+    remove_empty_lines_from_end(other_lines)
+    remove_empty_lines_from_end(re_lines)
+    remove_empty_lines_from_end(group_lines)
+    remove_empty_lines_from_end(metadata_lines)
+
+    normalized_disable_conf = commented_lines + [&#34;\n&#34; * 2] + group_lines  + [&#34;\n&#34; * 2] + sid_lines  + [&#34;\n&#34; * 2]+ metadata_lines  + [&#34;\n&#34; * 2] + re_lines +  [&#34;\n&#34; * 2] + other_lines + [&#34;\n&#34; * 2] + [&#34;\n&#34; * 1]
+
+    write_disable_conf(normalized_disable_conf)
+
+    return</code></pre>
+</details>
+</dd>
+<dt id="manager.activation.remove_empty_lines_from_end"><code class="name flex">
+<span>def <span class="ident">remove_empty_lines_from_end</span></span>(<span>list)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Removes empty lines from the end of the list.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>list</code></strong> :&ensp;<code>list</code></dt>
+<dd>List containing lines of text.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove_empty_lines_from_end(list):
+    &#34;&#34;&#34;Removes empty lines from the end of the list.
+
+       Parameters
+       ----------
+       list : list
+           List containing lines of text.
+    &#34;&#34;&#34;
+    while list and not list[-1].strip():
+        list.pop()</code></pre>
+</details>
+</dd>
+<dt id="manager.activation.write_disable_conf"><code class="name flex">
+<span>def <span class="ident">write_disable_conf</span></span>(<span>content)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Write content to disable.conf configuration file.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>content</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of lines creating the disable.conf to be stored.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def write_disable_conf(content):
+    &#34;&#34;&#34;Write content to disable.conf configuration file.
+
+       Parameters
+       ----------
+       content : list
+           List of lines creating the disable.conf to be stored.
+    &#34;&#34;&#34;
+    try:
+        with open(paths.DISABLE_CONF, &#39;w&#39;) as file:
+            return file.writelines(content)
+    except FileNotFoundError:
+        print(f&#34;File &#39;{paths.DISABLE_CONF}&#39; not found or cannot be openned.&#34;)
+        return
+    return</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="manager" href="index.html">manager</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="manager.activation.add_line_to_group" href="#manager.activation.add_line_to_group">add_line_to_group</a></code></li>
+<li><code><a title="manager.activation.create_expression" href="#manager.activation.create_expression">create_expression</a></code></li>
+<li><code><a title="manager.activation.disable_category" href="#manager.activation.disable_category">disable_category</a></code></li>
+<li><code><a title="manager.activation.enable_category" href="#manager.activation.enable_category">enable_category</a></code></li>
+<li><code><a title="manager.activation.find_expression" href="#manager.activation.find_expression">find_expression</a></code></li>
+<li><code><a title="manager.activation.is_comment_before_group" href="#manager.activation.is_comment_before_group">is_comment_before_group</a></code></li>
+<li><code><a title="manager.activation.load_disable_conf" href="#manager.activation.load_disable_conf">load_disable_conf</a></code></li>
+<li><code><a title="manager.activation.manage_category" href="#manager.activation.manage_category">manage_category</a></code></li>
+<li><code><a title="manager.activation.normalize_contents" href="#manager.activation.normalize_contents">normalize_contents</a></code></li>
+<li><code><a title="manager.activation.remove_empty_lines_from_end" href="#manager.activation.remove_empty_lines_from_end">remove_empty_lines_from_end</a></code></li>
+<li><code><a title="manager.activation.write_disable_conf" href="#manager.activation.write_disable_conf">write_disable_conf</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>manager.rule_trigger API documentation</title>
+<meta name="description" content="* Copyright 2001-2024 The Apache Software Foundation.
+*
+* Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
+* you may not use this file …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>manager.rule_trigger</code></h1>
+</header>
+<section id="section-intro">
+<ul>
+<li>Copyright 2001-2024 The Apache Software Foundation.
+*</li>
+<li>Licensed under the Apache License, Version 2.0 (the "License");</li>
+<li>you may not use this file except in compliance with the License.</li>
+<li>You may obtain a copy of the License at
+*</li>
+<li><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a>
+*</li>
+<li>Unless required by applicable law or agreed to in writing, software</li>
+<li>distributed under the License is distributed on an "AS IS" BASIS,</li>
+<li>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</li>
+<li>See the License for the specific language governing permissions and</li>
+<li>limitations under the License.
+*/</li>
+</ul>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+ * Copyright 2001-2024 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+&#34;&#34;&#34;
+
+# jq &#39;select(.event_type == ”alert” and (.alert.metadata.ATTRIBUTE | type == ”array” and any(.[]; . == ”ATTRIBUT_VALUE”))) |”\(.alert.signature_id):\(.alert.signature): \(.alert.category)”&#39;/data/idsp/outputs/eve.json
+import subprocess
+import paths
+import shlex
+import os
+import gzip
+import shutil
+import re
+from colorama import Style, Fore
+
+#https://docs.suricata.io/en/latest/configuration/global-thresholds.html
+def generate_threshold_command(args):
+    &#34;&#34;&#34;Generates threshold command from supplied arguments. Which can then be applied in threshold.conf to modify how alerts
+       are generated from given rules.
+
+       Parameters
+       ----------
+       args : list
+           Line of command line arguments used to generate supress command.
+           gid = args[0]
+           sid = args[1]
+           type = args[2]
+           track = args[3]
+           count = args[4]
+           seconds = args[5]
+    &#34;&#34;&#34;
+    gid, sid, type, track, count, seconds = args[0],args[1],args[2],args[3],args[4],args[5]
+    command = &#34;&#34;
+    error_msg = validate_threshold_input(gid, sid, type, track, count, seconds)
+
+    if error_msg != &#34;&#34;:
+        print(f&#34;{Fore.RED}Could not generate threshold command!{Style.RESET_ALL}&#34;)
+        print(error_msg)
+        return
+
+    command += f&#34;{Fore.GREEN}Generated threshold commnad:{Style.RESET_ALL}\n&#34;
+    command += f&#34;\tthreshold gen_id {gid}, sig_id {sid}, type {type}, track {track}, count {count}, seconds {seconds}\n\n&#34;
+
+
+    print(command)
+
+    return
+
+def generate_supress_command(args):
+    &#34;&#34;&#34;Generates supress command from supplied arguments. Which can then be applied in threshold.conf to modify how alerts
+       are generated from given rules.
+
+       Parameters
+       ----------
+       args : list
+           Line of command line arguments used to generate supress command.
+           gid = args[0]
+           sid = args[1]
+           track = args[2]
+           ip = args[3]
+    &#34;&#34;&#34;
+    gid, sid, track, ip = args[0], args[1], args[2], args[3]
+
+    error_msg = validate_supress_input(gid, sid, track, ip)
+
+    if error_msg != &#34;&#34;:
+        print(f&#34;{Fore.RED}Could not generate supress command!{Style.RESET_ALL}&#34;)
+        print(error_msg)
+        return
+
+    command = &#34;&#34;
+    command += f&#34;{Fore.GREEN}Supress an alert for a given rule with the following command:{Style.RESET_ALL}\n&#34;
+    command += f&#34;\tsupress gen_id {gid}, sig_id {sid}, track {track}, ip {ip}\n\n&#34;
+
+    print(command)
+
+    return
+
+def convert_str_to_int(str):
+    &#34;&#34;&#34;Converts string to integer if possible
+
+       Parameters
+       ----------
+       str : str
+           String to be converted to integer.
+
+       Returns
+       -------
+       int: int
+           Returns integer variant of given string if possible otherwise returns None.
+    &#34;&#34;&#34;
+    try:
+        return int(str)
+    except ValueError:
+        return None
+
+def valid_IP_range(ip):
+    &#34;&#34;&#34;Checks if the IP address provided as argument to file is a valid IP address, IP address range or IP variable
+
+       example of allowed values:
+
+                217.110.97.128/25
+                [192.168.0.0/16,10.0.0.0/8,172.16.0.0/12]
+                $HOME_NET
+
+       Parameters
+       ----------
+       ip : str
+           IP address string to be validated whether it has the correct formats.
+
+       Returns
+       -------
+       valid_single_IP: boolean
+           Returns True the provided IP is valid. False if provided IP is invalid.
+    &#34;&#34;&#34;
+    valid_single_IP = False
+    valid_IP_range = False
+    valid_IP_adressvar = False
+
+    single_IP_re = r&#34;^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$&#34;
+    # Regular expression pattern [192.168.0.0/16,10.0.0.0/8,172.16.0.0/12]
+    multiple_adress_range_re = r&#34;^\[(?:\s*(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\/(?:3[0-2]|[1-2]?[0-9])\s*)(?:,(?:\s*(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\/(?:3[0-2]|[1-2]?[0-9])\s*))*\]$&#34;
+    # Regular expression pattern  217.110.97.128/25
+    adress_range_re = r&#34;^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\/(3[0-2]|[1-2]?[0-9])$&#34;
+    allowed_adress_vars = [&#34;$HOME_NET&#34;,&#34;$EXTERNAL_NET&#34;, &#34;!$HOME_NET&#34;,&#34;!$EXTERNAL_NET&#34;]
+
+    if re.match(single_IP_re, ip):
+        valid_single_IP = True
+
+    if re.match(multiple_adress_range_re, ip) or re.match(adress_range_re, ip):
+        valid_IP_range = True
+
+    if ip in allowed_adress_vars:
+        valid_IP_adressvar = True
+
+    if valid_IP_adressvar or valid_single_IP or valid_IP_range:
+        return  True
+
+    return False
+def validate_supress_input(gid, sid, track, ip):
+    &#34;&#34;&#34;Validates input submitted to generate a supress command used to threshold alerting of a given rule.
+
+       For more information about allowed values for given threshold params see.
+
+       &#39;https://docs.suricata.io/en/suricata-6.0.0/configuration/global-thresholds.html&#39;
+
+       Parameters
+       ----------
+       gid : int
+           Gid of a given rule.
+       sid : int
+           Sid of a given rule.
+       track : int
+           Detection filter.
+       ip : str
+           IP address, range, or variable specifying target IP address.
+
+       Returns
+       -------
+       error_msg: str
+           Returns error_msg containing what is wrong with given threshold command input params. Returns empty string if there is no problem
+    &#34;&#34;&#34;
+    allowed_track = [&#34;by_src&#34;,&#34;by_dst&#34;,&#34;by_either&#34;]
+
+    gid = convert_str_to_int(gid)
+    sid = convert_str_to_int(sid)
+
+    error_msg = &#34;&#34;
+    if not isinstance(gid, int) or gid &lt; 0:
+        error_msg += f&#34;{Fore.RED} Wrong GID!{Style.RESET_ALL} GID must be a positive integer eg. 1\n&#34;
+    if not isinstance(sid, int) or sid &lt; 0:
+        error_msg += f&#34;{Fore.RED} Wrong SID!{Style.RESET_ALL} SID must be a positive integer eg. 2002087\n&#34;
+    if track not in allowed_track:
+        error_msg += f&#34;{Fore.RED} Wrong Track!{Style.RESET_ALL} Track must be one of {allowed_track}\n&#34;
+    if not valid_IP_range(ip):
+        error_msg += f&#34;{Fore.RED} Wrong IP!{Style.RESET_ALL} IP must be a correct IP or IP address range\n&#34;
+
+    return error_msg
+
+def validate_threshold_input(gid, sid, type, track, count, seconds):
+    &#34;&#34;&#34;Validates input submitted to generate a threshold command used to threshold alerting of a given rule.
+
+       For more information about allowed values for given threshold params see.
+
+       &#39;https://docs.suricata.io/en/latest/rules/thresholding.html&#39;
+
+       Parameters
+       ----------
+       gid : int
+           Gid of a given rule.
+       sid : int
+           Sid of a given rule.
+       type : str
+           Threshold type.
+       track : int
+           Detection filter.
+       count : int
+           Count of hits.
+       seconds : int
+           Number of seconds over which count is applied.
+
+       Returns
+       -------
+       error_msg: str
+           Returns error_msg containing what is wrong with given threshold command input params. Returns empty string if there is no problem
+    &#34;&#34;&#34;
+    allowed_types = [&#34;threshold&#34;,&#34;limit&#34;,&#34;both&#34;]
+    allowed_track = [&#34;by_src&#34;,&#34;by_dst&#34;,&#34;by_rule&#34;,&#34;both&#34;]
+
+    gid = convert_str_to_int(gid)
+    sid = convert_str_to_int(sid)
+    count = convert_str_to_int(count)
+    seconds = convert_str_to_int(seconds)
+
+    error_msg = &#34;&#34;
+    if not isinstance(gid, int) or gid &lt; 0:
+        error_msg += f&#34;{Fore.RED} Wrong GID!{Style.RESET_ALL} GID must be a positive integer eg. 1\n&#34;
+    if not isinstance(sid, int) or sid &lt; 0:
+        error_msg += f&#34;{Fore.RED} Wrong SID!{Style.RESET_ALL} SID must be a positive integer eg. 2002087\n&#34;
+    if type not in allowed_types:
+        error_msg += f&#34;{Fore.RED} Wrong Type!{Style.RESET_ALL} Type must be one of {allowed_types}\n&#34;
+    if track not in allowed_types:
+        error_msg += f&#34;{Fore.RED} Wrong Track!{Style.RESET_ALL} Track must be one of {allowed_track}\n&#34;
+    if not isinstance(count, int) or count &lt; 0:
+        error_msg += f&#34;{Fore.RED} Wrong Count!{Style.RESET_ALL} Count must be a positive integer eg. 10\n&#34;
+    if not isinstance(seconds, int) or seconds &lt; 0:
+        error_msg += f&#34;{Fore.RED} Wrong Seconds!{Style.RESET_ALL} Seconds must be a positive integer eg. 60\n&#34;
+
+    return error_msg
+
+
+def threshold_example():
+    &#34;&#34;&#34;Creates threshold command recommendation
+
+       Returns
+       -------
+       recommendation: str
+           Returns command recommendation to threshold alerting by given rules.
+    &#34;&#34;&#34;
+    recommendation = f&#34;{Fore.GREEN}Threshold a given rule with the following command:{Style.RESET_ALL}\n&#34;
+    recommendation += f&#34;\tthreshold gen_id &lt;gid&gt;, sig_id &lt;sid&gt;, type &lt;threshold|limit|both&gt;, track &lt;by_src|by_dst|by_rule|by_both&gt;, count &lt;N&gt;, seconds &lt;T&gt;\n\n&#34;
+    recommendation += f&#34;To apply append this command to {Fore.BLUE}threshold.config{Style.RESET_ALL}\n&#34;
+    recommendation += f&#34;For more information see https://docs.suricata.io/en/latest/configuration/global-thresholds.html\n&#34;
+
+    return recommendation
+
+def supress_example():
+    &#34;&#34;&#34;Creates supress command recommendation
+
+       Returns
+       -------
+       recommendation: str
+           Returns command recommendation to supress alerting by given rules.
+    &#34;&#34;&#34;
+    recommendation = f&#34;{Fore.GREEN}Supress an alert for a given rule with the following command:{Style.RESET_ALL}\n&#34;
+    recommendation += f&#34;\tsupress gen_id &lt;gid&gt;, sig_id &lt;sid&gt;, track &lt;by_src|by_dst|by_either&gt;, ip &lt;ip|subnet|adressvar&gt;\n\n&#34;
+    recommendation += f&#34;To apply append this command to {Fore.BLUE}threshold.config{Style.RESET_ALL}\n&#34;
+    recommendation += f&#34;For more information see https://blog.inliniac.net/2012/03/07/f-secure-av-updates-and-suricata-ips/\n&#34;
+
+    return recommendation
+
+def use_jq_tool(keyword, value, file):
+    &#34;&#34;&#34;Calls jq tool on given even.json to get rule trigger stats for rules which contain a given metadata attribute specified by keyword and value.
+
+       Parameters
+       ----------
+       keyword : str
+           Metadata keyword filter, to calculate stats only on rules having a given metadata attribute.
+       value : str
+           Metadata keyword value filter, to calculate stats only on rules having a given metadata attribute.
+       file : str
+           Eve.json file on which jq will calculate statistics .
+
+       Returns
+       -------
+       result: str
+           Returns jq output of rule-hits matching specified filter in specified eve.json log file.
+    &#34;&#34;&#34;
+    try:
+        sanitized_keyword = shlex.quote(keyword)
+        sanitized_value = shlex.quote(value)
+
+        command = f&#39;select(.event_type == &#34;alert&#34; and (.alert.metadata.{sanitized_keyword} | type == &#34;array&#34;) and any(.alert.metadata.{sanitized_keyword}[]; . == &#34;{sanitized_value}&#34;)) | &#34;\(.alert.signature_id):\(.alert.gid):\(.alert.signature): \(.alert.category)&#34;&#39;
+        
+        result = subprocess.check_output([&#34;jq&#34;,command,file])
+        return result    
+    except subprocess.CalledProcessError as e:
+        print(f&#34;Error occurred while calling jq tool: {e}&#34;)
+        return None
+    return
+
+
+def format_result(search_result, N):
+    &#34;&#34;&#34;Formats the result of statistical jq search among the eve.json file. Orders the rule-triggers descending based on the number
+       of rule hits by SID matching a given filter. Displays only the first N rules matching the filter ordered by number of rule-triggers
+       descending.
+
+       Parameters
+       ----------
+       search_result : str
+           Resulting jq search among eve.json
+       N : int
+           Number of rules matching the filter which should be displayed
+       Returns
+       -------
+       first_N_output: str
+           Formatted and ordered result from jq filter of rule triggers matching specified filter.
+    &#34;&#34;&#34;
+    try:
+        output = subprocess.check_output([&#34;uniq&#34;, &#34;-c&#34;],input=search_result)
+        sorted_output = subprocess.check_output([&#34;sort&#34;, &#34;-nr&#34;], input=output)
+        first_N_output = subprocess.check_output([&#34;head&#34;, f&#34;-n {N}&#34;], input=sorted_output)
+        first_N_output_str = first_N_output.decode(&#34;utf-8&#34;)
+
+        return first_N_output_str
+    except subprocess.CalledProcessError as e:
+        print(f&#34;Error occurred while calling jq tool: {e}&#34;)
+        return None
+    return
+
+
+def create_tmp_dir(gz_file_path, filename):
+    &#34;&#34;&#34;Extracts .gz eve.json archive specified by a filename to a given directory.
+
+       Parameters
+       ----------
+       gz_file_path : str
+           File path to directory where an archive specified by filename will be extracted.
+       filename : str
+           .Gz archive file name which should be expanded.
+
+       Returns
+       -------
+       extracted_archive: str
+           Returns path to an extracted archive if extraction was successful otherwise returns None.
+    &#34;&#34;&#34;
+    try:
+        directory_path = os.path.join(&#39;/tmp&#39;, filename.rsplit(&#34;.gz&#34;, 1)[0])
+
+        if not os.path.exists(directory_path):
+            os.makedirs(directory_path)
+
+        extracted_archive = os.path.join(directory_path, filename.rsplit(&#34;.gz&#34;, 1)[0])
+        if not os.path.exists(extracted_archive):
+            with gzip.open(gz_file_path, &#39;rb&#39;) as f_in:
+                with open(extracted_archive, &#39;wb&#39;) as f_out:
+                    shutil.copyfileobj(f_in, f_out)
+
+        return extracted_archive
+    except Exception as e:
+        pass
+
+    return None
+
+def rule_trigger_archive_log(path):
+    &#34;&#34;&#34;Extracts eve.json log file specified by path if provided log file is an archive.
+
+       Parameters
+       ----------
+       path : str
+           Path to an archived eve.json file.
+
+       Returns
+       -------
+       extracted_log_path: str
+           Returns path to an extracted eve.json file extracted from archived log file.
+    &#34;&#34;&#34;
+    extracted_log_path = None
+
+    if path is not None and path.endswith(&#34;.gz&#34;):
+        log_archive_name = os.path.basename(path)
+        extracted_log_path = create_tmp_dir(path, log_archive_name)
+    if extracted_log_path is None:
+        print(f&#34;\n{Fore.YELLOW}File {path} could not be opened or does not contain valid archived eve.json log.&#34;)
+        print(f&#34;{Fore.YELLOW}Calculating stats on {paths.EVE_JSON} instead.\n&#34;)
+        extracted_log_path = paths.EVE_JSON
+
+    return  extracted_log_path
+
+
+def calculate_stats(stats, path):
+    &#34;&#34;&#34;Calculates stats of rule trigger. Returns number of given rule hits in the specified eve.json log file or archived eve.json log file.
+
+        Stats are showed for first N rules with most hits which fit the metadata keyword value specified in filter.
+        Output of this command can be used to generate thresholds or supression for given rules to reduce the amount of generated alerts.
+
+
+       example of output:
+
+                 COUNT | SID | GID |                             SIGNATURE MESSAGE                               | CATEGORY |
+                15 &#34;2035190:1:ET INFO Observed Let&#39;s Encrypt Certificate from Active Intermediate, R3: Misc activity&#34;
+                6 &#34;2035190:1:ET INFO Observed Let&#39;s Encrypt Certificate from Active Intermediate, R3: Misc activity&#34;
+                2 &#34;2049202:1:ET INFO Observed File Hosting Service Domain (files .pythonhosted .org in TLS SNI): Misc activity&#34;
+                2 &#34;2049201:1:ET INFO File Hosting Service Domain Domain in DNS Lookup (files .pythonhosted .org): Misc activity&#34;
+                1 &#34;2022973:1:ET POLICY Possible Kali Linux hostname in DHCP Request Packet: Potential Corporate Privacy Violation&#34;
+
+       Parameters
+       ----------
+       stats : list
+           List of parameters part of command call.
+
+           stats[0] - filter &lt;=&gt; metadata keyword
+
+           stats[1] - filter &lt;=&gt; metadata keyword value
+
+           stats[2] - N &lt;=&gt; show first N rules matching the filter ordered descending based on number of hits in given eve.json log file
+       path : str
+           Path to a log file on which rule trigger stats should be calculated can be eve.json or eve.json archive.
+    &#34;&#34;&#34;
+    keyword = stats[0]
+    val = stats[1]
+    N = stats[2]
+
+    if path is not None:
+        path = rule_trigger_archive_log(path[0])
+    else:
+        path = paths.EVE_JSON
+
+    search_result = use_jq_tool(keyword, val,path)
+    ordered_result = format_result(search_result, N)
+
+    print(f&#34;{Fore.GREEN} COUNT | SID | GID |\t\t\t\t SIGNATURE MESSAGE \t\t\t\t | CATEGORY | {Style.RESET_ALL}&#34;)
+    print(ordered_result+&#34;\n&#34;)
+    print(threshold_example())
+    print(supress_example())
+
+    return</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="manager.rule_trigger.calculate_stats"><code class="name flex">
+<span>def <span class="ident">calculate_stats</span></span>(<span>stats, path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates stats of rule trigger. Returns number of given rule hits in the specified eve.json log file or archived eve.json log file.</p>
+<p>Stats are showed for first N rules with most hits which fit the metadata keyword value specified in filter.
+Output of this command can be used to generate thresholds or supression for given rules to reduce the amount of generated alerts.</p>
+<p>example of output:</p>
+<pre><code>      COUNT | SID | GID |                             SIGNATURE MESSAGE                               | CATEGORY |
+     15 "2035190:1:ET INFO Observed Let's Encrypt Certificate from Active Intermediate, R3: Misc activity"
+     6 "2035190:1:ET INFO Observed Let's Encrypt Certificate from Active Intermediate, R3: Misc activity"
+     2 "2049202:1:ET INFO Observed File Hosting Service Domain (files .pythonhosted .org in TLS SNI): Misc activity"
+     2 "2049201:1:ET INFO File Hosting Service Domain Domain in DNS Lookup (files .pythonhosted .org): Misc activity"
+     1 "2022973:1:ET POLICY Possible Kali Linux hostname in DHCP Request Packet: Potential Corporate Privacy Violation"
+</code></pre>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>stats</code></strong> :&ensp;<code>list</code></dt>
+<dd>
+<p>List of parameters part of command call.</p>
+<p>stats[0] - filter &lt;=&gt; metadata keyword</p>
+<p>stats[1] - filter &lt;=&gt; metadata keyword value</p>
+<p>stats[2] - N &lt;=&gt; show first N rules matching the filter ordered descending based on number of hits in given eve.json log file</p>
+</dd>
+<dt><strong><code>path</code></strong> :&ensp;<code>str</code></dt>
+<dd>Path to a log file on which rule trigger stats should be calculated can be eve.json or eve.json archive.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calculate_stats(stats, path):
+    &#34;&#34;&#34;Calculates stats of rule trigger. Returns number of given rule hits in the specified eve.json log file or archived eve.json log file.
+
+        Stats are showed for first N rules with most hits which fit the metadata keyword value specified in filter.
+        Output of this command can be used to generate thresholds or supression for given rules to reduce the amount of generated alerts.
+
+
+       example of output:
+
+                 COUNT | SID | GID |                             SIGNATURE MESSAGE                               | CATEGORY |
+                15 &#34;2035190:1:ET INFO Observed Let&#39;s Encrypt Certificate from Active Intermediate, R3: Misc activity&#34;
+                6 &#34;2035190:1:ET INFO Observed Let&#39;s Encrypt Certificate from Active Intermediate, R3: Misc activity&#34;
+                2 &#34;2049202:1:ET INFO Observed File Hosting Service Domain (files .pythonhosted .org in TLS SNI): Misc activity&#34;
+                2 &#34;2049201:1:ET INFO File Hosting Service Domain Domain in DNS Lookup (files .pythonhosted .org): Misc activity&#34;
+                1 &#34;2022973:1:ET POLICY Possible Kali Linux hostname in DHCP Request Packet: Potential Corporate Privacy Violation&#34;
+
+       Parameters
+       ----------
+       stats : list
+           List of parameters part of command call.
+
+           stats[0] - filter &lt;=&gt; metadata keyword
+
+           stats[1] - filter &lt;=&gt; metadata keyword value
+
+           stats[2] - N &lt;=&gt; show first N rules matching the filter ordered descending based on number of hits in given eve.json log file
+       path : str
+           Path to a log file on which rule trigger stats should be calculated can be eve.json or eve.json archive.
+    &#34;&#34;&#34;
+    keyword = stats[0]
+    val = stats[1]
+    N = stats[2]
+
+    if path is not None:
+        path = rule_trigger_archive_log(path[0])
+    else:
+        path = paths.EVE_JSON
+
+    search_result = use_jq_tool(keyword, val,path)
+    ordered_result = format_result(search_result, N)
+
+    print(f&#34;{Fore.GREEN} COUNT | SID | GID |\t\t\t\t SIGNATURE MESSAGE \t\t\t\t | CATEGORY | {Style.RESET_ALL}&#34;)
+    print(ordered_result+&#34;\n&#34;)
+    print(threshold_example())
+    print(supress_example())
+
+    return</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_trigger.convert_str_to_int"><code class="name flex">
+<span>def <span class="ident">convert_str_to_int</span></span>(<span>str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Converts string to integer if possible</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>str</code></strong> :&ensp;<code>str</code></dt>
+<dd>String to be converted to integer.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>int</code></strong> :&ensp;<code>int</code></dt>
+<dd>Returns integer variant of given string if possible otherwise returns None.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def convert_str_to_int(str):
+    &#34;&#34;&#34;Converts string to integer if possible
+
+       Parameters
+       ----------
+       str : str
+           String to be converted to integer.
+
+       Returns
+       -------
+       int: int
+           Returns integer variant of given string if possible otherwise returns None.
+    &#34;&#34;&#34;
+    try:
+        return int(str)
+    except ValueError:
+        return None</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_trigger.create_tmp_dir"><code class="name flex">
+<span>def <span class="ident">create_tmp_dir</span></span>(<span>gz_file_path, filename)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extracts .gz eve.json archive specified by a filename to a given directory.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>gz_file_path</code></strong> :&ensp;<code>str</code></dt>
+<dd>File path to directory where an archive specified by filename will be extracted.</dd>
+<dt><strong><code>filename</code></strong> :&ensp;<code>str</code></dt>
+<dd>.Gz archive file name which should be expanded.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>extracted_archive</code></strong> :&ensp;<code>str</code></dt>
+<dd>Returns path to an extracted archive if extraction was successful otherwise returns None.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_tmp_dir(gz_file_path, filename):
+    &#34;&#34;&#34;Extracts .gz eve.json archive specified by a filename to a given directory.
+
+       Parameters
+       ----------
+       gz_file_path : str
+           File path to directory where an archive specified by filename will be extracted.
+       filename : str
+           .Gz archive file name which should be expanded.
+
+       Returns
+       -------
+       extracted_archive: str
+           Returns path to an extracted archive if extraction was successful otherwise returns None.
+    &#34;&#34;&#34;
+    try:
+        directory_path = os.path.join(&#39;/tmp&#39;, filename.rsplit(&#34;.gz&#34;, 1)[0])
+
+        if not os.path.exists(directory_path):
+            os.makedirs(directory_path)
+
+        extracted_archive = os.path.join(directory_path, filename.rsplit(&#34;.gz&#34;, 1)[0])
+        if not os.path.exists(extracted_archive):
+            with gzip.open(gz_file_path, &#39;rb&#39;) as f_in:
+                with open(extracted_archive, &#39;wb&#39;) as f_out:
+                    shutil.copyfileobj(f_in, f_out)
+
+        return extracted_archive
+    except Exception as e:
+        pass
+
+    return None</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_trigger.format_result"><code class="name flex">
+<span>def <span class="ident">format_result</span></span>(<span>search_result, N)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Formats the result of statistical jq search among the eve.json file. Orders the rule-triggers descending based on the number
+of rule hits by SID matching a given filter. Displays only the first N rules matching the filter ordered by number of rule-triggers
+descending.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>search_result</code></strong> :&ensp;<code>str</code></dt>
+<dd>Resulting jq search among eve.json</dd>
+<dt><strong><code>N</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of rules matching the filter which should be displayed</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>first_N_output</code></strong> :&ensp;<code>str</code></dt>
+<dd>Formatted and ordered result from jq filter of rule triggers matching specified filter.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def format_result(search_result, N):
+    &#34;&#34;&#34;Formats the result of statistical jq search among the eve.json file. Orders the rule-triggers descending based on the number
+       of rule hits by SID matching a given filter. Displays only the first N rules matching the filter ordered by number of rule-triggers
+       descending.
+
+       Parameters
+       ----------
+       search_result : str
+           Resulting jq search among eve.json
+       N : int
+           Number of rules matching the filter which should be displayed
+       Returns
+       -------
+       first_N_output: str
+           Formatted and ordered result from jq filter of rule triggers matching specified filter.
+    &#34;&#34;&#34;
+    try:
+        output = subprocess.check_output([&#34;uniq&#34;, &#34;-c&#34;],input=search_result)
+        sorted_output = subprocess.check_output([&#34;sort&#34;, &#34;-nr&#34;], input=output)
+        first_N_output = subprocess.check_output([&#34;head&#34;, f&#34;-n {N}&#34;], input=sorted_output)
+        first_N_output_str = first_N_output.decode(&#34;utf-8&#34;)
+
+        return first_N_output_str
+    except subprocess.CalledProcessError as e:
+        print(f&#34;Error occurred while calling jq tool: {e}&#34;)
+        return None
+    return</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_trigger.generate_supress_command"><code class="name flex">
+<span>def <span class="ident">generate_supress_command</span></span>(<span>args)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generates supress command from supplied arguments. Which can then be applied in threshold.conf to modify how alerts
+are generated from given rules.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>args</code></strong> :&ensp;<code>list</code></dt>
+<dd>Line of command line arguments used to generate supress command.
+gid = args[0]
+sid = args[1]
+track = args[2]
+ip = args[3]</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def generate_supress_command(args):
+    &#34;&#34;&#34;Generates supress command from supplied arguments. Which can then be applied in threshold.conf to modify how alerts
+       are generated from given rules.
+
+       Parameters
+       ----------
+       args : list
+           Line of command line arguments used to generate supress command.
+           gid = args[0]
+           sid = args[1]
+           track = args[2]
+           ip = args[3]
+    &#34;&#34;&#34;
+    gid, sid, track, ip = args[0], args[1], args[2], args[3]
+
+    error_msg = validate_supress_input(gid, sid, track, ip)
+
+    if error_msg != &#34;&#34;:
+        print(f&#34;{Fore.RED}Could not generate supress command!{Style.RESET_ALL}&#34;)
+        print(error_msg)
+        return
+
+    command = &#34;&#34;
+    command += f&#34;{Fore.GREEN}Supress an alert for a given rule with the following command:{Style.RESET_ALL}\n&#34;
+    command += f&#34;\tsupress gen_id {gid}, sig_id {sid}, track {track}, ip {ip}\n\n&#34;
+
+    print(command)
+
+    return</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_trigger.generate_threshold_command"><code class="name flex">
+<span>def <span class="ident">generate_threshold_command</span></span>(<span>args)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generates threshold command from supplied arguments. Which can then be applied in threshold.conf to modify how alerts
+are generated from given rules.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>args</code></strong> :&ensp;<code>list</code></dt>
+<dd>Line of command line arguments used to generate supress command.
+gid = args[0]
+sid = args[1]
+type = args[2]
+track = args[3]
+count = args[4]
+seconds = args[5]</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def generate_threshold_command(args):
+    &#34;&#34;&#34;Generates threshold command from supplied arguments. Which can then be applied in threshold.conf to modify how alerts
+       are generated from given rules.
+
+       Parameters
+       ----------
+       args : list
+           Line of command line arguments used to generate supress command.
+           gid = args[0]
+           sid = args[1]
+           type = args[2]
+           track = args[3]
+           count = args[4]
+           seconds = args[5]
+    &#34;&#34;&#34;
+    gid, sid, type, track, count, seconds = args[0],args[1],args[2],args[3],args[4],args[5]
+    command = &#34;&#34;
+    error_msg = validate_threshold_input(gid, sid, type, track, count, seconds)
+
+    if error_msg != &#34;&#34;:
+        print(f&#34;{Fore.RED}Could not generate threshold command!{Style.RESET_ALL}&#34;)
+        print(error_msg)
+        return
+
+    command += f&#34;{Fore.GREEN}Generated threshold commnad:{Style.RESET_ALL}\n&#34;
+    command += f&#34;\tthreshold gen_id {gid}, sig_id {sid}, type {type}, track {track}, count {count}, seconds {seconds}\n\n&#34;
+
+
+    print(command)
+
+    return</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_trigger.rule_trigger_archive_log"><code class="name flex">
+<span>def <span class="ident">rule_trigger_archive_log</span></span>(<span>path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extracts eve.json log file specified by path if provided log file is an archive.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>path</code></strong> :&ensp;<code>str</code></dt>
+<dd>Path to an archived eve.json file.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>extracted_log_path</code></strong> :&ensp;<code>str</code></dt>
+<dd>Returns path to an extracted eve.json file extracted from archived log file.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def rule_trigger_archive_log(path):
+    &#34;&#34;&#34;Extracts eve.json log file specified by path if provided log file is an archive.
+
+       Parameters
+       ----------
+       path : str
+           Path to an archived eve.json file.
+
+       Returns
+       -------
+       extracted_log_path: str
+           Returns path to an extracted eve.json file extracted from archived log file.
+    &#34;&#34;&#34;
+    extracted_log_path = None
+
+    if path is not None and path.endswith(&#34;.gz&#34;):
+        log_archive_name = os.path.basename(path)
+        extracted_log_path = create_tmp_dir(path, log_archive_name)
+    if extracted_log_path is None:
+        print(f&#34;\n{Fore.YELLOW}File {path} could not be opened or does not contain valid archived eve.json log.&#34;)
+        print(f&#34;{Fore.YELLOW}Calculating stats on {paths.EVE_JSON} instead.\n&#34;)
+        extracted_log_path = paths.EVE_JSON
+
+    return  extracted_log_path</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_trigger.supress_example"><code class="name flex">
+<span>def <span class="ident">supress_example</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates supress command recommendation</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>recommendation</code></strong> :&ensp;<code>str</code></dt>
+<dd>Returns command recommendation to supress alerting by given rules.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def supress_example():
+    &#34;&#34;&#34;Creates supress command recommendation
+
+       Returns
+       -------
+       recommendation: str
+           Returns command recommendation to supress alerting by given rules.
+    &#34;&#34;&#34;
+    recommendation = f&#34;{Fore.GREEN}Supress an alert for a given rule with the following command:{Style.RESET_ALL}\n&#34;
+    recommendation += f&#34;\tsupress gen_id &lt;gid&gt;, sig_id &lt;sid&gt;, track &lt;by_src|by_dst|by_either&gt;, ip &lt;ip|subnet|adressvar&gt;\n\n&#34;
+    recommendation += f&#34;To apply append this command to {Fore.BLUE}threshold.config{Style.RESET_ALL}\n&#34;
+    recommendation += f&#34;For more information see https://blog.inliniac.net/2012/03/07/f-secure-av-updates-and-suricata-ips/\n&#34;
+
+    return recommendation</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_trigger.threshold_example"><code class="name flex">
+<span>def <span class="ident">threshold_example</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates threshold command recommendation</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>recommendation</code></strong> :&ensp;<code>str</code></dt>
+<dd>Returns command recommendation to threshold alerting by given rules.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def threshold_example():
+    &#34;&#34;&#34;Creates threshold command recommendation
+
+       Returns
+       -------
+       recommendation: str
+           Returns command recommendation to threshold alerting by given rules.
+    &#34;&#34;&#34;
+    recommendation = f&#34;{Fore.GREEN}Threshold a given rule with the following command:{Style.RESET_ALL}\n&#34;
+    recommendation += f&#34;\tthreshold gen_id &lt;gid&gt;, sig_id &lt;sid&gt;, type &lt;threshold|limit|both&gt;, track &lt;by_src|by_dst|by_rule|by_both&gt;, count &lt;N&gt;, seconds &lt;T&gt;\n\n&#34;
+    recommendation += f&#34;To apply append this command to {Fore.BLUE}threshold.config{Style.RESET_ALL}\n&#34;
+    recommendation += f&#34;For more information see https://docs.suricata.io/en/latest/configuration/global-thresholds.html\n&#34;
+
+    return recommendation</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_trigger.use_jq_tool"><code class="name flex">
+<span>def <span class="ident">use_jq_tool</span></span>(<span>keyword, value, file)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calls jq tool on given even.json to get rule trigger stats for rules which contain a given metadata attribute specified by keyword and value.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>keyword</code></strong> :&ensp;<code>str</code></dt>
+<dd>Metadata keyword filter, to calculate stats only on rules having a given metadata attribute.</dd>
+<dt><strong><code>value</code></strong> :&ensp;<code>str</code></dt>
+<dd>Metadata keyword value filter, to calculate stats only on rules having a given metadata attribute.</dd>
+<dt><strong><code>file</code></strong> :&ensp;<code>str</code></dt>
+<dd>Eve.json file on which jq will calculate statistics .</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>result</code></strong> :&ensp;<code>str</code></dt>
+<dd>Returns jq output of rule-hits matching specified filter in specified eve.json log file.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def use_jq_tool(keyword, value, file):
+    &#34;&#34;&#34;Calls jq tool on given even.json to get rule trigger stats for rules which contain a given metadata attribute specified by keyword and value.
+
+       Parameters
+       ----------
+       keyword : str
+           Metadata keyword filter, to calculate stats only on rules having a given metadata attribute.
+       value : str
+           Metadata keyword value filter, to calculate stats only on rules having a given metadata attribute.
+       file : str
+           Eve.json file on which jq will calculate statistics .
+
+       Returns
+       -------
+       result: str
+           Returns jq output of rule-hits matching specified filter in specified eve.json log file.
+    &#34;&#34;&#34;
+    try:
+        sanitized_keyword = shlex.quote(keyword)
+        sanitized_value = shlex.quote(value)
+
+        command = f&#39;select(.event_type == &#34;alert&#34; and (.alert.metadata.{sanitized_keyword} | type == &#34;array&#34;) and any(.alert.metadata.{sanitized_keyword}[]; . == &#34;{sanitized_value}&#34;)) | &#34;\(.alert.signature_id):\(.alert.gid):\(.alert.signature): \(.alert.category)&#34;&#39;
+        
+        result = subprocess.check_output([&#34;jq&#34;,command,file])
+        return result    
+    except subprocess.CalledProcessError as e:
+        print(f&#34;Error occurred while calling jq tool: {e}&#34;)
+        return None
+    return</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_trigger.valid_IP_range"><code class="name flex">
+<span>def <span class="ident">valid_IP_range</span></span>(<span>ip)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the IP address provided as argument to file is a valid IP address, IP address range or IP variable</p>
+<p>example of allowed values:</p>
+<pre><code>     217.110.97.128/25
+     [192.168.0.0/16,10.0.0.0/8,172.16.0.0/12]
+     $HOME_NET
+</code></pre>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>ip</code></strong> :&ensp;<code>str</code></dt>
+<dd>IP address string to be validated whether it has the correct formats.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>valid_single_IP</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>Returns True the provided IP is valid. False if provided IP is invalid.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def valid_IP_range(ip):
+    &#34;&#34;&#34;Checks if the IP address provided as argument to file is a valid IP address, IP address range or IP variable
+
+       example of allowed values:
+
+                217.110.97.128/25
+                [192.168.0.0/16,10.0.0.0/8,172.16.0.0/12]
+                $HOME_NET
+
+       Parameters
+       ----------
+       ip : str
+           IP address string to be validated whether it has the correct formats.
+
+       Returns
+       -------
+       valid_single_IP: boolean
+           Returns True the provided IP is valid. False if provided IP is invalid.
+    &#34;&#34;&#34;
+    valid_single_IP = False
+    valid_IP_range = False
+    valid_IP_adressvar = False
+
+    single_IP_re = r&#34;^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$&#34;
+    # Regular expression pattern [192.168.0.0/16,10.0.0.0/8,172.16.0.0/12]
+    multiple_adress_range_re = r&#34;^\[(?:\s*(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\/(?:3[0-2]|[1-2]?[0-9])\s*)(?:,(?:\s*(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\/(?:3[0-2]|[1-2]?[0-9])\s*))*\]$&#34;
+    # Regular expression pattern  217.110.97.128/25
+    adress_range_re = r&#34;^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\/(3[0-2]|[1-2]?[0-9])$&#34;
+    allowed_adress_vars = [&#34;$HOME_NET&#34;,&#34;$EXTERNAL_NET&#34;, &#34;!$HOME_NET&#34;,&#34;!$EXTERNAL_NET&#34;]
+
+    if re.match(single_IP_re, ip):
+        valid_single_IP = True
+
+    if re.match(multiple_adress_range_re, ip) or re.match(adress_range_re, ip):
+        valid_IP_range = True
+
+    if ip in allowed_adress_vars:
+        valid_IP_adressvar = True
+
+    if valid_IP_adressvar or valid_single_IP or valid_IP_range:
+        return  True
+
+    return False</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_trigger.validate_supress_input"><code class="name flex">
+<span>def <span class="ident">validate_supress_input</span></span>(<span>gid, sid, track, ip)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Validates input submitted to generate a supress command used to threshold alerting of a given rule.</p>
+<p>For more information about allowed values for given threshold params see.</p>
+<p>'https://docs.suricata.io/en/suricata-6.0.0/configuration/global-thresholds.html'</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>gid</code></strong> :&ensp;<code>int</code></dt>
+<dd>Gid of a given rule.</dd>
+<dt><strong><code>sid</code></strong> :&ensp;<code>int</code></dt>
+<dd>Sid of a given rule.</dd>
+<dt><strong><code>track</code></strong> :&ensp;<code>int</code></dt>
+<dd>Detection filter.</dd>
+<dt><strong><code>ip</code></strong> :&ensp;<code>str</code></dt>
+<dd>IP address, range, or variable specifying target IP address.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>error_msg</code></strong> :&ensp;<code>str</code></dt>
+<dd>Returns error_msg containing what is wrong with given threshold command input params. Returns empty string if there is no problem</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def validate_supress_input(gid, sid, track, ip):
+    &#34;&#34;&#34;Validates input submitted to generate a supress command used to threshold alerting of a given rule.
+
+       For more information about allowed values for given threshold params see.
+
+       &#39;https://docs.suricata.io/en/suricata-6.0.0/configuration/global-thresholds.html&#39;
+
+       Parameters
+       ----------
+       gid : int
+           Gid of a given rule.
+       sid : int
+           Sid of a given rule.
+       track : int
+           Detection filter.
+       ip : str
+           IP address, range, or variable specifying target IP address.
+
+       Returns
+       -------
+       error_msg: str
+           Returns error_msg containing what is wrong with given threshold command input params. Returns empty string if there is no problem
+    &#34;&#34;&#34;
+    allowed_track = [&#34;by_src&#34;,&#34;by_dst&#34;,&#34;by_either&#34;]
+
+    gid = convert_str_to_int(gid)
+    sid = convert_str_to_int(sid)
+
+    error_msg = &#34;&#34;
+    if not isinstance(gid, int) or gid &lt; 0:
+        error_msg += f&#34;{Fore.RED} Wrong GID!{Style.RESET_ALL} GID must be a positive integer eg. 1\n&#34;
+    if not isinstance(sid, int) or sid &lt; 0:
+        error_msg += f&#34;{Fore.RED} Wrong SID!{Style.RESET_ALL} SID must be a positive integer eg. 2002087\n&#34;
+    if track not in allowed_track:
+        error_msg += f&#34;{Fore.RED} Wrong Track!{Style.RESET_ALL} Track must be one of {allowed_track}\n&#34;
+    if not valid_IP_range(ip):
+        error_msg += f&#34;{Fore.RED} Wrong IP!{Style.RESET_ALL} IP must be a correct IP or IP address range\n&#34;
+
+    return error_msg</code></pre>
+</details>
+</dd>
+<dt id="manager.rule_trigger.validate_threshold_input"><code class="name flex">
+<span>def <span class="ident">validate_threshold_input</span></span>(<span>gid, sid, type, track, count, seconds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Validates input submitted to generate a threshold command used to threshold alerting of a given rule.</p>
+<p>For more information about allowed values for given threshold params see.</p>
+<p>'https://docs.suricata.io/en/latest/rules/thresholding.html'</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>gid</code></strong> :&ensp;<code>int</code></dt>
+<dd>Gid of a given rule.</dd>
+<dt><strong><code>sid</code></strong> :&ensp;<code>int</code></dt>
+<dd>Sid of a given rule.</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>Threshold type.</dd>
+<dt><strong><code>track</code></strong> :&ensp;<code>int</code></dt>
+<dd>Detection filter.</dd>
+<dt><strong><code>count</code></strong> :&ensp;<code>int</code></dt>
+<dd>Count of hits.</dd>
+<dt><strong><code>seconds</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of seconds over which count is applied.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>error_msg</code></strong> :&ensp;<code>str</code></dt>
+<dd>Returns error_msg containing what is wrong with given threshold command input params. Returns empty string if there is no problem</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def validate_threshold_input(gid, sid, type, track, count, seconds):
+    &#34;&#34;&#34;Validates input submitted to generate a threshold command used to threshold alerting of a given rule.
+
+       For more information about allowed values for given threshold params see.
+
+       &#39;https://docs.suricata.io/en/latest/rules/thresholding.html&#39;
+
+       Parameters
+       ----------
+       gid : int
+           Gid of a given rule.
+       sid : int
+           Sid of a given rule.
+       type : str
+           Threshold type.
+       track : int
+           Detection filter.
+       count : int
+           Count of hits.
+       seconds : int
+           Number of seconds over which count is applied.
+
+       Returns
+       -------
+       error_msg: str
+           Returns error_msg containing what is wrong with given threshold command input params. Returns empty string if there is no problem
+    &#34;&#34;&#34;
+    allowed_types = [&#34;threshold&#34;,&#34;limit&#34;,&#34;both&#34;]
+    allowed_track = [&#34;by_src&#34;,&#34;by_dst&#34;,&#34;by_rule&#34;,&#34;both&#34;]
+
+    gid = convert_str_to_int(gid)
+    sid = convert_str_to_int(sid)
+    count = convert_str_to_int(count)
+    seconds = convert_str_to_int(seconds)
+
+    error_msg = &#34;&#34;
+    if not isinstance(gid, int) or gid &lt; 0:
+        error_msg += f&#34;{Fore.RED} Wrong GID!{Style.RESET_ALL} GID must be a positive integer eg. 1\n&#34;
+    if not isinstance(sid, int) or sid &lt; 0:
+        error_msg += f&#34;{Fore.RED} Wrong SID!{Style.RESET_ALL} SID must be a positive integer eg. 2002087\n&#34;
+    if type not in allowed_types:
+        error_msg += f&#34;{Fore.RED} Wrong Type!{Style.RESET_ALL} Type must be one of {allowed_types}\n&#34;
+    if track not in allowed_types:
+        error_msg += f&#34;{Fore.RED} Wrong Track!{Style.RESET_ALL} Track must be one of {allowed_track}\n&#34;
+    if not isinstance(count, int) or count &lt; 0:
+        error_msg += f&#34;{Fore.RED} Wrong Count!{Style.RESET_ALL} Count must be a positive integer eg. 10\n&#34;
+    if not isinstance(seconds, int) or seconds &lt; 0:
+        error_msg += f&#34;{Fore.RED} Wrong Seconds!{Style.RESET_ALL} Seconds must be a positive integer eg. 60\n&#34;
+
+    return error_msg</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="manager" href="index.html">manager</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="manager.rule_trigger.calculate_stats" href="#manager.rule_trigger.calculate_stats">calculate_stats</a></code></li>
+<li><code><a title="manager.rule_trigger.convert_str_to_int" href="#manager.rule_trigger.convert_str_to_int">convert_str_to_int</a></code></li>
+<li><code><a title="manager.rule_trigger.create_tmp_dir" href="#manager.rule_trigger.create_tmp_dir">create_tmp_dir</a></code></li>
+<li><code><a title="manager.rule_trigger.format_result" href="#manager.rule_trigger.format_result">format_result</a></code></li>
+<li><code><a title="manager.rule_trigger.generate_supress_command" href="#manager.rule_trigger.generate_supress_command">generate_supress_command</a></code></li>
+<li><code><a title="manager.rule_trigger.generate_threshold_command" href="#manager.rule_trigger.generate_threshold_command">generate_threshold_command</a></code></li>
+<li><code><a title="manager.rule_trigger.rule_trigger_archive_log" href="#manager.rule_trigger.rule_trigger_archive_log">rule_trigger_archive_log</a></code></li>
+<li><code><a title="manager.rule_trigger.supress_example" href="#manager.rule_trigger.supress_example">supress_example</a></code></li>
+<li><code><a title="manager.rule_trigger.threshold_example" href="#manager.rule_trigger.threshold_example">threshold_example</a></code></li>
+<li><code><a title="manager.rule_trigger.use_jq_tool" href="#manager.rule_trigger.use_jq_tool">use_jq_tool</a></code></li>
+<li><code><a title="manager.rule_trigger.valid_IP_range" href="#manager.rule_trigger.valid_IP_range">valid_IP_range</a></code></li>
+<li><code><a title="manager.rule_trigger.validate_supress_input" href="#manager.rule_trigger.validate_supress_input">validate_supress_input</a></code></li>
+<li><code><a title="manager.rule_trigger.validate_threshold_input" href="#manager.rule_trigger.validate_threshold_input">validate_threshold_input</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

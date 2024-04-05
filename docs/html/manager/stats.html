@@ -1,0 +1,1896 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>manager.stats API documentation</title>
+<meta name="description" content="* Copyright 2001-2024 The Apache Software Foundation.
+* Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
+* you may not use this file …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>manager.stats</code></h1>
+</header>
+<section id="section-intro">
+<ul>
+<li>Copyright 2001-2024 The Apache Software Foundation.</li>
+<li>Licensed under the Apache License, Version 2.0 (the "License");</li>
+<li>you may not use this file except in compliance with the License.</li>
+<li>You may obtain a copy of the License at
+*</li>
+<li><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a>
+*</li>
+<li>Based on secureworks/aristotle.</li>
+<li>Source code from secureworks/aristotle was modified and refactored.</li>
+<li>Original source: <a href="https://aristotle-py.readthedocs.io/en/latest/">https://aristotle-py.readthedocs.io/en/latest/</a>
+*</li>
+<li>Unless required by applicable law or agreed to in writing, software</li>
+<li>distributed under the License is distributed on an "AS IS" BASIS,</li>
+<li>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</li>
+<li>See the License for the specific language governing permissions and</li>
+<li>limitations under the License.
+*/</li>
+</ul>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+ * Copyright 2001-2024 The Apache Software Foundation.
+ * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Based on secureworks/aristotle.
+ * Source code from secureworks/aristotle was modified and refactored.
+ * Original source: https://aristotle-py.readthedocs.io/en/latest/
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+&#34;&#34;&#34;
+
+
+import os
+import re
+import sys
+import paths
+from colorama import Style, Fore
+
+signature_re = re.compile(r&#34;^(?P&lt;HEADER&gt;(?P&lt;ACTION&gt;pass|drop|reject|alert|rejectsrc|rejectdst|rejectboth)\s+(?P&lt;PROTO&gt;[^\s]+)\s+(?P&lt;SOURCEIP&gt;[^\s]+)\s+(?P&lt;SOURCEPORT&gt;[^\s]+)\s+(?P&lt;DIRECTION&gt;[-&lt;]&gt;)\s+(?P&lt;DESTINATIONIP&gt;[^\s]+)\s+(?P&lt;DESTINATIONPORT&gt;[^\s]+))\s+\((?P&lt;BODY&gt;[^\)]+)&#34;)
+disabled_signature_re = re.compile(r&#34;^#\s*(?:pass|drop|reject|alert|rejectsrc|rejectdst|rejectboth)\s.*[();]\s*sid\s*:\s*\d+\s*;.*\)$&#34;)
+
+sid_re = re.compile(r&#34;[();]\s*sid\s*:\s*(?P&lt;SID_IDENTIFIER&gt;\d+)\s*;&#34;)
+metadata_keyword_re = re.compile(r&#34;(?P&lt;METADATA&gt;[();]\s*metadata\s*:\s*)(?P&lt;METADATA_KEYWORD&gt;[^;]+);&#34;)
+classtype_keyword_re = re.compile(r&#34;(?P&lt;CLASSTYPE&gt;[();]\s*classtype\s*:\s*)(?P&lt;CLASSTYPE_VALUE&gt;[^;]+);&#34;)
+
+
+class RuleStatistics():
+    &#34;&#34;&#34;
+        A class used to represent loaded signature set or ruleset eg. suricata.rules file
+        ...
+
+        Attributes
+        ----------
+        metadata_by_sid : dict
+            dictionary of signature metadata for each SID of signature from specified ruleset
+
+        used_metadata_keywords_registry : dict
+            dictionary of used metadata keywords used in signatures from specified ruleset
+
+        file_loaded : boolean
+            was the signature file loaded
+
+    &#34;&#34;&#34;
+
+    def __init__(self, rule_file_path):
+        &#34;&#34;&#34;Initializes Rule Stats class.
+
+
+            used_metadata_keywords_registry example:
+
+                    {&#39;sid&#39;: {&#39;2004002&#39;: [2004002], &#39;2013845&#39;: [2013845]}, &#39;affected_product&#39;: {&#39;web_server_applications&#39;: [2004002]}, &#39;attack_target&#39;: {&#39;web_server&#39;: [2004002]}, &#39;created_at&#39;: {&#39;2010_07_30&#39;: [2004002], &#39;2011_11_05&#39;: [2013845]}, &#39;deployment&#39;: {&#39;datacenter&#39;: [2004002]}, &#39;signature_severity&#39;: {&#39;major&#39;: [2004002]}, &#39;tag&#39;: {&#39;sql_injection&#39;: [2004002]}, &#39;updated_at&#39;: {&#39;2020_09_11&#39;: [2004002]}, &#39;classtype&#39;: {&#39;web-application-attack&#39;: [2004002]}}
+
+            metadata_by_sid example:
+
+                    {2004002: {&#39;metadata&#39;: {&#39;sid&#39;: [&#39;2004002&#39;], &#39;affected_product&#39;: [&#39;web_server_applications&#39;]}, &#39;disabled&#39;: True, &#39;raw_rule&#39;: &#39;alert http $EXTERNAL_NET any -&gt; $HTTP_SERVERS any (msg:&#34;ET WEB_SPECIFIC_APPS Gazi Download Portal SQL Injection Attempt -- down_indir.asp id DELETE&#34;; flow:established,to_server; http.uri; content:&#34;/down_indir.asp?&#34;; nocase; content:&#34;id=&#34;; nocase; content:&#34;DELETE&#34;; nocase; content:&#34;FROM&#34;; nocase; distance:0; reference:cve,CVE-2007-2810; reference:url,www.securityfocus.com/bid/23714; reference:url,doc.emergingthreats.net/2004002; classtype:web-application-attack; sid:2004002; rev:10; metadata:affected_product Web_Server_Applications, attack_target Web_Server, created_at 2010_07_30, deployment Datacenter, signature_severity Major, tag SQL_Injection, updated_at 2020_09_11;)&#39;}}
+
+
+           Parameters
+           ----------
+           rule_file_path : str
+               Path to rule file.
+        &#34;&#34;&#34;
+        #Metadata dictionary for each sid.
+        self.metadata_by_sid = {}
+        #Dictionary of metadata keywords used in rule file.
+        self.used_metadata_keywords_registry = {&#39;sid&#39;: {}}
+
+        self.file_loaded = False
+
+        try:
+            if os.path.isfile(rule_file_path):
+                with open(rule_file_path, &#39;r&#39;) as rule_file:
+                    self.file_loaded = True
+                    self.load_ruleset(rule_file.read())
+            else:
+                print(f&#34;Unable to process rule file \&#39;{rule_file_path}.\nPlease check that the file exists and is a valid .rules file&#34;)
+        except Exception as e:
+            print(f&#34;Unable to process rule file \&#39;{rule_file_path}.\nPlease check that the file exists and is a valid .rules file&#34;)
+
+    def set_metadata_keywords(self, sid, keyword, value):
+        &#34;&#34;&#34;Add metadata keyword and value found in a given rule to the metadata keyword value registry of all used
+           metadata attributes within the whole ruleset if it was not added before.
+
+           Parameters
+           ----------
+           sid : str
+               SID identifier of a given rule.
+           keyword : str
+               Metadata keyword from rule.
+           value : str
+               Metadata keyword value from rule.
+            &#34;&#34;&#34;
+
+        # Add key to list of used metadata keywords
+        if keyword not in self.used_metadata_keywords_registry.keys():
+            self.used_metadata_keywords_registry[keyword] = {}
+        if value not in self.used_metadata_keywords_registry[keyword].keys():
+            self.used_metadata_keywords_registry[keyword][value] = []
+        if sid not in self.used_metadata_keywords_registry[keyword][value]:
+            self.used_metadata_keywords_registry[keyword][value].append(sid)
+
+        return
+
+    def insert_metadata_to_rule(self, sid, keyword, value):
+        &#34;&#34;&#34;Adds metadata discovered from a given rule to the metadata dictionary for a coresponding rule specified by SID.
+
+           Parameters
+           ----------
+           sid : str
+               SID identifier of a given rule.
+           keyword : str
+               Metadata keyword from rule.
+           value : str
+               Metadata keyword value from rule.
+        &#34;&#34;&#34;
+
+        keyword = keyword.lower().strip()
+        value = value.lower().strip()
+
+        if sid not in self.metadata_by_sid.keys():
+            print(f&#34;add_metadata() called for sid &#39;{sid}&#39; but sid is invalid (does not exist).&#34;)
+            return
+
+        if keyword not in self.metadata_by_sid[sid][&#39;metadata&#39;].keys():
+            self.metadata_by_sid[sid][&#39;metadata&#39;][keyword] = []
+
+        if value not in self.metadata_by_sid[sid][&#39;metadata&#39;][keyword]:
+            self.metadata_by_sid[sid][&#39;metadata&#39;][keyword].append(value)
+
+
+    def create_metadata_dic(self, sid, metadata_key_value_pairs):
+        &#34;&#34;&#34;Extracts SID attribute and its value from the plaintext signature as stored in .rules file. Extracted SID
+             is then added as a metadata attribute to the dictionary of metadata attrributes for a corresponding rule.
+
+             example of metadata_key_value_pairs:
+
+                        [&#39;attack_target Server&#39;, &#39; created_at 2021_07_28&#39;, &#39; deployment Perimeter&#39;, &#39; deployment Internal&#39;, &#39; former_category EXPLOIT&#39;, &#39; malware_family ysoserial&#39;, &#39; signature_severity Major&#39;, &#39; tag Exploit&#39;, &#39; tag possible_exploitation&#39;, &#39; updated_at 2021_07_28&#39;, &#39;classtype attempted-admin&#39;]
+
+             Parameters
+             ----------
+             sid : str
+                 Specifies line number in .rules file where the currently parsed rule begings.
+             metadata_key_value_pairs : list
+                 List of metadata key value pairs for a given rule
+
+             Returns
+             -------
+             result: int
+                 Returns 0 if executed successfully.
+            &#34;&#34;&#34;
+        # key value pair is one string inside a list eg. &#39;[&#39;affected_product Web_Server_Applications&#39;, &#39; attack_target Web_Server&#39;, &#39; created_at 2010_07_30&#39;, &#39; deployment Datacenter&#39;]&#39;
+        for key_value_pair in metadata_key_value_pairs:
+            # 1. Convert the entire key-value pair to lowercase
+            # 2. Remove leading and trailing whitespaces
+            # 3. Split at the first space
+            key_value_pair = key_value_pair.lower()
+            key_value_pair = key_value_pair.strip()
+            key_value_pair = key_value_pair.split(&#39; &#39;, 1)
+
+            # key_value_pair_split is a list for each key value containing key and value as separate strings
+            # eg. [&#39;affected_product&#39;, &#39;web_server_applications&#39;]
+            key_value_pair_split = []
+
+            for element in key_value_pair:
+                key_value_pair_split.append(element.strip())
+
+            # no key value, just key. Metadata element format is incorrect.
+            if len(key_value_pair_split) &lt; 2:
+                continue
+
+            key, value = key_value_pair_split
+            self.set_metadata_keywords(sid, key, value)
+            self.insert_metadata_to_rule(sid, key, value)
+
+            # remove duplicates if any
+            for key in self.metadata_by_sid[sid][&#39;metadata&#39;].keys():
+                self.metadata_by_sid[sid][&#39;metadata&#39;][key] = list(set(self.metadata_by_sid[sid][&#39;metadata&#39;][key]))
+        return 0
+
+    def extract_sid_from_sig(self,line_number, line_content):
+        &#34;&#34;&#34;Extracts SID attribute and its value from the plaintext signature as stored in .rules file. Extracted SID
+            is then added as a metadata attribute to the dictionary of metadata attrributes for a corresponding rule.
+
+            Parameters
+            ----------
+            line_number : int
+                Specifies line number in .rules file where the currently parsed rule begings.
+            line_content : str
+                Signature line content as stored in .rules file
+
+            Returns
+            -------
+            sid: str
+                Returns SID attribute value of a given signature.
+             &#34;&#34;&#34;
+        sid = None
+        # extract sid
+        re_match_extracted_sid = sid_re.search(line_content)
+        # each valid rule has to have a SID number
+        if not re_match_extracted_sid:
+            print(f&#34;Invalid rule on line {line_number} :\n{line_content}&#34;)
+        sid = int(re_match_extracted_sid.group(&#34;SID_IDENTIFIER&#34;))
+
+        return sid
+
+    def extract_classtype_from_sig(self, line_content):
+        &#34;&#34;&#34;Extracts classtype attribute and its value from the plaintext signature as stored in .rules file. Extracted classtype
+           is then added as a metadata attribute to the dictionary of metadata attrributes for a corresponding rule.
+
+           Parameters
+           ----------
+           line_content : str
+               Signature line content as stored in .rules file
+
+           Returns
+           -------
+           classtype: str
+               Returns classtype attribute value of a given signature.
+            &#34;&#34;&#34;
+
+        # extract classtype
+        classtype = None
+        re_match_extacted_classtype = classtype_keyword_re.search(line_content)
+        if re_match_extacted_classtype:
+            classtype = re_match_extacted_classtype.group(&#34;CLASSTYPE_VALUE&#34;)
+        return classtype
+
+    def extract_metadata_from_sig(self, line_content,rule_is_disabled, sid, classtype):
+        &#34;&#34;&#34;Extracts metadata attribute contents (eg. all keyword value pairs) from each signature. And loads them into
+           the dictionary of metadata by sids.
+
+           Parameters
+           ----------
+           line_content : str
+               Rule line content inside the .rules file
+           rule_is_disabled : boolean
+               Specifies if a rule is disable eg. beginning with #.
+           sid : str
+               SID of a given signature. Not a metadata but a rule attribute.
+           classtype : str
+               Classtype of a given signature. Not a metadata but a rule attribute.
+        &#34;&#34;&#34;
+
+        # extract metadata keyword value
+        metadata = &#34;&#34;
+        metadata_key_value_pairs = []
+
+        re_match_extacted_metadata = metadata_keyword_re.search(line_content)
+        if re_match_extacted_metadata:
+            metadata = re_match_extacted_metadata.group(&#34;METADATA_KEYWORD&#34;)
+
+        self.metadata_by_sid[sid] = {&#39;metadata&#39;: {}, &#39;disabled&#39;: rule_is_disabled, &#39;raw_rule&#39;: line_content}
+
+        if len(metadata) &gt; 0:
+            metadata_key_value_pairs.extend(metadata.split(&#39;,&#39;))
+
+        # add classtype as metadata keyword
+        if classtype:
+            metadata_key_value_pairs.append(f&#34;classtype {classtype}&#34;)
+
+        # Add sid as metadata keyword. (If not in metadata.)
+        if &#39;sid&#39; not in self.metadata_by_sid[sid][&#39;metadata&#39;].keys():
+            self.metadata_by_sid[sid][&#39;metadata&#39;][&#39;sid&#39;] = [str(sid)]
+            self.used_metadata_keywords_registry[&#39;sid&#39;][str(sid)] = [sid]
+
+        self.create_metadata_dic(sid, metadata_key_value_pairs)
+
+        return
+
+    def load_ruleset(self, loaded_rules):
+        &#34;&#34;&#34;Load signatures from a specified rule file and create necessary data structures to be able to search for metadata attributes
+           inside the loaded rule file and calculate stats.
+
+           Parameters
+           ----------
+           loaded_rules : file
+               File containing loaded signatures
+
+        &#34;&#34;&#34;
+        try:
+            for line_number, line_content in enumerate(loaded_rules.splitlines()):
+                rule_is_disabled = False
+
+                if len(line_content.strip()) == 0:
+                    continue
+                if line_content.lstrip().startswith(&#39;#&#39;):
+                    if disabled_signature_re.match(line_content.strip()):
+                        rule_is_disabled = True
+                        line_content = line_content.lstrip()
+                        line_content = line_content[1:].strip()
+                    else:
+                        # valid comment (not disabled rule)
+                        continue
+
+                #extract data from rule
+                sid = self.extract_sid_from_sig(line_number, line_content)
+
+                # rule SID already in dictionary &lt;=&gt; duplicate SID in ruleset
+                if sid in self.metadata_by_sid.keys():
+                    # duplicate rule but disabled one - ignore, dont add current rule to dict
+                    if rule_is_disabled:
+                        continue
+                    # duplicate rule but first the disabled version was included - include also the enabled version, add current rule to dict
+                    if self.metadata_by_sid[sid][&#39;disabled&#39;] == True:
+                        pass
+                    else:
+                        continue
+
+                classtype = self.extract_classtype_from_sig(line_content)
+                self.extract_metadata_from_sig(line_content, rule_is_disabled, sid, classtype)
+
+        except Exception as e:
+            print(f&#34;Problem loading signatures: {e}&#34;)
+
+    def calc_all_keywords_stats(self, sids, keyword):
+        &#34;&#34;&#34;Calculates statistics. Calculates how many signatures have a metadata attribute with a specified keyword
+           and lists all values that keyword attribute holds within the ruleset overall along with their counts.
+
+           Parameters
+           ----------
+           sids : list (listed dictionary of used signatures)
+               List of all rule SIDS in the rule .rules file.
+           keyword : str
+               Metadata keyword to be searched for within the metadata attribute of each signature.
+
+           Returns
+           -------
+           statistics: str
+               Returns calculated stats info about a given metadata keyword within a .rules file to be printed on stdout.
+            &#34;&#34;&#34;
+        total = []
+        enabled = []
+        statistics = &#34;&#34;
+
+        for sid in sids:
+            if keyword in self.metadata_by_sid[sid][&#39;metadata&#39;].keys():
+                total.append(sid)
+
+        total_all_count = len(total)
+
+        for sid in sids:
+            if keyword in self.metadata_by_sid[sid][&#39;metadata&#39;].keys() and self.metadata_by_sid[sid][&#39;disabled&#39;] == False:
+                enabled.append(sid)
+
+        enabled_all_count = len(enabled)
+        disabled_all_count = total_all_count - enabled_all_count
+        enabled_percentage = str(round((enabled_all_count / total_all_count)*100, 2))
+        disabled_percentage = str(round((disabled_all_count / total_all_count)*100, 2))
+
+        statistics += f&#34;KEYWORD: {Fore.YELLOW}{keyword.upper()}{Style.RESET_ALL} Total: {total_all_count}; Enabled: {enabled_all_count} ({enabled_percentage} %); Disabled: {disabled_all_count} ({disabled_percentage} %)&#34;
+
+        return statistics
+
+    def calc_given_keyword_stats(self, sids, keyword):
+        &#34;&#34;&#34;Calculates statistics. Calculates how many signatures have a metadata attribute with a specified keyword
+           and lists all values that keyword attribute holds within the ruleset overall along with their counts.
+
+           Parameters
+           ----------
+           sids : list (listed dictionary of used signatures)
+               List of all rule SIDS in the rule .rules file.
+           keyword : str
+               Metadata keyword to be searched for within the metadata attribute of each signature.
+
+           Returns
+           -------
+           statistics: str
+               Returns calculated stats info about a given metadata keyword within a .rules file to be printed on stdout.
+            &#34;&#34;&#34;
+        statistics = &#34;&#34;
+        # sort dictionary
+        self.used_metadata_keywords_registry[keyword] = {key: value for key, value in sorted(self.used_metadata_keywords_registry[keyword].items())}
+
+        for key_value in self.used_metadata_keywords_registry[keyword].keys():
+            total_for_key = []
+
+            for sid in sids:
+                if sid in self.used_metadata_keywords_registry[keyword][key_value]:
+                    total_for_key.append(sid)
+            total_count_for_key = len(total_for_key)
+
+            enabled_for_key = []
+            for sid in self.used_metadata_keywords_registry[keyword][key_value]:
+                if sid in sids and not self.metadata_by_sid[sid][&#39;disabled&#39;]:
+                    enabled_for_key.append(sid)
+
+            enabled_count_for_key = len(enabled_for_key)
+            disabled_count_for_key = total_count_for_key - enabled_count_for_key
+            enabled_percentage = str(round((enabled_count_for_key / total_count_for_key)*100, 2))
+            disabled_percentage = str(round((disabled_count_for_key / total_count_for_key)*100, 2))
+
+            statistics += f&#34;\t{Style.BRIGHT}{Fore.BLUE}{key_value}{Style.RESET_ALL} Total: {total_count_for_key}; Enabled: {enabled_count_for_key} ({enabled_percentage} %); Disabled: {disabled_count_for_key} ({disabled_percentage} %)\n&#34;
+
+        return statistics
+
+    def calculate_statistics(self, keyword, just_list_all_used_keywords=False):
+        &#34;&#34;&#34;Calculates statistics. Calculates how many signatures have a metadata attribute with a specified keyword
+           and lists all values that keyword attribute holds within the ruleset overall along with their counts.
+
+
+            used_metadata_keywords_registry example:
+
+                    {&#39;sid&#39;: {&#39;2004002&#39;: [2004002], &#39;2013845&#39;: [2013845]}, &#39;affected_product&#39;: {&#39;web_server_applications&#39;: [2004002]}, &#39;attack_target&#39;: {&#39;web_server&#39;: [2004002]}, &#39;created_at&#39;: {&#39;2010_07_30&#39;: [2004002], &#39;2011_11_05&#39;: [2013845]}, &#39;deployment&#39;: {&#39;datacenter&#39;: [2004002]}, &#39;signature_severity&#39;: {&#39;major&#39;: [2004002]}, &#39;tag&#39;: {&#39;sql_injection&#39;: [2004002]}, &#39;updated_at&#39;: {&#39;2020_09_11&#39;: [2004002]}, &#39;classtype&#39;: {&#39;web-application-attack&#39;: [2004002]}}
+
+            metadata_by_sid example:
+
+                    {2004002: {&#39;metadata&#39;: {&#39;sid&#39;: [&#39;2004002&#39;], &#39;affected_product&#39;: [&#39;web_server_applications&#39;]}, &#39;disabled&#39;: True, &#39;raw_rule&#39;: &#39;alert http $EXTERNAL_NET any -&gt; $HTTP_SERVERS any (msg:&#34;ET WEB_SPECIFIC_APPS Gazi Download Portal SQL Injection Attempt -- down_indir.asp id DELETE&#34;; flow:established,to_server; http.uri; content:&#34;/down_indir.asp?&#34;; nocase; content:&#34;id=&#34;; nocase; content:&#34;DELETE&#34;; nocase; content:&#34;FROM&#34;; nocase; distance:0; reference:cve,CVE-2007-2810; reference:url,www.securityfocus.com/bid/23714; reference:url,doc.emergingthreats.net/2004002; classtype:web-application-attack; sid:2004002; rev:10; metadata:affected_product Web_Server_Applications, attack_target Web_Server, created_at 2010_07_30, deployment Datacenter, signature_severity Major, tag SQL_Injection, updated_at 2020_09_11;)&#39;}}
+
+
+           Parameters
+           ----------
+           keyword : str
+               Metadata keyword to be searched for within the metadata attribute of each signature.
+           just_list_keywords : boolean
+               If True, just print out all available metadata keywords used inside the given .rules file along with their usage counts.
+
+           Returns
+           -------
+           statistics: str
+               Returns calculated stats info about a given .rules file to be printed on stdout.
+            &#34;&#34;&#34;
+        statistics = &#34;&#34;
+        sids = list(self.metadata_by_sid.keys())
+
+        if keyword not in self.used_metadata_keywords_registry.keys():
+            return f&#34;Key \&#39;{keyword}\&#39; was not found in ruleset.&#34;
+
+        if sids is None:
+            return &#34;No SIDs or Signatures loaded from specified rule file!&#34;
+
+        statistics += self.calc_all_keywords_stats(sids, keyword)
+
+        if just_list_all_used_keywords:
+            return statistics
+        else:
+            statistics += f&#34;\n&#34;
+            statistics += f&#34;\tVALUES: \n&#34;
+
+        statistics += self.calc_given_keyword_stats(sids, keyword)
+
+        return statistics
+
+    def print_statistical_details(self, keyword, just_list_keywords=False):
+        &#34;&#34;&#34;Prints statistics about the presence of rules with a given metadata keyword inside the .rules files of all rules.
+
+           Parameters
+           ----------
+           keyword : str
+               Metadata keyword to be searched for within the metadata attribute of each signature.
+           just_list_keywords : boolean
+               If True, just print out all available metadata keywords used inside the given .rules file along with their usage counts.
+
+           Returns
+           -------
+           result: boolean
+               Returns True if stats exist and can be printed.
+            &#34;&#34;&#34;
+
+        stats_string = self.calculate_statistics(keyword, just_list_keywords)
+
+        if stats_string:
+            print(stats_string)
+            return True
+        else:
+            print(&#34;No statistics to print.&#34;)
+            return False
+
+    def print_ruleset_summary(self, sids=None):
+        &#34;&#34;&#34;Prints ruleset summary information. This includes number of total rules, number of enabled and disabled rules
+
+           Parameters
+           ----------
+           sids : list (listed dictionary of used signatures)
+               List of all rule SIDS in the rule .rules file.
+            &#34;&#34;&#34;
+
+        if sids is None:
+            sids = list(self.metadata_by_sid.keys())
+
+        total_count = len(sids)
+        enabled = []
+
+        for sid in sids:
+            if self.metadata_by_sid[sid][&#39;disabled&#39;] == False:
+                enabled.append(sid)
+
+        enabled_count = len(enabled)
+        disabled_count = total_count - enabled_count
+
+        enabled_percentage = str(round((enabled_count / total_count)*100, 2))
+        disabled_percentage = str(round((disabled_count / total_count)*100, 2))
+
+        print(f&#34;{Style.BRIGHT}{Fore.GREEN}All Signatures:{Style.RESET_ALL}\n Total Signatures: {total_count} \n Enabled Signatures: {enabled_count} ({enabled_percentage} %) \n Disabled Signatures: {disabled_count} ({disabled_percentage} %) \n&#34;)
+        return
+
+
+def analyze_ruleset(stats, rule_file_path):
+    &#34;&#34;&#34;Analyzes ruleset specified by path. And calculate statistics about metadata usage in the given ruleset.
+       Calculates how many rules match given metadata filter and how many of them are disabled or enabled.
+
+       Parameters
+       ----------
+       stats : list
+           User supplied arguments
+           stats[0] - metadata keyword
+           stats[1] - metadata keyword value
+       rule_file_path : str
+           Path to .rules file to be analyzed.
+
+        &#34;&#34;&#34;
+
+    if rule_file_path is None:
+        rule_file_path = paths.RULE_FILE
+
+    rs = RuleStatistics(rule_file_path)
+    if not rs.file_loaded:
+        sys.exit(1)
+
+    if stats is not None:
+        metadata_keywords = []
+        sid_keys = list(rs.metadata_by_sid.keys())
+        just_list_all_used_keywords = False
+
+        rs.print_ruleset_summary(sid_keys)
+
+        if len(stats) &gt; 0:
+            metadata_keywords = stats
+        else:
+            metadata_keywords = rs.used_metadata_keywords_registry.keys()
+            just_list_all_used_keywords = True
+
+        for keyword in metadata_keywords:
+            rs.print_statistical_details(keyword, just_list_all_used_keywords)
+
+        print(&#34;&#34;)
+        sys.exit(0)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="manager.stats.analyze_ruleset"><code class="name flex">
+<span>def <span class="ident">analyze_ruleset</span></span>(<span>stats, rule_file_path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Analyzes ruleset specified by path. And calculate statistics about metadata usage in the given ruleset.
+Calculates how many rules match given metadata filter and how many of them are disabled or enabled.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>stats</code></strong> :&ensp;<code>list</code></dt>
+<dd>User supplied arguments
+stats[0] - metadata keyword
+stats[1] - metadata keyword value</dd>
+<dt><strong><code>rule_file_path</code></strong> :&ensp;<code>str</code></dt>
+<dd>Path to .rules file to be analyzed.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def analyze_ruleset(stats, rule_file_path):
+    &#34;&#34;&#34;Analyzes ruleset specified by path. And calculate statistics about metadata usage in the given ruleset.
+       Calculates how many rules match given metadata filter and how many of them are disabled or enabled.
+
+       Parameters
+       ----------
+       stats : list
+           User supplied arguments
+           stats[0] - metadata keyword
+           stats[1] - metadata keyword value
+       rule_file_path : str
+           Path to .rules file to be analyzed.
+
+        &#34;&#34;&#34;
+
+    if rule_file_path is None:
+        rule_file_path = paths.RULE_FILE
+
+    rs = RuleStatistics(rule_file_path)
+    if not rs.file_loaded:
+        sys.exit(1)
+
+    if stats is not None:
+        metadata_keywords = []
+        sid_keys = list(rs.metadata_by_sid.keys())
+        just_list_all_used_keywords = False
+
+        rs.print_ruleset_summary(sid_keys)
+
+        if len(stats) &gt; 0:
+            metadata_keywords = stats
+        else:
+            metadata_keywords = rs.used_metadata_keywords_registry.keys()
+            just_list_all_used_keywords = True
+
+        for keyword in metadata_keywords:
+            rs.print_statistical_details(keyword, just_list_all_used_keywords)
+
+        print(&#34;&#34;)
+        sys.exit(0)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="manager.stats.RuleStatistics"><code class="flex name class">
+<span>class <span class="ident">RuleStatistics</span></span>
+<span>(</span><span>rule_file_path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class used to represent loaded signature set or ruleset eg. suricata.rules file
+&hellip;</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>metadata_by_sid</code></strong> :&ensp;<code>dict</code></dt>
+<dd>dictionary of signature metadata for each SID of signature from specified ruleset</dd>
+<dt><strong><code>used_metadata_keywords_registry</code></strong> :&ensp;<code>dict</code></dt>
+<dd>dictionary of used metadata keywords used in signatures from specified ruleset</dd>
+<dt><strong><code>file_loaded</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>was the signature file loaded</dd>
+</dl>
+<p>Initializes Rule Stats class.</p>
+<p>used_metadata_keywords_registry example:</p>
+<pre><code>     {'sid': {'2004002': [2004002], '2013845': [2013845]}, 'affected_product': {'web_server_applications': [2004002]}, 'attack_target': {'web_server': [2004002]}, 'created_at': {'2010_07_30': [2004002], '2011_11_05': [2013845]}, 'deployment': {'datacenter': [2004002]}, 'signature_severity': {'major': [2004002]}, 'tag': {'sql_injection': [2004002]}, 'updated_at': {'2020_09_11': [2004002]}, 'classtype': {'web-application-attack': [2004002]}}
+</code></pre>
+<p>metadata_by_sid example:</p>
+<pre><code>     {2004002: {'metadata': {'sid': ['2004002'], 'affected_product': ['web_server_applications']}, 'disabled': True, 'raw_rule': 'alert http $EXTERNAL_NET any -&gt; $HTTP_SERVERS any (msg:"ET WEB_SPECIFIC_APPS Gazi Download Portal SQL Injection Attempt -- down_indir.asp id DELETE"; flow:established,to_server; http.uri; content:"/down_indir.asp?"; nocase; content:"id="; nocase; content:"DELETE"; nocase; content:"FROM"; nocase; distance:0; reference:cve,CVE-2007-2810; reference:url,www.securityfocus.com/bid/23714; reference:url,doc.emergingthreats.net/2004002; classtype:web-application-attack; sid:2004002; rev:10; metadata:affected_product Web_Server_Applications, attack_target Web_Server, created_at 2010_07_30, deployment Datacenter, signature_severity Major, tag SQL_Injection, updated_at 2020_09_11;)'}}
+</code></pre>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>rule_file_path</code></strong> :&ensp;<code>str</code></dt>
+<dd>Path to rule file.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class RuleStatistics():
+    &#34;&#34;&#34;
+        A class used to represent loaded signature set or ruleset eg. suricata.rules file
+        ...
+
+        Attributes
+        ----------
+        metadata_by_sid : dict
+            dictionary of signature metadata for each SID of signature from specified ruleset
+
+        used_metadata_keywords_registry : dict
+            dictionary of used metadata keywords used in signatures from specified ruleset
+
+        file_loaded : boolean
+            was the signature file loaded
+
+    &#34;&#34;&#34;
+
+    def __init__(self, rule_file_path):
+        &#34;&#34;&#34;Initializes Rule Stats class.
+
+
+            used_metadata_keywords_registry example:
+
+                    {&#39;sid&#39;: {&#39;2004002&#39;: [2004002], &#39;2013845&#39;: [2013845]}, &#39;affected_product&#39;: {&#39;web_server_applications&#39;: [2004002]}, &#39;attack_target&#39;: {&#39;web_server&#39;: [2004002]}, &#39;created_at&#39;: {&#39;2010_07_30&#39;: [2004002], &#39;2011_11_05&#39;: [2013845]}, &#39;deployment&#39;: {&#39;datacenter&#39;: [2004002]}, &#39;signature_severity&#39;: {&#39;major&#39;: [2004002]}, &#39;tag&#39;: {&#39;sql_injection&#39;: [2004002]}, &#39;updated_at&#39;: {&#39;2020_09_11&#39;: [2004002]}, &#39;classtype&#39;: {&#39;web-application-attack&#39;: [2004002]}}
+
+            metadata_by_sid example:
+
+                    {2004002: {&#39;metadata&#39;: {&#39;sid&#39;: [&#39;2004002&#39;], &#39;affected_product&#39;: [&#39;web_server_applications&#39;]}, &#39;disabled&#39;: True, &#39;raw_rule&#39;: &#39;alert http $EXTERNAL_NET any -&gt; $HTTP_SERVERS any (msg:&#34;ET WEB_SPECIFIC_APPS Gazi Download Portal SQL Injection Attempt -- down_indir.asp id DELETE&#34;; flow:established,to_server; http.uri; content:&#34;/down_indir.asp?&#34;; nocase; content:&#34;id=&#34;; nocase; content:&#34;DELETE&#34;; nocase; content:&#34;FROM&#34;; nocase; distance:0; reference:cve,CVE-2007-2810; reference:url,www.securityfocus.com/bid/23714; reference:url,doc.emergingthreats.net/2004002; classtype:web-application-attack; sid:2004002; rev:10; metadata:affected_product Web_Server_Applications, attack_target Web_Server, created_at 2010_07_30, deployment Datacenter, signature_severity Major, tag SQL_Injection, updated_at 2020_09_11;)&#39;}}
+
+
+           Parameters
+           ----------
+           rule_file_path : str
+               Path to rule file.
+        &#34;&#34;&#34;
+        #Metadata dictionary for each sid.
+        self.metadata_by_sid = {}
+        #Dictionary of metadata keywords used in rule file.
+        self.used_metadata_keywords_registry = {&#39;sid&#39;: {}}
+
+        self.file_loaded = False
+
+        try:
+            if os.path.isfile(rule_file_path):
+                with open(rule_file_path, &#39;r&#39;) as rule_file:
+                    self.file_loaded = True
+                    self.load_ruleset(rule_file.read())
+            else:
+                print(f&#34;Unable to process rule file \&#39;{rule_file_path}.\nPlease check that the file exists and is a valid .rules file&#34;)
+        except Exception as e:
+            print(f&#34;Unable to process rule file \&#39;{rule_file_path}.\nPlease check that the file exists and is a valid .rules file&#34;)
+
+    def set_metadata_keywords(self, sid, keyword, value):
+        &#34;&#34;&#34;Add metadata keyword and value found in a given rule to the metadata keyword value registry of all used
+           metadata attributes within the whole ruleset if it was not added before.
+
+           Parameters
+           ----------
+           sid : str
+               SID identifier of a given rule.
+           keyword : str
+               Metadata keyword from rule.
+           value : str
+               Metadata keyword value from rule.
+            &#34;&#34;&#34;
+
+        # Add key to list of used metadata keywords
+        if keyword not in self.used_metadata_keywords_registry.keys():
+            self.used_metadata_keywords_registry[keyword] = {}
+        if value not in self.used_metadata_keywords_registry[keyword].keys():
+            self.used_metadata_keywords_registry[keyword][value] = []
+        if sid not in self.used_metadata_keywords_registry[keyword][value]:
+            self.used_metadata_keywords_registry[keyword][value].append(sid)
+
+        return
+
+    def insert_metadata_to_rule(self, sid, keyword, value):
+        &#34;&#34;&#34;Adds metadata discovered from a given rule to the metadata dictionary for a coresponding rule specified by SID.
+
+           Parameters
+           ----------
+           sid : str
+               SID identifier of a given rule.
+           keyword : str
+               Metadata keyword from rule.
+           value : str
+               Metadata keyword value from rule.
+        &#34;&#34;&#34;
+
+        keyword = keyword.lower().strip()
+        value = value.lower().strip()
+
+        if sid not in self.metadata_by_sid.keys():
+            print(f&#34;add_metadata() called for sid &#39;{sid}&#39; but sid is invalid (does not exist).&#34;)
+            return
+
+        if keyword not in self.metadata_by_sid[sid][&#39;metadata&#39;].keys():
+            self.metadata_by_sid[sid][&#39;metadata&#39;][keyword] = []
+
+        if value not in self.metadata_by_sid[sid][&#39;metadata&#39;][keyword]:
+            self.metadata_by_sid[sid][&#39;metadata&#39;][keyword].append(value)
+
+
+    def create_metadata_dic(self, sid, metadata_key_value_pairs):
+        &#34;&#34;&#34;Extracts SID attribute and its value from the plaintext signature as stored in .rules file. Extracted SID
+             is then added as a metadata attribute to the dictionary of metadata attrributes for a corresponding rule.
+
+             example of metadata_key_value_pairs:
+
+                        [&#39;attack_target Server&#39;, &#39; created_at 2021_07_28&#39;, &#39; deployment Perimeter&#39;, &#39; deployment Internal&#39;, &#39; former_category EXPLOIT&#39;, &#39; malware_family ysoserial&#39;, &#39; signature_severity Major&#39;, &#39; tag Exploit&#39;, &#39; tag possible_exploitation&#39;, &#39; updated_at 2021_07_28&#39;, &#39;classtype attempted-admin&#39;]
+
+             Parameters
+             ----------
+             sid : str
+                 Specifies line number in .rules file where the currently parsed rule begings.
+             metadata_key_value_pairs : list
+                 List of metadata key value pairs for a given rule
+
+             Returns
+             -------
+             result: int
+                 Returns 0 if executed successfully.
+            &#34;&#34;&#34;
+        # key value pair is one string inside a list eg. &#39;[&#39;affected_product Web_Server_Applications&#39;, &#39; attack_target Web_Server&#39;, &#39; created_at 2010_07_30&#39;, &#39; deployment Datacenter&#39;]&#39;
+        for key_value_pair in metadata_key_value_pairs:
+            # 1. Convert the entire key-value pair to lowercase
+            # 2. Remove leading and trailing whitespaces
+            # 3. Split at the first space
+            key_value_pair = key_value_pair.lower()
+            key_value_pair = key_value_pair.strip()
+            key_value_pair = key_value_pair.split(&#39; &#39;, 1)
+
+            # key_value_pair_split is a list for each key value containing key and value as separate strings
+            # eg. [&#39;affected_product&#39;, &#39;web_server_applications&#39;]
+            key_value_pair_split = []
+
+            for element in key_value_pair:
+                key_value_pair_split.append(element.strip())
+
+            # no key value, just key. Metadata element format is incorrect.
+            if len(key_value_pair_split) &lt; 2:
+                continue
+
+            key, value = key_value_pair_split
+            self.set_metadata_keywords(sid, key, value)
+            self.insert_metadata_to_rule(sid, key, value)
+
+            # remove duplicates if any
+            for key in self.metadata_by_sid[sid][&#39;metadata&#39;].keys():
+                self.metadata_by_sid[sid][&#39;metadata&#39;][key] = list(set(self.metadata_by_sid[sid][&#39;metadata&#39;][key]))
+        return 0
+
+    def extract_sid_from_sig(self,line_number, line_content):
+        &#34;&#34;&#34;Extracts SID attribute and its value from the plaintext signature as stored in .rules file. Extracted SID
+            is then added as a metadata attribute to the dictionary of metadata attrributes for a corresponding rule.
+
+            Parameters
+            ----------
+            line_number : int
+                Specifies line number in .rules file where the currently parsed rule begings.
+            line_content : str
+                Signature line content as stored in .rules file
+
+            Returns
+            -------
+            sid: str
+                Returns SID attribute value of a given signature.
+             &#34;&#34;&#34;
+        sid = None
+        # extract sid
+        re_match_extracted_sid = sid_re.search(line_content)
+        # each valid rule has to have a SID number
+        if not re_match_extracted_sid:
+            print(f&#34;Invalid rule on line {line_number} :\n{line_content}&#34;)
+        sid = int(re_match_extracted_sid.group(&#34;SID_IDENTIFIER&#34;))
+
+        return sid
+
+    def extract_classtype_from_sig(self, line_content):
+        &#34;&#34;&#34;Extracts classtype attribute and its value from the plaintext signature as stored in .rules file. Extracted classtype
+           is then added as a metadata attribute to the dictionary of metadata attrributes for a corresponding rule.
+
+           Parameters
+           ----------
+           line_content : str
+               Signature line content as stored in .rules file
+
+           Returns
+           -------
+           classtype: str
+               Returns classtype attribute value of a given signature.
+            &#34;&#34;&#34;
+
+        # extract classtype
+        classtype = None
+        re_match_extacted_classtype = classtype_keyword_re.search(line_content)
+        if re_match_extacted_classtype:
+            classtype = re_match_extacted_classtype.group(&#34;CLASSTYPE_VALUE&#34;)
+        return classtype
+
+    def extract_metadata_from_sig(self, line_content,rule_is_disabled, sid, classtype):
+        &#34;&#34;&#34;Extracts metadata attribute contents (eg. all keyword value pairs) from each signature. And loads them into
+           the dictionary of metadata by sids.
+
+           Parameters
+           ----------
+           line_content : str
+               Rule line content inside the .rules file
+           rule_is_disabled : boolean
+               Specifies if a rule is disable eg. beginning with #.
+           sid : str
+               SID of a given signature. Not a metadata but a rule attribute.
+           classtype : str
+               Classtype of a given signature. Not a metadata but a rule attribute.
+        &#34;&#34;&#34;
+
+        # extract metadata keyword value
+        metadata = &#34;&#34;
+        metadata_key_value_pairs = []
+
+        re_match_extacted_metadata = metadata_keyword_re.search(line_content)
+        if re_match_extacted_metadata:
+            metadata = re_match_extacted_metadata.group(&#34;METADATA_KEYWORD&#34;)
+
+        self.metadata_by_sid[sid] = {&#39;metadata&#39;: {}, &#39;disabled&#39;: rule_is_disabled, &#39;raw_rule&#39;: line_content}
+
+        if len(metadata) &gt; 0:
+            metadata_key_value_pairs.extend(metadata.split(&#39;,&#39;))
+
+        # add classtype as metadata keyword
+        if classtype:
+            metadata_key_value_pairs.append(f&#34;classtype {classtype}&#34;)
+
+        # Add sid as metadata keyword. (If not in metadata.)
+        if &#39;sid&#39; not in self.metadata_by_sid[sid][&#39;metadata&#39;].keys():
+            self.metadata_by_sid[sid][&#39;metadata&#39;][&#39;sid&#39;] = [str(sid)]
+            self.used_metadata_keywords_registry[&#39;sid&#39;][str(sid)] = [sid]
+
+        self.create_metadata_dic(sid, metadata_key_value_pairs)
+
+        return
+
+    def load_ruleset(self, loaded_rules):
+        &#34;&#34;&#34;Load signatures from a specified rule file and create necessary data structures to be able to search for metadata attributes
+           inside the loaded rule file and calculate stats.
+
+           Parameters
+           ----------
+           loaded_rules : file
+               File containing loaded signatures
+
+        &#34;&#34;&#34;
+        try:
+            for line_number, line_content in enumerate(loaded_rules.splitlines()):
+                rule_is_disabled = False
+
+                if len(line_content.strip()) == 0:
+                    continue
+                if line_content.lstrip().startswith(&#39;#&#39;):
+                    if disabled_signature_re.match(line_content.strip()):
+                        rule_is_disabled = True
+                        line_content = line_content.lstrip()
+                        line_content = line_content[1:].strip()
+                    else:
+                        # valid comment (not disabled rule)
+                        continue
+
+                #extract data from rule
+                sid = self.extract_sid_from_sig(line_number, line_content)
+
+                # rule SID already in dictionary &lt;=&gt; duplicate SID in ruleset
+                if sid in self.metadata_by_sid.keys():
+                    # duplicate rule but disabled one - ignore, dont add current rule to dict
+                    if rule_is_disabled:
+                        continue
+                    # duplicate rule but first the disabled version was included - include also the enabled version, add current rule to dict
+                    if self.metadata_by_sid[sid][&#39;disabled&#39;] == True:
+                        pass
+                    else:
+                        continue
+
+                classtype = self.extract_classtype_from_sig(line_content)
+                self.extract_metadata_from_sig(line_content, rule_is_disabled, sid, classtype)
+
+        except Exception as e:
+            print(f&#34;Problem loading signatures: {e}&#34;)
+
+    def calc_all_keywords_stats(self, sids, keyword):
+        &#34;&#34;&#34;Calculates statistics. Calculates how many signatures have a metadata attribute with a specified keyword
+           and lists all values that keyword attribute holds within the ruleset overall along with their counts.
+
+           Parameters
+           ----------
+           sids : list (listed dictionary of used signatures)
+               List of all rule SIDS in the rule .rules file.
+           keyword : str
+               Metadata keyword to be searched for within the metadata attribute of each signature.
+
+           Returns
+           -------
+           statistics: str
+               Returns calculated stats info about a given metadata keyword within a .rules file to be printed on stdout.
+            &#34;&#34;&#34;
+        total = []
+        enabled = []
+        statistics = &#34;&#34;
+
+        for sid in sids:
+            if keyword in self.metadata_by_sid[sid][&#39;metadata&#39;].keys():
+                total.append(sid)
+
+        total_all_count = len(total)
+
+        for sid in sids:
+            if keyword in self.metadata_by_sid[sid][&#39;metadata&#39;].keys() and self.metadata_by_sid[sid][&#39;disabled&#39;] == False:
+                enabled.append(sid)
+
+        enabled_all_count = len(enabled)
+        disabled_all_count = total_all_count - enabled_all_count
+        enabled_percentage = str(round((enabled_all_count / total_all_count)*100, 2))
+        disabled_percentage = str(round((disabled_all_count / total_all_count)*100, 2))
+
+        statistics += f&#34;KEYWORD: {Fore.YELLOW}{keyword.upper()}{Style.RESET_ALL} Total: {total_all_count}; Enabled: {enabled_all_count} ({enabled_percentage} %); Disabled: {disabled_all_count} ({disabled_percentage} %)&#34;
+
+        return statistics
+
+    def calc_given_keyword_stats(self, sids, keyword):
+        &#34;&#34;&#34;Calculates statistics. Calculates how many signatures have a metadata attribute with a specified keyword
+           and lists all values that keyword attribute holds within the ruleset overall along with their counts.
+
+           Parameters
+           ----------
+           sids : list (listed dictionary of used signatures)
+               List of all rule SIDS in the rule .rules file.
+           keyword : str
+               Metadata keyword to be searched for within the metadata attribute of each signature.
+
+           Returns
+           -------
+           statistics: str
+               Returns calculated stats info about a given metadata keyword within a .rules file to be printed on stdout.
+            &#34;&#34;&#34;
+        statistics = &#34;&#34;
+        # sort dictionary
+        self.used_metadata_keywords_registry[keyword] = {key: value for key, value in sorted(self.used_metadata_keywords_registry[keyword].items())}
+
+        for key_value in self.used_metadata_keywords_registry[keyword].keys():
+            total_for_key = []
+
+            for sid in sids:
+                if sid in self.used_metadata_keywords_registry[keyword][key_value]:
+                    total_for_key.append(sid)
+            total_count_for_key = len(total_for_key)
+
+            enabled_for_key = []
+            for sid in self.used_metadata_keywords_registry[keyword][key_value]:
+                if sid in sids and not self.metadata_by_sid[sid][&#39;disabled&#39;]:
+                    enabled_for_key.append(sid)
+
+            enabled_count_for_key = len(enabled_for_key)
+            disabled_count_for_key = total_count_for_key - enabled_count_for_key
+            enabled_percentage = str(round((enabled_count_for_key / total_count_for_key)*100, 2))
+            disabled_percentage = str(round((disabled_count_for_key / total_count_for_key)*100, 2))
+
+            statistics += f&#34;\t{Style.BRIGHT}{Fore.BLUE}{key_value}{Style.RESET_ALL} Total: {total_count_for_key}; Enabled: {enabled_count_for_key} ({enabled_percentage} %); Disabled: {disabled_count_for_key} ({disabled_percentage} %)\n&#34;
+
+        return statistics
+
+    def calculate_statistics(self, keyword, just_list_all_used_keywords=False):
+        &#34;&#34;&#34;Calculates statistics. Calculates how many signatures have a metadata attribute with a specified keyword
+           and lists all values that keyword attribute holds within the ruleset overall along with their counts.
+
+
+            used_metadata_keywords_registry example:
+
+                    {&#39;sid&#39;: {&#39;2004002&#39;: [2004002], &#39;2013845&#39;: [2013845]}, &#39;affected_product&#39;: {&#39;web_server_applications&#39;: [2004002]}, &#39;attack_target&#39;: {&#39;web_server&#39;: [2004002]}, &#39;created_at&#39;: {&#39;2010_07_30&#39;: [2004002], &#39;2011_11_05&#39;: [2013845]}, &#39;deployment&#39;: {&#39;datacenter&#39;: [2004002]}, &#39;signature_severity&#39;: {&#39;major&#39;: [2004002]}, &#39;tag&#39;: {&#39;sql_injection&#39;: [2004002]}, &#39;updated_at&#39;: {&#39;2020_09_11&#39;: [2004002]}, &#39;classtype&#39;: {&#39;web-application-attack&#39;: [2004002]}}
+
+            metadata_by_sid example:
+
+                    {2004002: {&#39;metadata&#39;: {&#39;sid&#39;: [&#39;2004002&#39;], &#39;affected_product&#39;: [&#39;web_server_applications&#39;]}, &#39;disabled&#39;: True, &#39;raw_rule&#39;: &#39;alert http $EXTERNAL_NET any -&gt; $HTTP_SERVERS any (msg:&#34;ET WEB_SPECIFIC_APPS Gazi Download Portal SQL Injection Attempt -- down_indir.asp id DELETE&#34;; flow:established,to_server; http.uri; content:&#34;/down_indir.asp?&#34;; nocase; content:&#34;id=&#34;; nocase; content:&#34;DELETE&#34;; nocase; content:&#34;FROM&#34;; nocase; distance:0; reference:cve,CVE-2007-2810; reference:url,www.securityfocus.com/bid/23714; reference:url,doc.emergingthreats.net/2004002; classtype:web-application-attack; sid:2004002; rev:10; metadata:affected_product Web_Server_Applications, attack_target Web_Server, created_at 2010_07_30, deployment Datacenter, signature_severity Major, tag SQL_Injection, updated_at 2020_09_11;)&#39;}}
+
+
+           Parameters
+           ----------
+           keyword : str
+               Metadata keyword to be searched for within the metadata attribute of each signature.
+           just_list_keywords : boolean
+               If True, just print out all available metadata keywords used inside the given .rules file along with their usage counts.
+
+           Returns
+           -------
+           statistics: str
+               Returns calculated stats info about a given .rules file to be printed on stdout.
+            &#34;&#34;&#34;
+        statistics = &#34;&#34;
+        sids = list(self.metadata_by_sid.keys())
+
+        if keyword not in self.used_metadata_keywords_registry.keys():
+            return f&#34;Key \&#39;{keyword}\&#39; was not found in ruleset.&#34;
+
+        if sids is None:
+            return &#34;No SIDs or Signatures loaded from specified rule file!&#34;
+
+        statistics += self.calc_all_keywords_stats(sids, keyword)
+
+        if just_list_all_used_keywords:
+            return statistics
+        else:
+            statistics += f&#34;\n&#34;
+            statistics += f&#34;\tVALUES: \n&#34;
+
+        statistics += self.calc_given_keyword_stats(sids, keyword)
+
+        return statistics
+
+    def print_statistical_details(self, keyword, just_list_keywords=False):
+        &#34;&#34;&#34;Prints statistics about the presence of rules with a given metadata keyword inside the .rules files of all rules.
+
+           Parameters
+           ----------
+           keyword : str
+               Metadata keyword to be searched for within the metadata attribute of each signature.
+           just_list_keywords : boolean
+               If True, just print out all available metadata keywords used inside the given .rules file along with their usage counts.
+
+           Returns
+           -------
+           result: boolean
+               Returns True if stats exist and can be printed.
+            &#34;&#34;&#34;
+
+        stats_string = self.calculate_statistics(keyword, just_list_keywords)
+
+        if stats_string:
+            print(stats_string)
+            return True
+        else:
+            print(&#34;No statistics to print.&#34;)
+            return False
+
+    def print_ruleset_summary(self, sids=None):
+        &#34;&#34;&#34;Prints ruleset summary information. This includes number of total rules, number of enabled and disabled rules
+
+           Parameters
+           ----------
+           sids : list (listed dictionary of used signatures)
+               List of all rule SIDS in the rule .rules file.
+            &#34;&#34;&#34;
+
+        if sids is None:
+            sids = list(self.metadata_by_sid.keys())
+
+        total_count = len(sids)
+        enabled = []
+
+        for sid in sids:
+            if self.metadata_by_sid[sid][&#39;disabled&#39;] == False:
+                enabled.append(sid)
+
+        enabled_count = len(enabled)
+        disabled_count = total_count - enabled_count
+
+        enabled_percentage = str(round((enabled_count / total_count)*100, 2))
+        disabled_percentage = str(round((disabled_count / total_count)*100, 2))
+
+        print(f&#34;{Style.BRIGHT}{Fore.GREEN}All Signatures:{Style.RESET_ALL}\n Total Signatures: {total_count} \n Enabled Signatures: {enabled_count} ({enabled_percentage} %) \n Disabled Signatures: {disabled_count} ({disabled_percentage} %) \n&#34;)
+        return</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="manager.stats.RuleStatistics.calc_all_keywords_stats"><code class="name flex">
+<span>def <span class="ident">calc_all_keywords_stats</span></span>(<span>self, sids, keyword)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates statistics. Calculates how many signatures have a metadata attribute with a specified keyword
+and lists all values that keyword attribute holds within the ruleset overall along with their counts.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>sids</code></strong> :&ensp;<code>list (listed dictionary</code> of <code>used signatures)</code></dt>
+<dd>List of all rule SIDS in the rule .rules file.</dd>
+<dt><strong><code>keyword</code></strong> :&ensp;<code>str</code></dt>
+<dd>Metadata keyword to be searched for within the metadata attribute of each signature.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>statistics</code></strong> :&ensp;<code>str</code></dt>
+<dd>Returns calculated stats info about a given metadata keyword within a .rules file to be printed on stdout.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calc_all_keywords_stats(self, sids, keyword):
+    &#34;&#34;&#34;Calculates statistics. Calculates how many signatures have a metadata attribute with a specified keyword
+       and lists all values that keyword attribute holds within the ruleset overall along with their counts.
+
+       Parameters
+       ----------
+       sids : list (listed dictionary of used signatures)
+           List of all rule SIDS in the rule .rules file.
+       keyword : str
+           Metadata keyword to be searched for within the metadata attribute of each signature.
+
+       Returns
+       -------
+       statistics: str
+           Returns calculated stats info about a given metadata keyword within a .rules file to be printed on stdout.
+        &#34;&#34;&#34;
+    total = []
+    enabled = []
+    statistics = &#34;&#34;
+
+    for sid in sids:
+        if keyword in self.metadata_by_sid[sid][&#39;metadata&#39;].keys():
+            total.append(sid)
+
+    total_all_count = len(total)
+
+    for sid in sids:
+        if keyword in self.metadata_by_sid[sid][&#39;metadata&#39;].keys() and self.metadata_by_sid[sid][&#39;disabled&#39;] == False:
+            enabled.append(sid)
+
+    enabled_all_count = len(enabled)
+    disabled_all_count = total_all_count - enabled_all_count
+    enabled_percentage = str(round((enabled_all_count / total_all_count)*100, 2))
+    disabled_percentage = str(round((disabled_all_count / total_all_count)*100, 2))
+
+    statistics += f&#34;KEYWORD: {Fore.YELLOW}{keyword.upper()}{Style.RESET_ALL} Total: {total_all_count}; Enabled: {enabled_all_count} ({enabled_percentage} %); Disabled: {disabled_all_count} ({disabled_percentage} %)&#34;
+
+    return statistics</code></pre>
+</details>
+</dd>
+<dt id="manager.stats.RuleStatistics.calc_given_keyword_stats"><code class="name flex">
+<span>def <span class="ident">calc_given_keyword_stats</span></span>(<span>self, sids, keyword)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates statistics. Calculates how many signatures have a metadata attribute with a specified keyword
+and lists all values that keyword attribute holds within the ruleset overall along with their counts.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>sids</code></strong> :&ensp;<code>list (listed dictionary</code> of <code>used signatures)</code></dt>
+<dd>List of all rule SIDS in the rule .rules file.</dd>
+<dt><strong><code>keyword</code></strong> :&ensp;<code>str</code></dt>
+<dd>Metadata keyword to be searched for within the metadata attribute of each signature.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>statistics</code></strong> :&ensp;<code>str</code></dt>
+<dd>Returns calculated stats info about a given metadata keyword within a .rules file to be printed on stdout.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calc_given_keyword_stats(self, sids, keyword):
+    &#34;&#34;&#34;Calculates statistics. Calculates how many signatures have a metadata attribute with a specified keyword
+       and lists all values that keyword attribute holds within the ruleset overall along with their counts.
+
+       Parameters
+       ----------
+       sids : list (listed dictionary of used signatures)
+           List of all rule SIDS in the rule .rules file.
+       keyword : str
+           Metadata keyword to be searched for within the metadata attribute of each signature.
+
+       Returns
+       -------
+       statistics: str
+           Returns calculated stats info about a given metadata keyword within a .rules file to be printed on stdout.
+        &#34;&#34;&#34;
+    statistics = &#34;&#34;
+    # sort dictionary
+    self.used_metadata_keywords_registry[keyword] = {key: value for key, value in sorted(self.used_metadata_keywords_registry[keyword].items())}
+
+    for key_value in self.used_metadata_keywords_registry[keyword].keys():
+        total_for_key = []
+
+        for sid in sids:
+            if sid in self.used_metadata_keywords_registry[keyword][key_value]:
+                total_for_key.append(sid)
+        total_count_for_key = len(total_for_key)
+
+        enabled_for_key = []
+        for sid in self.used_metadata_keywords_registry[keyword][key_value]:
+            if sid in sids and not self.metadata_by_sid[sid][&#39;disabled&#39;]:
+                enabled_for_key.append(sid)
+
+        enabled_count_for_key = len(enabled_for_key)
+        disabled_count_for_key = total_count_for_key - enabled_count_for_key
+        enabled_percentage = str(round((enabled_count_for_key / total_count_for_key)*100, 2))
+        disabled_percentage = str(round((disabled_count_for_key / total_count_for_key)*100, 2))
+
+        statistics += f&#34;\t{Style.BRIGHT}{Fore.BLUE}{key_value}{Style.RESET_ALL} Total: {total_count_for_key}; Enabled: {enabled_count_for_key} ({enabled_percentage} %); Disabled: {disabled_count_for_key} ({disabled_percentage} %)\n&#34;
+
+    return statistics</code></pre>
+</details>
+</dd>
+<dt id="manager.stats.RuleStatistics.calculate_statistics"><code class="name flex">
+<span>def <span class="ident">calculate_statistics</span></span>(<span>self, keyword, just_list_all_used_keywords=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates statistics. Calculates how many signatures have a metadata attribute with a specified keyword
+and lists all values that keyword attribute holds within the ruleset overall along with their counts.</p>
+<p>used_metadata_keywords_registry example:</p>
+<pre><code>     {'sid': {'2004002': [2004002], '2013845': [2013845]}, 'affected_product': {'web_server_applications': [2004002]}, 'attack_target': {'web_server': [2004002]}, 'created_at': {'2010_07_30': [2004002], '2011_11_05': [2013845]}, 'deployment': {'datacenter': [2004002]}, 'signature_severity': {'major': [2004002]}, 'tag': {'sql_injection': [2004002]}, 'updated_at': {'2020_09_11': [2004002]}, 'classtype': {'web-application-attack': [2004002]}}
+</code></pre>
+<p>metadata_by_sid example:</p>
+<pre><code>     {2004002: {'metadata': {'sid': ['2004002'], 'affected_product': ['web_server_applications']}, 'disabled': True, 'raw_rule': 'alert http $EXTERNAL_NET any -&gt; $HTTP_SERVERS any (msg:"ET WEB_SPECIFIC_APPS Gazi Download Portal SQL Injection Attempt -- down_indir.asp id DELETE"; flow:established,to_server; http.uri; content:"/down_indir.asp?"; nocase; content:"id="; nocase; content:"DELETE"; nocase; content:"FROM"; nocase; distance:0; reference:cve,CVE-2007-2810; reference:url,www.securityfocus.com/bid/23714; reference:url,doc.emergingthreats.net/2004002; classtype:web-application-attack; sid:2004002; rev:10; metadata:affected_product Web_Server_Applications, attack_target Web_Server, created_at 2010_07_30, deployment Datacenter, signature_severity Major, tag SQL_Injection, updated_at 2020_09_11;)'}}
+</code></pre>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>keyword</code></strong> :&ensp;<code>str</code></dt>
+<dd>Metadata keyword to be searched for within the metadata attribute of each signature.</dd>
+<dt><strong><code>just_list_keywords</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>If True, just print out all available metadata keywords used inside the given .rules file along with their usage counts.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>statistics</code></strong> :&ensp;<code>str</code></dt>
+<dd>Returns calculated stats info about a given .rules file to be printed on stdout.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calculate_statistics(self, keyword, just_list_all_used_keywords=False):
+    &#34;&#34;&#34;Calculates statistics. Calculates how many signatures have a metadata attribute with a specified keyword
+       and lists all values that keyword attribute holds within the ruleset overall along with their counts.
+
+
+        used_metadata_keywords_registry example:
+
+                {&#39;sid&#39;: {&#39;2004002&#39;: [2004002], &#39;2013845&#39;: [2013845]}, &#39;affected_product&#39;: {&#39;web_server_applications&#39;: [2004002]}, &#39;attack_target&#39;: {&#39;web_server&#39;: [2004002]}, &#39;created_at&#39;: {&#39;2010_07_30&#39;: [2004002], &#39;2011_11_05&#39;: [2013845]}, &#39;deployment&#39;: {&#39;datacenter&#39;: [2004002]}, &#39;signature_severity&#39;: {&#39;major&#39;: [2004002]}, &#39;tag&#39;: {&#39;sql_injection&#39;: [2004002]}, &#39;updated_at&#39;: {&#39;2020_09_11&#39;: [2004002]}, &#39;classtype&#39;: {&#39;web-application-attack&#39;: [2004002]}}
+
+        metadata_by_sid example:
+
+                {2004002: {&#39;metadata&#39;: {&#39;sid&#39;: [&#39;2004002&#39;], &#39;affected_product&#39;: [&#39;web_server_applications&#39;]}, &#39;disabled&#39;: True, &#39;raw_rule&#39;: &#39;alert http $EXTERNAL_NET any -&gt; $HTTP_SERVERS any (msg:&#34;ET WEB_SPECIFIC_APPS Gazi Download Portal SQL Injection Attempt -- down_indir.asp id DELETE&#34;; flow:established,to_server; http.uri; content:&#34;/down_indir.asp?&#34;; nocase; content:&#34;id=&#34;; nocase; content:&#34;DELETE&#34;; nocase; content:&#34;FROM&#34;; nocase; distance:0; reference:cve,CVE-2007-2810; reference:url,www.securityfocus.com/bid/23714; reference:url,doc.emergingthreats.net/2004002; classtype:web-application-attack; sid:2004002; rev:10; metadata:affected_product Web_Server_Applications, attack_target Web_Server, created_at 2010_07_30, deployment Datacenter, signature_severity Major, tag SQL_Injection, updated_at 2020_09_11;)&#39;}}
+
+
+       Parameters
+       ----------
+       keyword : str
+           Metadata keyword to be searched for within the metadata attribute of each signature.
+       just_list_keywords : boolean
+           If True, just print out all available metadata keywords used inside the given .rules file along with their usage counts.
+
+       Returns
+       -------
+       statistics: str
+           Returns calculated stats info about a given .rules file to be printed on stdout.
+        &#34;&#34;&#34;
+    statistics = &#34;&#34;
+    sids = list(self.metadata_by_sid.keys())
+
+    if keyword not in self.used_metadata_keywords_registry.keys():
+        return f&#34;Key \&#39;{keyword}\&#39; was not found in ruleset.&#34;
+
+    if sids is None:
+        return &#34;No SIDs or Signatures loaded from specified rule file!&#34;
+
+    statistics += self.calc_all_keywords_stats(sids, keyword)
+
+    if just_list_all_used_keywords:
+        return statistics
+    else:
+        statistics += f&#34;\n&#34;
+        statistics += f&#34;\tVALUES: \n&#34;
+
+    statistics += self.calc_given_keyword_stats(sids, keyword)
+
+    return statistics</code></pre>
+</details>
+</dd>
+<dt id="manager.stats.RuleStatistics.create_metadata_dic"><code class="name flex">
+<span>def <span class="ident">create_metadata_dic</span></span>(<span>self, sid, metadata_key_value_pairs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extracts SID attribute and its value from the plaintext signature as stored in .rules file. Extracted SID
+is then added as a metadata attribute to the dictionary of metadata attrributes for a corresponding rule.</p>
+<p>example of metadata_key_value_pairs:</p>
+<pre><code>       ['attack_target Server', ' created_at 2021_07_28', ' deployment Perimeter', ' deployment Internal', ' former_category EXPLOIT', ' malware_family ysoserial', ' signature_severity Major', ' tag Exploit', ' tag possible_exploitation', ' updated_at 2021_07_28', 'classtype attempted-admin']
+</code></pre>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>sid</code></strong> :&ensp;<code>str</code></dt>
+<dd>Specifies line number in .rules file where the currently parsed rule begings.</dd>
+<dt><strong><code>metadata_key_value_pairs</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of metadata key value pairs for a given rule</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>result</code></strong> :&ensp;<code>int</code></dt>
+<dd>Returns 0 if executed successfully.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_metadata_dic(self, sid, metadata_key_value_pairs):
+    &#34;&#34;&#34;Extracts SID attribute and its value from the plaintext signature as stored in .rules file. Extracted SID
+         is then added as a metadata attribute to the dictionary of metadata attrributes for a corresponding rule.
+
+         example of metadata_key_value_pairs:
+
+                    [&#39;attack_target Server&#39;, &#39; created_at 2021_07_28&#39;, &#39; deployment Perimeter&#39;, &#39; deployment Internal&#39;, &#39; former_category EXPLOIT&#39;, &#39; malware_family ysoserial&#39;, &#39; signature_severity Major&#39;, &#39; tag Exploit&#39;, &#39; tag possible_exploitation&#39;, &#39; updated_at 2021_07_28&#39;, &#39;classtype attempted-admin&#39;]
+
+         Parameters
+         ----------
+         sid : str
+             Specifies line number in .rules file where the currently parsed rule begings.
+         metadata_key_value_pairs : list
+             List of metadata key value pairs for a given rule
+
+         Returns
+         -------
+         result: int
+             Returns 0 if executed successfully.
+        &#34;&#34;&#34;
+    # key value pair is one string inside a list eg. &#39;[&#39;affected_product Web_Server_Applications&#39;, &#39; attack_target Web_Server&#39;, &#39; created_at 2010_07_30&#39;, &#39; deployment Datacenter&#39;]&#39;
+    for key_value_pair in metadata_key_value_pairs:
+        # 1. Convert the entire key-value pair to lowercase
+        # 2. Remove leading and trailing whitespaces
+        # 3. Split at the first space
+        key_value_pair = key_value_pair.lower()
+        key_value_pair = key_value_pair.strip()
+        key_value_pair = key_value_pair.split(&#39; &#39;, 1)
+
+        # key_value_pair_split is a list for each key value containing key and value as separate strings
+        # eg. [&#39;affected_product&#39;, &#39;web_server_applications&#39;]
+        key_value_pair_split = []
+
+        for element in key_value_pair:
+            key_value_pair_split.append(element.strip())
+
+        # no key value, just key. Metadata element format is incorrect.
+        if len(key_value_pair_split) &lt; 2:
+            continue
+
+        key, value = key_value_pair_split
+        self.set_metadata_keywords(sid, key, value)
+        self.insert_metadata_to_rule(sid, key, value)
+
+        # remove duplicates if any
+        for key in self.metadata_by_sid[sid][&#39;metadata&#39;].keys():
+            self.metadata_by_sid[sid][&#39;metadata&#39;][key] = list(set(self.metadata_by_sid[sid][&#39;metadata&#39;][key]))
+    return 0</code></pre>
+</details>
+</dd>
+<dt id="manager.stats.RuleStatistics.extract_classtype_from_sig"><code class="name flex">
+<span>def <span class="ident">extract_classtype_from_sig</span></span>(<span>self, line_content)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extracts classtype attribute and its value from the plaintext signature as stored in .rules file. Extracted classtype
+is then added as a metadata attribute to the dictionary of metadata attrributes for a corresponding rule.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>line_content</code></strong> :&ensp;<code>str</code></dt>
+<dd>Signature line content as stored in .rules file</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>classtype</code></strong> :&ensp;<code>str</code></dt>
+<dd>Returns classtype attribute value of a given signature.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def extract_classtype_from_sig(self, line_content):
+    &#34;&#34;&#34;Extracts classtype attribute and its value from the plaintext signature as stored in .rules file. Extracted classtype
+       is then added as a metadata attribute to the dictionary of metadata attrributes for a corresponding rule.
+
+       Parameters
+       ----------
+       line_content : str
+           Signature line content as stored in .rules file
+
+       Returns
+       -------
+       classtype: str
+           Returns classtype attribute value of a given signature.
+        &#34;&#34;&#34;
+
+    # extract classtype
+    classtype = None
+    re_match_extacted_classtype = classtype_keyword_re.search(line_content)
+    if re_match_extacted_classtype:
+        classtype = re_match_extacted_classtype.group(&#34;CLASSTYPE_VALUE&#34;)
+    return classtype</code></pre>
+</details>
+</dd>
+<dt id="manager.stats.RuleStatistics.extract_metadata_from_sig"><code class="name flex">
+<span>def <span class="ident">extract_metadata_from_sig</span></span>(<span>self, line_content, rule_is_disabled, sid, classtype)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extracts metadata attribute contents (eg. all keyword value pairs) from each signature. And loads them into
+the dictionary of metadata by sids.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>line_content</code></strong> :&ensp;<code>str</code></dt>
+<dd>Rule line content inside the .rules file</dd>
+<dt><strong><code>rule_is_disabled</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>Specifies if a rule is disable eg. beginning with #.</dd>
+<dt><strong><code>sid</code></strong> :&ensp;<code>str</code></dt>
+<dd>SID of a given signature. Not a metadata but a rule attribute.</dd>
+<dt><strong><code>classtype</code></strong> :&ensp;<code>str</code></dt>
+<dd>Classtype of a given signature. Not a metadata but a rule attribute.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def extract_metadata_from_sig(self, line_content,rule_is_disabled, sid, classtype):
+    &#34;&#34;&#34;Extracts metadata attribute contents (eg. all keyword value pairs) from each signature. And loads them into
+       the dictionary of metadata by sids.
+
+       Parameters
+       ----------
+       line_content : str
+           Rule line content inside the .rules file
+       rule_is_disabled : boolean
+           Specifies if a rule is disable eg. beginning with #.
+       sid : str
+           SID of a given signature. Not a metadata but a rule attribute.
+       classtype : str
+           Classtype of a given signature. Not a metadata but a rule attribute.
+    &#34;&#34;&#34;
+
+    # extract metadata keyword value
+    metadata = &#34;&#34;
+    metadata_key_value_pairs = []
+
+    re_match_extacted_metadata = metadata_keyword_re.search(line_content)
+    if re_match_extacted_metadata:
+        metadata = re_match_extacted_metadata.group(&#34;METADATA_KEYWORD&#34;)
+
+    self.metadata_by_sid[sid] = {&#39;metadata&#39;: {}, &#39;disabled&#39;: rule_is_disabled, &#39;raw_rule&#39;: line_content}
+
+    if len(metadata) &gt; 0:
+        metadata_key_value_pairs.extend(metadata.split(&#39;,&#39;))
+
+    # add classtype as metadata keyword
+    if classtype:
+        metadata_key_value_pairs.append(f&#34;classtype {classtype}&#34;)
+
+    # Add sid as metadata keyword. (If not in metadata.)
+    if &#39;sid&#39; not in self.metadata_by_sid[sid][&#39;metadata&#39;].keys():
+        self.metadata_by_sid[sid][&#39;metadata&#39;][&#39;sid&#39;] = [str(sid)]
+        self.used_metadata_keywords_registry[&#39;sid&#39;][str(sid)] = [sid]
+
+    self.create_metadata_dic(sid, metadata_key_value_pairs)
+
+    return</code></pre>
+</details>
+</dd>
+<dt id="manager.stats.RuleStatistics.extract_sid_from_sig"><code class="name flex">
+<span>def <span class="ident">extract_sid_from_sig</span></span>(<span>self, line_number, line_content)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extracts SID attribute and its value from the plaintext signature as stored in .rules file. Extracted SID
+is then added as a metadata attribute to the dictionary of metadata attrributes for a corresponding rule.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>line_number</code></strong> :&ensp;<code>int</code></dt>
+<dd>Specifies line number in .rules file where the currently parsed rule begings.</dd>
+<dt><strong><code>line_content</code></strong> :&ensp;<code>str</code></dt>
+<dd>Signature line content as stored in .rules file</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>sid</code></strong> :&ensp;<code>str</code></dt>
+<dd>Returns SID attribute value of a given signature.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def extract_sid_from_sig(self,line_number, line_content):
+    &#34;&#34;&#34;Extracts SID attribute and its value from the plaintext signature as stored in .rules file. Extracted SID
+        is then added as a metadata attribute to the dictionary of metadata attrributes for a corresponding rule.
+
+        Parameters
+        ----------
+        line_number : int
+            Specifies line number in .rules file where the currently parsed rule begings.
+        line_content : str
+            Signature line content as stored in .rules file
+
+        Returns
+        -------
+        sid: str
+            Returns SID attribute value of a given signature.
+         &#34;&#34;&#34;
+    sid = None
+    # extract sid
+    re_match_extracted_sid = sid_re.search(line_content)
+    # each valid rule has to have a SID number
+    if not re_match_extracted_sid:
+        print(f&#34;Invalid rule on line {line_number} :\n{line_content}&#34;)
+    sid = int(re_match_extracted_sid.group(&#34;SID_IDENTIFIER&#34;))
+
+    return sid</code></pre>
+</details>
+</dd>
+<dt id="manager.stats.RuleStatistics.insert_metadata_to_rule"><code class="name flex">
+<span>def <span class="ident">insert_metadata_to_rule</span></span>(<span>self, sid, keyword, value)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adds metadata discovered from a given rule to the metadata dictionary for a coresponding rule specified by SID.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>sid</code></strong> :&ensp;<code>str</code></dt>
+<dd>SID identifier of a given rule.</dd>
+<dt><strong><code>keyword</code></strong> :&ensp;<code>str</code></dt>
+<dd>Metadata keyword from rule.</dd>
+<dt><strong><code>value</code></strong> :&ensp;<code>str</code></dt>
+<dd>Metadata keyword value from rule.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def insert_metadata_to_rule(self, sid, keyword, value):
+    &#34;&#34;&#34;Adds metadata discovered from a given rule to the metadata dictionary for a coresponding rule specified by SID.
+
+       Parameters
+       ----------
+       sid : str
+           SID identifier of a given rule.
+       keyword : str
+           Metadata keyword from rule.
+       value : str
+           Metadata keyword value from rule.
+    &#34;&#34;&#34;
+
+    keyword = keyword.lower().strip()
+    value = value.lower().strip()
+
+    if sid not in self.metadata_by_sid.keys():
+        print(f&#34;add_metadata() called for sid &#39;{sid}&#39; but sid is invalid (does not exist).&#34;)
+        return
+
+    if keyword not in self.metadata_by_sid[sid][&#39;metadata&#39;].keys():
+        self.metadata_by_sid[sid][&#39;metadata&#39;][keyword] = []
+
+    if value not in self.metadata_by_sid[sid][&#39;metadata&#39;][keyword]:
+        self.metadata_by_sid[sid][&#39;metadata&#39;][keyword].append(value)</code></pre>
+</details>
+</dd>
+<dt id="manager.stats.RuleStatistics.load_ruleset"><code class="name flex">
+<span>def <span class="ident">load_ruleset</span></span>(<span>self, loaded_rules)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Load signatures from a specified rule file and create necessary data structures to be able to search for metadata attributes
+inside the loaded rule file and calculate stats.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>loaded_rules</code></strong> :&ensp;<code>file</code></dt>
+<dd>File containing loaded signatures</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_ruleset(self, loaded_rules):
+    &#34;&#34;&#34;Load signatures from a specified rule file and create necessary data structures to be able to search for metadata attributes
+       inside the loaded rule file and calculate stats.
+
+       Parameters
+       ----------
+       loaded_rules : file
+           File containing loaded signatures
+
+    &#34;&#34;&#34;
+    try:
+        for line_number, line_content in enumerate(loaded_rules.splitlines()):
+            rule_is_disabled = False
+
+            if len(line_content.strip()) == 0:
+                continue
+            if line_content.lstrip().startswith(&#39;#&#39;):
+                if disabled_signature_re.match(line_content.strip()):
+                    rule_is_disabled = True
+                    line_content = line_content.lstrip()
+                    line_content = line_content[1:].strip()
+                else:
+                    # valid comment (not disabled rule)
+                    continue
+
+            #extract data from rule
+            sid = self.extract_sid_from_sig(line_number, line_content)
+
+            # rule SID already in dictionary &lt;=&gt; duplicate SID in ruleset
+            if sid in self.metadata_by_sid.keys():
+                # duplicate rule but disabled one - ignore, dont add current rule to dict
+                if rule_is_disabled:
+                    continue
+                # duplicate rule but first the disabled version was included - include also the enabled version, add current rule to dict
+                if self.metadata_by_sid[sid][&#39;disabled&#39;] == True:
+                    pass
+                else:
+                    continue
+
+            classtype = self.extract_classtype_from_sig(line_content)
+            self.extract_metadata_from_sig(line_content, rule_is_disabled, sid, classtype)
+
+    except Exception as e:
+        print(f&#34;Problem loading signatures: {e}&#34;)</code></pre>
+</details>
+</dd>
+<dt id="manager.stats.RuleStatistics.print_ruleset_summary"><code class="name flex">
+<span>def <span class="ident">print_ruleset_summary</span></span>(<span>self, sids=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Prints ruleset summary information. This includes number of total rules, number of enabled and disabled rules</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>sids</code></strong> :&ensp;<code>list (listed dictionary</code> of <code>used signatures)</code></dt>
+<dd>List of all rule SIDS in the rule .rules file.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def print_ruleset_summary(self, sids=None):
+    &#34;&#34;&#34;Prints ruleset summary information. This includes number of total rules, number of enabled and disabled rules
+
+       Parameters
+       ----------
+       sids : list (listed dictionary of used signatures)
+           List of all rule SIDS in the rule .rules file.
+        &#34;&#34;&#34;
+
+    if sids is None:
+        sids = list(self.metadata_by_sid.keys())
+
+    total_count = len(sids)
+    enabled = []
+
+    for sid in sids:
+        if self.metadata_by_sid[sid][&#39;disabled&#39;] == False:
+            enabled.append(sid)
+
+    enabled_count = len(enabled)
+    disabled_count = total_count - enabled_count
+
+    enabled_percentage = str(round((enabled_count / total_count)*100, 2))
+    disabled_percentage = str(round((disabled_count / total_count)*100, 2))
+
+    print(f&#34;{Style.BRIGHT}{Fore.GREEN}All Signatures:{Style.RESET_ALL}\n Total Signatures: {total_count} \n Enabled Signatures: {enabled_count} ({enabled_percentage} %) \n Disabled Signatures: {disabled_count} ({disabled_percentage} %) \n&#34;)
+    return</code></pre>
+</details>
+</dd>
+<dt id="manager.stats.RuleStatistics.print_statistical_details"><code class="name flex">
+<span>def <span class="ident">print_statistical_details</span></span>(<span>self, keyword, just_list_keywords=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Prints statistics about the presence of rules with a given metadata keyword inside the .rules files of all rules.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>keyword</code></strong> :&ensp;<code>str</code></dt>
+<dd>Metadata keyword to be searched for within the metadata attribute of each signature.</dd>
+<dt><strong><code>just_list_keywords</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>If True, just print out all available metadata keywords used inside the given .rules file along with their usage counts.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>result</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>Returns True if stats exist and can be printed.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def print_statistical_details(self, keyword, just_list_keywords=False):
+    &#34;&#34;&#34;Prints statistics about the presence of rules with a given metadata keyword inside the .rules files of all rules.
+
+       Parameters
+       ----------
+       keyword : str
+           Metadata keyword to be searched for within the metadata attribute of each signature.
+       just_list_keywords : boolean
+           If True, just print out all available metadata keywords used inside the given .rules file along with their usage counts.
+
+       Returns
+       -------
+       result: boolean
+           Returns True if stats exist and can be printed.
+        &#34;&#34;&#34;
+
+    stats_string = self.calculate_statistics(keyword, just_list_keywords)
+
+    if stats_string:
+        print(stats_string)
+        return True
+    else:
+        print(&#34;No statistics to print.&#34;)
+        return False</code></pre>
+</details>
+</dd>
+<dt id="manager.stats.RuleStatistics.set_metadata_keywords"><code class="name flex">
+<span>def <span class="ident">set_metadata_keywords</span></span>(<span>self, sid, keyword, value)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Add metadata keyword and value found in a given rule to the metadata keyword value registry of all used
+metadata attributes within the whole ruleset if it was not added before.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>sid</code></strong> :&ensp;<code>str</code></dt>
+<dd>SID identifier of a given rule.</dd>
+<dt><strong><code>keyword</code></strong> :&ensp;<code>str</code></dt>
+<dd>Metadata keyword from rule.</dd>
+<dt><strong><code>value</code></strong> :&ensp;<code>str</code></dt>
+<dd>Metadata keyword value from rule.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_metadata_keywords(self, sid, keyword, value):
+    &#34;&#34;&#34;Add metadata keyword and value found in a given rule to the metadata keyword value registry of all used
+       metadata attributes within the whole ruleset if it was not added before.
+
+       Parameters
+       ----------
+       sid : str
+           SID identifier of a given rule.
+       keyword : str
+           Metadata keyword from rule.
+       value : str
+           Metadata keyword value from rule.
+        &#34;&#34;&#34;
+
+    # Add key to list of used metadata keywords
+    if keyword not in self.used_metadata_keywords_registry.keys():
+        self.used_metadata_keywords_registry[keyword] = {}
+    if value not in self.used_metadata_keywords_registry[keyword].keys():
+        self.used_metadata_keywords_registry[keyword][value] = []
+    if sid not in self.used_metadata_keywords_registry[keyword][value]:
+        self.used_metadata_keywords_registry[keyword][value].append(sid)
+
+    return</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="manager" href="index.html">manager</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="manager.stats.analyze_ruleset" href="#manager.stats.analyze_ruleset">analyze_ruleset</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="manager.stats.RuleStatistics" href="#manager.stats.RuleStatistics">RuleStatistics</a></code></h4>
+<ul class="">
+<li><code><a title="manager.stats.RuleStatistics.calc_all_keywords_stats" href="#manager.stats.RuleStatistics.calc_all_keywords_stats">calc_all_keywords_stats</a></code></li>
+<li><code><a title="manager.stats.RuleStatistics.calc_given_keyword_stats" href="#manager.stats.RuleStatistics.calc_given_keyword_stats">calc_given_keyword_stats</a></code></li>
+<li><code><a title="manager.stats.RuleStatistics.calculate_statistics" href="#manager.stats.RuleStatistics.calculate_statistics">calculate_statistics</a></code></li>
+<li><code><a title="manager.stats.RuleStatistics.create_metadata_dic" href="#manager.stats.RuleStatistics.create_metadata_dic">create_metadata_dic</a></code></li>
+<li><code><a title="manager.stats.RuleStatistics.extract_classtype_from_sig" href="#manager.stats.RuleStatistics.extract_classtype_from_sig">extract_classtype_from_sig</a></code></li>
+<li><code><a title="manager.stats.RuleStatistics.extract_metadata_from_sig" href="#manager.stats.RuleStatistics.extract_metadata_from_sig">extract_metadata_from_sig</a></code></li>
+<li><code><a title="manager.stats.RuleStatistics.extract_sid_from_sig" href="#manager.stats.RuleStatistics.extract_sid_from_sig">extract_sid_from_sig</a></code></li>
+<li><code><a title="manager.stats.RuleStatistics.insert_metadata_to_rule" href="#manager.stats.RuleStatistics.insert_metadata_to_rule">insert_metadata_to_rule</a></code></li>
+<li><code><a title="manager.stats.RuleStatistics.load_ruleset" href="#manager.stats.RuleStatistics.load_ruleset">load_ruleset</a></code></li>
+<li><code><a title="manager.stats.RuleStatistics.print_ruleset_summary" href="#manager.stats.RuleStatistics.print_ruleset_summary">print_ruleset_summary</a></code></li>
+<li><code><a title="manager.stats.RuleStatistics.print_statistical_details" href="#manager.stats.RuleStatistics.print_statistical_details">print_statistical_details</a></code></li>
+<li><code><a title="manager.stats.RuleStatistics.set_metadata_keywords" href="#manager.stats.RuleStatistics.set_metadata_keywords">set_metadata_keywords</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
