@@ -1,3 +1,4 @@
+=========
 Rule-Manager
 =========
 
@@ -69,54 +70,55 @@ Rule Manager for handling and analyzing rule sets.
 
 Options:
 ::
-  -h, --help            show this help message and exit
 
-  -s ['<keyword>' or '<keyword> <keyword_value>' ...], --stats ['<keyword>' or '<keyword> <keyword_value>' ...]
-                        Shows statistical data about number of rules with given keyword.If none are provided lists all
-                        keywords
+    -h, --help            show this help message and exit
 
-  -r <keyword> <value> <N>, --rule-trigger-stats <keyword> <value> <N>
-                        Shows statistical data about first N number of rule hits with matching key value pair, sorted
-                        descending by number of rule hits.
+    -s ['<keyword>' or '<keyword> <keyword_value>' ...], --stats ['<keyword>' or '<keyword> <keyword_value>' ...]
+                    Shows statistical data about number of rules with given keyword.If none are provided lists all
+                    keywords
 
-  -t <gid> <sid> <type> <track> count seconds, --generate-threshold <gid> <sid> <type> <track> count seconds
-                        Generates threshold command to create threshold for a given rule. You can add the command to
-                        threshold config - threshold.conf
+    -r <keyword> <value> <N>, --rule-trigger-stats <keyword> <value> <N>
+                    Shows statistical data about first N number of rule hits with matching key value pair, sorted
+                    descending by number of rule hits.
 
-  -sp <gid> <sid> <track> <ip>, --generate-supress <gid> <sid> <track> <ip>
-                        Generates supress command to supress alerts for a given rule. You can add the command to
-                        threshold config - threshold.conf
+    -t <gid> <sid> <type> <track> count seconds, --generate-threshold <gid> <sid> <type> <track> count seconds
+                    Generates threshold command to create threshold for a given rule. You can add the command to
+                    threshold config - threshold.conf
 
-  -f <path>, --file <path>
-                        File to calculate stats on, use with -s, -r. Default -s file /data/idsp/rules/suricata.rules,
-                        Default -r file /data/idsp/outputs/eve.json
+    -sp <gid> <sid> <track> <ip>, --generate-supress <gid> <sid> <track> <ip>
+                    Generates supress command to supress alerts for a given rule. You can add the command to
+                    threshold config - threshold.conf
 
-  -e <keyword> <value>, --enable-category <keyword> <value>
-                        Enable rules with matching key-value.
+    -f <path>, --file <path>
+                    File to calculate stats on, use with -s, -r. Default -s file /data/idsp/rules/suricata.rules,
+                    Default -r file /data/idsp/outputs/eve.json
 
-  -d <keyword> <value>, --disable-category <keyword> <value>
-                        Disable rules with matching key-value.
+    -e <keyword> <value>, --enable-category <keyword> <value>
+                    Enable rules with matching key-value.
 
-  -g, --list-used-groups
-                        Return a list of all used rule groups (.rules files).
+    -d <keyword> <value>, --disable-category <keyword> <value>
+                    Disable rules with matching key-value.
 
-  -u, --update-used-groups
-                        Updates the list of used rule groups in (sourceList.json) based on used rule sources.
+    -g, --list-used-groups
+                    Return a list of all used rule groups (.rules files).
 
-  -l [<groupname>], --list-used-groups-long [<groupname>]
-                        Return a list of all used rule groups (.rules files) with descriptions from (sourceList.json)
+    -u, --update-used-groups
+                    Updates the list of used rule groups in (sourceList.json) based on used rule sources.
 
-  --set-group-description <groupname> <description>
-                        Sets group description in sourceList.json
+    -l [<groupname>], --list-used-groups-long [<groupname>]
+                    Return a list of all used rule groups (.rules files) with descriptions from (sourceList.json)
 
-  -ldc, --list-disabled-categories
-                        Return a list of all disabled rule categories
+    --set-group-description <groupname> <description>
+                    Sets group description in sourceList.json
 
-  -c <path>, --check-rules-syntax <path>
-                        Checks the syntax of rules in .rules file.
+    -ldc, --list-disabled-categories
+                    Return a list of all disabled rule categories
 
-  -o <filename>, --output <filename>
-                        Write output to a specified file.
+    -c <path>, --check-rules-syntax <path>
+                    Checks the syntax of rules in .rules file.
+
+    -o <filename>, --output <filename>
+                    Write output to a specified file.
 
 Example usage:
 ::
