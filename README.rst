@@ -7,7 +7,7 @@ rule sources on Flowmon Collector Appliance.
 Documentation
 =============
 
-`Documentation <https://github.com/mgregus/flwmn-rule-manager/docs>`__ contains both source code documentation and user guide.
+`Documentation <https://github.com/mgregus/flwmn-rule-manager/tree/main/docs>`__ contains both source code documentation and user guide.
 
 
 Application Overview
