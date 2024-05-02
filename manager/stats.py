@@ -77,6 +77,8 @@ class RuleStatistics():
         self.file_loaded = False
 
         try:
+            if isinstance(rule_file_path, list):
+                rule_file_path = str(rule_file_path[0])
             if os.path.isfile(rule_file_path):
                 with open(rule_file_path, 'r') as rule_file:
                     self.file_loaded = True
